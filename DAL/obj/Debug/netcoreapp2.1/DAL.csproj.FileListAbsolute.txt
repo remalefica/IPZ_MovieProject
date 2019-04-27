@@ -1,0 +1,6 @@
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\bin\Debug\netcoreapp2.1\DAL.deps.json
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\bin\Debug\netcoreapp2.1\DAL.dll
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.csprojAssemblyReference.cache
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.AssemblyInfoInputs.cache
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.AssemblyInfo.cs

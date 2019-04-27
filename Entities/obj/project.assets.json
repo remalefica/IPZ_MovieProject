@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vladislava\\source\\repos\\IPZProj\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\Vladislava\\Documents\\IPZ_MovieProject\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\Vladislava\\source\\repos\\IPZProj\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\Vladislava\\Documents\\IPZ_MovieProject\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\Vladislava\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vladislava\\source\\repos\\IPZProj\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\Vladislava\\Documents\\IPZ_MovieProject\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
