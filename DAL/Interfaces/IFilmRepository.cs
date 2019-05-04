@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	interface IFilmRepository
+	public interface IFilmRepository
 	{
 		Task<IEnumerable<Film>> GetByGenre(Genre genre);
 		Task<Film> GetByName(string name);
