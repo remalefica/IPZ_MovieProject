@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	public interface IUnitOfWork: IDisposable
+	interface IUnitOfWork: IDisposable
 	{
 		IFilmRepository FilmRepository { get; }
 		ICommentRepository CommentRepository { get; }
 		IUserRepository UserRepository { get; }
 		IVoteRepository VoteRepository { get; }
 
-		Task<int> SaveAsync();
+		Task<int> Save();
 	}
 }

@@ -688,23 +688,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\crims\\.nuget\\packages\\": {},
+    "C:\\Users\\aarti\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj",
+      "projectUniqueName": "D:\\uni\\IPZ_MovieProject\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj",
-      "packagesPath": "C:\\Users\\crims\\.nuget\\packages\\",
-      "outputPath": "E:\\Универ\\IPZ_MovieProj\\Entities\\obj\\",
+      "projectPath": "D:\\uni\\IPZ_MovieProject\\Entities\\Entities.csproj",
+      "packagesPath": "C:\\Users\\aarti\\.nuget\\packages\\",
+      "outputPath": "D:\\uni\\IPZ_MovieProject\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\crims\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aarti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
