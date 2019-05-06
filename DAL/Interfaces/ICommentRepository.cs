@@ -2,12 +2,14 @@
 using Entities;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
 	public interface ICommentRepository
 	{
-		void AddComment(Comment comment);
+        Task <Comment> GetById(int id);
+        void AddComment(Comment comment);
 		void DeleteComment(Comment comment);
 	}
 }
