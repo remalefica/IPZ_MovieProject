@@ -8,10 +8,16 @@ namespace DAL.EF
 {
 	public class VoteRepository : IVoteRepository
 	{
-        private AppDbContext _dbContext;
-        public void AddVote(Vote vote)
-        {
-            _dbContext.Votes.Add(vote);
-        }
-    }
+		private AppDbContext _dbContext;
+
+		public VoteRepository(AppDbContext dbContext)
+		{
+			_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+		}
+
+		public void AddVote(Vote vote)
+		{
+			_dbContext.Votes.Add(vote);
+		}
+	}
 }

@@ -12,7 +12,7 @@ namespace DAL.EF
 		private AppDbContext _dbContext;
 		public CommentRepository(AppDbContext dbContext)
 		{
-			_dbContext = dbContext ?? throw new ArgumentNullException();
+			_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 		}
 
 		public void AddComment(Comment comment)

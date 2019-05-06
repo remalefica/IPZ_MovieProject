@@ -12,7 +12,7 @@ namespace DAL.Interfaces
 		Task<Film> GetByName(string name);
 		Task<IEnumerable<Film>> GetTenMostPopular();
 		Task<Film> GetById(int id);
-		void AddFilm(Film film);S
+		void AddFilm(Film film);
 		void DeleteFilm(Film film);
 		void UpdateFilm(Film film);
 	}

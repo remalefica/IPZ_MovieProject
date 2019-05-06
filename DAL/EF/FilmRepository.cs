@@ -14,7 +14,7 @@ namespace DAL.EF
 
 		public FilmRepository(AppDbContext dbContext)
 		{
-			_dbContext = dbContext ?? throw new ArgumentNullException();
+			_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 
 			/*if(dbContext != null)
 			{
