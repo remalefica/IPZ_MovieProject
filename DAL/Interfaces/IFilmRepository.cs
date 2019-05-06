@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	interface IFilmRepository
+	public interface IFilmRepository
 	{
 		Task<IEnumerable<Film>> GetByGenre(Genre genre);
 		Task<Film> GetByName(string name);
 		Task<IEnumerable<Film>> GetTenMostPopular();
 		Task<Film> GetById(int id);
-		void AddFilm(Film film);
+		void AddFilm(Film film);S
 		void DeleteFilm(Film film);
 		void UpdateFilm(Film film);
 	}

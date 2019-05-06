@@ -5,9 +5,8 @@ using System.Text;
 
 namespace DAL.Interfaces
 {
-	interface IVoteRepository
+	public interface IVoteRepository
 	{
-        void AddVote(Vote vote);
-       
-    }
+		void AddVote(Vote vote);
+	}
 }

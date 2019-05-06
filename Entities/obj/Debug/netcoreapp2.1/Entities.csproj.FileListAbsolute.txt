@@ -1,0 +1,9 @@
+E:\Универ\IPZ_MovieProj\Entities\bin\Debug\netcoreapp2.1\Entities.deps.json
+E:\Универ\IPZ_MovieProj\Entities\bin\Debug\netcoreapp2.1\Entities.dll
+E:\Универ\IPZ_MovieProj\Entities\bin\Debug\netcoreapp2.1\Entities.pdb
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.csprojAssemblyReference.cache
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.csproj.CoreCompileInputs.cache
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfoInputs.cache
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfo.cs
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.dll
+E:\Универ\IPZ_MovieProj\Entities\obj\Debug\netcoreapp2.1\Entities.pdb

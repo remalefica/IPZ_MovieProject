@@ -5,10 +5,10 @@ using System.Text;
 
 namespace DAL.Interfaces
 {
-	interface IUserRepository
+	public interface IUserRepository
 	{
-        void AddUser(User user);
-        void DeleteUser(User user);
-        void UpdateUser(User user);
-    }
+		void AddUser(User user);
+		void DeleteUser(User user);
+		void UpdateUser(User user);
+	}
 }

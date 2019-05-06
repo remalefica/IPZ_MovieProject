@@ -12,6 +12,6 @@ namespace DAL.Interfaces
 		IUserRepository UserRepository { get; }
 		IVoteRepository VoteRepository { get; }
 
-		Task<int> Save();
+		Task<int> SaveAsync();
 	}
 }

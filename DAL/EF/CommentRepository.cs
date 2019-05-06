@@ -9,20 +9,20 @@ namespace DAL.EF
 {
 	public class CommentRepository : ICommentRepository
 	{
-        private AppDbContext _dbContext;
-        public CommentRepository(AppDbContext dbContext)
-        {
-            _dbContext = dbContext ?? throw new ArgumentNullException();
-        }
+		private AppDbContext _dbContext;
+		public CommentRepository(AppDbContext dbContext)
+		{
+			_dbContext = dbContext ?? throw new ArgumentNullException();
+		}
 
-        public void AddComment(Comment comment)
-        {
-            _dbContext.Comments.Add(comment);
-        }
+		public void AddComment(Comment comment)
+		{
+			_dbContext.Comments.Add(comment);
+		}
 
-        public void DeleteComment(Comment comment)
-        {
-            _dbContext.Entry(comment).State = EntityState.Deleted;
-        }
-    }
+		public void DeleteComment(Comment comment)
+		{
+			_dbContext.Entry(comment).State = EntityState.Deleted;
+		}
+	} 
 }

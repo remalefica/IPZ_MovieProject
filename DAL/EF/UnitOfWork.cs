@@ -20,7 +20,7 @@ namespace DAL.EF
 			_dbContext = dbContext ?? throw new NullReferenceException();
 		}
 
-		public FilmRepository FilmRepository
+		public IFilmRepository FilmRepository
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace DAL.EF
 			}
 		}
 
-		public CommentRepository CommentRepository
+		public ICommentRepository CommentRepository
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace DAL.EF
 			}
 		}
 
-		public UserRepository UserRepository
+		public IUserRepository UserRepository
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace DAL.EF
 			}
 		}
 
-		public VoteRepository VoteRepository
+		public IVoteRepository VoteRepository
 		{
 			get
 			{
