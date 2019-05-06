@@ -8,7 +8,7 @@ namespace BLL.Interfaces
 {
 	public interface ICommentService
 	{
-		Task AddCommentAsync(Comment comment);
-		Task DeleteCommentAsync(Comment comment);
+		Task<Comment> AddCommentAsync(Comment comment);
+		Task DeleteCommentAsync(int id);
 	}
 }

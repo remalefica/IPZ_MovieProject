@@ -8,8 +8,8 @@ namespace BLL.Interfaces
 {
 	public interface IUserService
 	{
-        Task AddUserAsync(User user);
-        Task DeleteUserAsync(User user);
-        Task UpdateUserAsync(User user);
+        Task<User> AddUserAsync(User user);
+        Task DeleteUserAsync(int id);
+        Task UpdateUserAsync(int id, User user);
     }
 }

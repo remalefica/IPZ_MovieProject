@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	interface IUnitOfWork: IDisposable
+	public interface IUnitOfWork: IDisposable
 	{
 		IFilmRepository FilmRepository { get; }
 		ICommentRepository CommentRepository { get; }

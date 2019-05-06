@@ -12,8 +12,8 @@ namespace BLL.Interfaces
         Task<Film> GetByNameAsync(string name);
         Task<IEnumerable<Film>> GetTenMostPopularAsync();
         Task<Film> GetByIdAsync(int id);
-        Task AddFilmAsync(Film film);
-        Task DeleteFilmAsync(Film film);
-        Task UpdateFilmAsync(Film film);
+        Task<Film> AddFilmAsync(Film film);
+        Task DeleteFilmAsync(int id);
+        Task UpdateFilmAsync(int id, Film film);
     }
 }

@@ -8,6 +8,6 @@ namespace BLL.Interfaces
 {
 	public interface IVoteService
 	{
-        Task AddVoteAsync(Vote vote);
-    }
+		Task<Vote> AddVoteAsync(Vote vote);
+	}
 }
