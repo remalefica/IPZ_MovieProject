@@ -3,4 +3,8 @@
 ################################################################################
 
 /.vs
-/Entities/bin/Debug/netcoreapp2.1
+/obj
+/DAL/bin
+/DAL/obj
+/Entities/bin
+/Entities/obj
