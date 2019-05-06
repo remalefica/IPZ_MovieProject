@@ -2,7 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Entities/obj
-/.vs/IPZProj/v15
 /.vs
-/Entities/bin/Debug/netcoreapp2.1
+/obj
+/DAL/bin
+/DAL/obj
+/Entities/bin
+/Entities/obj
