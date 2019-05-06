@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BLL.Inerfaces
+namespace BLL.Interfaces
 {
-	public interface ICommentService
+	public interface IFilmService
 	{
 	}
 }
