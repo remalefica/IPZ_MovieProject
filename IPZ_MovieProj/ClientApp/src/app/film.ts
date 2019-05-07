@@ -1,3 +1,6 @@
+import { CommentFilm } from "./commentFilm";
+import { VoteFilm } from "./voteFilm";
+
 export class Film{
     constructor(
         public id?: number,
@@ -12,7 +15,7 @@ export class Film{
         public budget?: number,
         public ratingAvg?: number,
         public comments?: CommentFilm[],
-        public votes?: Vote[],
+        public votes?: VoteFilm[],
         public genre?: Genre[] 
     ){}
 }
