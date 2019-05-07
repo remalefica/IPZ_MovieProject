@@ -52,6 +52,8 @@ namespace DAL
 
 				vote.Property(v => v.FilmId)
 					.IsRequired();
+
+				vote.HasAlternateKey(v => v.UserId);
 			});
 
 
