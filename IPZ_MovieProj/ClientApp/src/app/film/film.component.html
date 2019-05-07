@@ -1,3 +1,6 @@
-<p>{{film.name}}</p>
-<p>{{film.description}}</p>
-<!--other info about films-->
+<div *ngIf="film">
+
+    <h3>{{film.name | uppercase}}</h3><p> ({{film.year}})</p>
+    <!--Detailed info output about selected film-->
+    <p>{{film.description}}</p>
+</div>

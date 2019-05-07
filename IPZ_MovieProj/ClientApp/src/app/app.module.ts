@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
+import { FilmComponent } from './film/film.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
+    FilmComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
