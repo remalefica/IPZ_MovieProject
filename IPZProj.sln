@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IPZProj", "IPZProj\IPZProj.csproj", "{B226C9FA-C2AF-48C7-A8AB-2CF7A25C573E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{5C732660-CCCB-4AE8-B901-B73CCE720BA2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{CBC8D35A-C79F-4388-926D-E518A79B8FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{94F26EBE-D144-46AA-8FAC-CB4E6BE2B4DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{94F26EBE-D144-46AA-8FAC-CB4E6BE2B4DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPZ_MovieProj", "IPZ_MovieProj\IPZ_MovieProj.csproj", "{30860C8C-51C2-44A5-8AE0-6D0EE1921D86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B226C9FA-C2AF-48C7-A8AB-2CF7A25C573E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B226C9FA-C2AF-48C7-A8AB-2CF7A25C573E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B226C9FA-C2AF-48C7-A8AB-2CF7A25C573E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B226C9FA-C2AF-48C7-A8AB-2CF7A25C573E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C732660-CCCB-4AE8-B901-B73CCE720BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C732660-CCCB-4AE8-B901-B73CCE720BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C732660-CCCB-4AE8-B901-B73CCE720BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{94F26EBE-D144-46AA-8FAC-CB4E6BE2B4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F26EBE-D144-46AA-8FAC-CB4E6BE2B4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F26EBE-D144-46AA-8FAC-CB4E6BE2B4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30860C8C-51C2-44A5-8AE0-6D0EE1921D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30860C8C-51C2-44A5-8AE0-6D0EE1921D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30860C8C-51C2-44A5-8AE0-6D0EE1921D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30860C8C-51C2-44A5-8AE0-6D0EE1921D86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
