@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmComponent } from './film/film.component';
+import { RatingVotingComponent } from './rating-voting/rating-voting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
-    FilmComponent
+    FilmComponent,
+    RatingVotingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
