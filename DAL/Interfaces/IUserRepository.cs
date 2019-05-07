@@ -2,6 +2,7 @@
 using Entities;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
@@ -10,5 +11,6 @@ namespace DAL.Interfaces
 		void AddUser(User user);
 		void DeleteUser(User user);
 		void UpdateUser(User user);
-	}
+        Task<User> GetById(int id);
+    }
 }
