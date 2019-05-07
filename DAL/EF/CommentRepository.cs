@@ -3,7 +3,9 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL.EF
 {
@@ -24,5 +26,11 @@ namespace DAL.EF
 		{
 			_dbContext.Entry(comment).State = EntityState.Deleted;
 		}
-	} 
+        public async Task <Comment> GetById(int id)
+        {
+            return await _dbContext.Comments
+                        .Where(c => c.Id == id)
+                        .FirstOrDefaultAsync();
+        }
+    } 
 }
