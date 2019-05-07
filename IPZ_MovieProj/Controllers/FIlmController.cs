@@ -75,6 +75,11 @@ namespace IPZ_MovieProj.Controllers
 
 			var film = await _filmService.GetByNameAsync(name);
 
+			if (film == null)
+			{
+				return NotFound();
+			}
+
 			return Ok(film);
 		}
 

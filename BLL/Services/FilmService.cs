@@ -2,7 +2,7 @@
 using Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 
@@ -87,7 +87,23 @@ namespace BLL.Services
 			var filmDb = await _unitOfWork.FilmRepository.GetById(id);
 
 			filmDb = film ?? throw new ArgumentNullException(nameof(film));
+
+			filmDb.RatingAvg = CountFilmRatingAvg(film);
+
+			_unitOfWork.FilmRepository.UpdateFilm(filmDb);
+
 			await _unitOfWork.SaveAsync();
+		}
+
+		private double CountFilmRatingAvg(Film film)
+		{
+			double rating = 0;
+			foreach (var vote in film.Votes)
+			{
+				rating += vote.Rating;
+			}
+
+			return rating / film.Votes.Count();
 		}
 	}
 }
