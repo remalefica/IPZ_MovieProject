@@ -57,7 +57,7 @@ namespace IPZ_MovieProj.Controllers
 		{
 			var films = await _filmService.GetByGenreAsync(genre);
 
-			if(films == null || !films.Any())
+			if (films == null || !films.Any())
 			{
 				return Ok(Array.Empty<Film>());
 			}
@@ -81,7 +81,7 @@ namespace IPZ_MovieProj.Controllers
 		[HttpPost()]
 		public async Task<ActionResult<Film>> Create([FromBody][Required]Film film)
 		{
-			if(!ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
@@ -94,7 +94,7 @@ namespace IPZ_MovieProj.Controllers
 		[HttpDelete("{id}")]
 		public async Task<ActionResult> Delete([Range(1, int.MaxValue)]int id)
 		{
-			if(!ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
@@ -103,4 +103,18 @@ namespace IPZ_MovieProj.Controllers
 
 			return NoContent();
 		}
+
+		[HttpPut("{id}")]
+		public async Task<ActionResult> Update([Range(1, int.MaxValue)]int id, [FromBody]Film film)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+
+			await _filmService.UpdateFilmAsync(id, film);
+
+			return NoContent();
+		}
+	}
 }
