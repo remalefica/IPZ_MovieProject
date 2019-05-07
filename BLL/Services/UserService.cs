@@ -58,6 +58,15 @@ namespace BLL.Services
             userDb = user ?? throw new ArgumentNullException(nameof(user));
             await _unitOfWork.SaveAsync();
         }
+        public async Task<User> GetByIdAsync(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Id must be more then zero", nameof(id));
+            }
+
+            return await _unitOfWork.UserRepository.GetById(id);
+        }
 
     }
 }
