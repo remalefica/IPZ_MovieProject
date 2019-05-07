@@ -28,5 +28,26 @@ namespace BLL.Services
             await _unitOfWork.SaveAsync();
             return vote;
         }
+        public async Task UpdateVoteAsync(int id, Vote vote)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Id must be more then zero", nameof(id));
+            }
+
+            var voteDb = await _unitOfWork.VoteRepository.GetById(id);
+
+            voteDb = vote ?? throw new ArgumentNullException(nameof(vote));
+            await _unitOfWork.SaveAsync();
+        }
+        public async Task<Vote> GetByIdAsync(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Id must be more then zero", nameof(id));
+            }
+
+            return await _unitOfWork.VoteRepository.GetById(id);
+        }
     }
 }

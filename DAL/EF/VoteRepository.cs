@@ -1,8 +1,12 @@
 ﻿using DAL.Interfaces;
-using System;
+using DAL.Interfaces;
 using Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace DAL.EF
 {
@@ -19,5 +23,15 @@ namespace DAL.EF
 		{
 			_dbContext.Votes.Add(vote);
 		}
-	}
+        public async Task<Vote> GetById(int id)
+        {
+            return await _dbContext.Votes
+                        .Where(c => c.Id == id)
+                        .FirstOrDefaultAsync();
+        }
+        public void UpdateVote(Vote vote)
+        {
+            _dbContext.Votes.Update(vote);
+        }
+    }
 }

@@ -11,5 +11,6 @@ namespace DAL.Interfaces
         Task <Comment> GetById(int id);
         void AddComment(Comment comment);
 		void DeleteComment(Comment comment);
-	}
+     
+    }
 }
