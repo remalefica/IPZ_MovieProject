@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmComponent } from './film/film.component';
 import { RatingVotingComponent } from './rating-voting/rating-voting.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RatingVotingComponent } from './rating-voting/rating-voting.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-    ])
+    ]),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
