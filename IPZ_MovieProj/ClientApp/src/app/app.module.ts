@@ -9,13 +9,15 @@ import { FilmsComponent } from './films/films.component';
 import { FilmComponent } from './film/film.component';
 import { RatingVotingComponent } from './rating-voting/rating-voting.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
     FilmComponent,
-    RatingVotingComponent
+    RatingVotingComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
