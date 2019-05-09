@@ -469,8 +469,10 @@ footer, footer .about a, .nav>li>a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
 a {
-  color: #80c7ba;
+  color: #2E2E2E;
   outline: none;
   text-decoration: none;
   -webkit-transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -478,11 +480,12 @@ a {
   -o-transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
   transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-a:hover, a:active {
+a:active {
+  color: #2E2E2E;
   outline: none;
 }
 a:hover, a:focus {
-  color: #333;
+  color: #80c7ba;
   text-decoration: none;
 }
 li {
