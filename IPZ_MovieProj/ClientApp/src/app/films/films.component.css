@@ -1,0 +1,17 @@
+#grid { 
+    display: grid;
+    /*grid-template-rows: 1fr 1fr 1fr 1fr;*/
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    width: auto;
+    }
+  #filmImg {
+    height: 25vw;
+  }
+  #firstElement {
+    margin-top: 3%;
+    margin-bottom: 2%;
+  }
+  ul {
+    list-style-type: none;
+  }
