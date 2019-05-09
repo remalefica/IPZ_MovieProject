@@ -1,10 +1,13 @@
 <div *ngIf="film">
-
     <h3>{{film.name | uppercase}}</h3><p> ({{film.year}})</p>
-    <!--Detailed info output about selected film-->
-    <p>{{film.description}}</p>
     
+    <!--Detailed info output about selected film-->
+
+
+    <p>{{film.description}}</p>
+
     <!--Write up the remaining film properties-->
+
     <p><img [src]="film.filmImgPath"></p>
     
     <p>&#36;{{film.budget}}</p>
@@ -13,6 +16,9 @@
     <p><iframe style="width:600px;height: 340px;"
         src="https://www.youtube.com/embed/BXUEUwwgIyU"> </iframe></p>
     <p>{{film.genre}}</p>
+
     <!--Add voting component-->
     <!--Add comment list component-->
+
 </div>
+

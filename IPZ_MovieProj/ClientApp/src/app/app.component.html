@@ -2,10 +2,16 @@
     <header>
       <nav class="header_style">
         <ul>
-          <li class="mainTitle">MOVI&Xi; GUID&Xi;</li><li>
+            <li class="mainTitle" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+              <a routerLink="/films">
+                MOVI&Xi; GUID&Xi;
+              </a>
+            </li>
+            
+            <li>
             <div class="horizontal">
                 <ul>
-                    <li> <img src="assets/img/icon_search.svg"/> </li>
+                    <li> <img src="../assets/icon_search.svg" /> </li>
                     <li> <input class="user_input" type="text" placeholder="Search.."> </li>
                 </ul> 
             </div>
@@ -15,7 +21,11 @@
         </ul>
       </nav>
     </header>
-    <section> </section>
+
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+
     <footer>
       <div class="wrap">
         <nav>
@@ -29,19 +39,12 @@
         </nav>
         <small class="side-commerce"> Project By Sheliakhina Vladislava, Motyashova Alyona, Tkachenko Olena </small> </div>
     </footer>
-  </div>
+    </div>
 
 
 
 
-<section> 
-<router-outlet></router-outlet>
-</section>
 
 
-
-<nav>
-    <a routerLink="/films">fucking films</a>
-  </nav>
 
 
