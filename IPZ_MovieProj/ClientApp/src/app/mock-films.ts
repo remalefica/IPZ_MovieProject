@@ -8,7 +8,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 25000000, ratingAvg: 9.3, 
         comments:[],
         votes:[],
-        genre:[8],
+        genres:[8],
         durationInMinutes: 142
         },
         {id: 2, name: 'Forrest Gump', director: 'Robert Zemeckis', year: 1994, 
@@ -18,7 +18,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 55000000, ratingAvg: 8.8, 
         comments:[],
         votes:[],
-        genre:[8, 16],
+        genres:[8, 16],
         durationInMinutes: 142},
         {id: 3, name: '1 + 1 (Intouchables)', director: 'Olivier Nakache, Éric Toledano', year: 2011, 
         description: 'After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.',
@@ -27,7 +27,7 @@ export const FILMS: Film[] = [
         originCountry:'France', budget:9500000, ratingAvg: 8.5, 
         comments:[],
         votes:[],
-        genre:[4, 5, 8],
+        genres:[4, 5, 8],
         durationInMinutes: 112},
         {id: 4, name: 'Pulp Fiction',director: 'Quentin Tarantino', year: 1994, 
         description: 'The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
@@ -36,7 +36,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 8000000, ratingAvg: 8.9, 
         comments:[],
         votes:[],
-        genre:[6, 8],
+        genres:[6, 8],
         durationInMinutes: 154},
         
         

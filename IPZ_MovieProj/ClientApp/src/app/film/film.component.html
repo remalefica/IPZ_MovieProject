@@ -7,12 +7,12 @@
             </p>
             <h4>Movie Description</h4>
             <p>{{film.description}}</p>
-            
-
-        
             <p>Budget: &#36;{{film.budget}}</p>
-                
-            <p>{{film.genre}}</p>
+        
+            <div *ngFor="let genre of film.genres">
+                <p>{{this.getFilmGenre(this.genre)}}</p> 
+            </div>
+
         </article>
     </div>
     
