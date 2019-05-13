@@ -1,4 +1,4 @@
-enum Genre
+export const enum Genre
 	{
 		Action = 1,
 		Adventure = 2,

@@ -1,5 +1,6 @@
 import { CommentFilm } from "./commentFilm";
 import { VoteFilm } from "./voteFilm";
+import {Genre} from "./genre";
 
 export class Film{
     constructor(
@@ -16,6 +17,6 @@ export class Film{
         public ratingAvg?: number,
         public comments?: CommentFilm[],
         public votes?: VoteFilm[],
-        public genre?: Genre[] 
+        public genres?: Genre[] 
     ){}
 }
