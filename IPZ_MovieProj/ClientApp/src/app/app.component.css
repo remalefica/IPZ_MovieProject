@@ -55,17 +55,10 @@
 	float: left;
     outline-color: #80c7ba;
 }
-.horizontal {
+.table_search {
 	margin-top: -6px;
 }
-.horizontal ul {
-    list-style-type: none;
-    overflow: hidden;
-}
-.horizontal li {
-    float: left;
-}
-.horizontal img {
+.table_search img {
     width: 35px;
 	float: left;
 }
@@ -76,12 +69,9 @@
     background-color: #FFFFFF;
     clear: left;
 }
-.header_style .mainTitle {
+.container .header_style ul li:first-child  {
     font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     font-size: 160%;
-}
-.header_style .mainTitle a{
-  text-decoration-color: #24292e;
 }
 iframe {
     width: 600px;
@@ -114,7 +104,7 @@ iframe {
 }
 
 .header_style ul li:hover {
-    color: #717070;
+    color: #80C7BA;
     cursor: pointer;
 }
 .center_article {
@@ -363,7 +353,20 @@ iframe {
     margin-bottom: 10px;
     margin-left: 7%;
 }
-
+.header_style ul li {
+    list-style: none;
+    float: left;
+    margin-right: auto;
+    margin-top: 0px;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    color: #24292e;
+    letter-spacing: 1px;
+    margin-left: auto;
+    text-align: center;
+    width: 25%;
+    transition: all 0.3s linear;
+}
 .center_article {
     height: auto;
 }
@@ -416,38 +419,27 @@ iframe {
 }
 }
 
-/*TABLE*/
-
-table {
-	margin-left: 3%;
-	background: white;
-    width: 97%;
-    border-collapse: collapse;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    text-align: left;
-	letter-spacing: 1px;
+@media (min-width: 769px) and (max-width:1050px) { 
+	
+.container .header_style ul li:first-child {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
 }
-
-th {
-	text-transform: uppercase;
-    font-weight:600;
-	font-size: 14px;
-    color: #2E2E2E;
-    padding: 10px 15px;
+.header_style ul li:nth-child(3){
+    width: 50%;
 }
-
-td {
-	font-size: 13px;
-    color: #666666;
-    border-top: 1px solid #AEADAD;
-    padding: 10px 15px;
+.header_style ul li:nth-child(4){
+    width: 20%;
+    float: right;
 }
-
-tr:hover td {
-    background: #e8edff;
+.table_search {
+	width: 30vh;
 }
+}
+ 
 
-/*FOOTER*/
 /*FOOTER*/
 footer {
   border-top: 1px solid #333;
@@ -522,7 +514,7 @@ a:active {
   color: #2E2E2E;
   outline: none;
 }
-a:hover, a:focus {
+a:hover {
   color: #80c7ba;
   text-decoration: none;
 }

@@ -1,5 +1,9 @@
 
   @charset "UTF-8";
+  .sectionInAppComponent
+  {
+    display: inline-block;
+  }
   .container {
       background-color: #FFFFFF;
       width: 95%;
