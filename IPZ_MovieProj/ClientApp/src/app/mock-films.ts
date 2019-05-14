@@ -22,7 +22,7 @@ export const FILMS: Film[] = [
         durationInMinutes: 142},
         {id: 3, name: '1 + 1 (Intouchables)', director: 'Olivier Nakache, Éric Toledano', year: 2011, 
         description: 'After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.',
-        filmImgPath: 'https://st.kp.yandex.net/images/film_iphone/iphone360_535341.jpg', 
+        filmImgPath: 'https://filmix.co/uploads/posters/big/neprikasaemye-2011_34099_0.jpg', 
         filmTrailerPath:'https://www.youtube.com/embed/qCSW7hqBMTg',
         originCountry:'France', budget:9500000, ratingAvg: 8.5, 
         comments:[],
