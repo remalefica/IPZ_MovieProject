@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommentFilm } from '../commentFilm';
+import { CommentService, CommentsMock } from '../comment.service';
+import { Film } from '../film';
 
 @Component({
   selector: 'app-comments-list',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsListComponent implements OnInit {
 
-  constructor() { }
+  comments : CommentFilm[];
+
+  @Input() filmId: number;
+
+  constructor(private commentService: CommentService) { }
 
   ngOnInit() {
+    this.getComments();
+  }
+
+ getComments(): void{
+    this.commentService.getComments(this.filmId)
+          .subscribe(comments => this.comments = comments);
   }
 
 }

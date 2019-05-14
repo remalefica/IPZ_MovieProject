@@ -5,10 +5,8 @@ export class CommentFilm{
     constructor(
         public id?: number,
         public filmId?: number,
-        public film?: Film,
         public userId?: number,
-        public user?: User,
-        public text?: number,
+        public text?: string,
         public createdAt?: Date
     ){}
 }

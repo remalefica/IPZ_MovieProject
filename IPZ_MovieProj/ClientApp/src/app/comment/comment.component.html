@@ -1,1 +1,11 @@
-<!--Add label and buttons for adding a comment to list of comments-->
+<div class="input-area">
+<form name="messageForm" #messageForm="ngForm">
+<h3>Send Comment</h3>
+<div>
+    <input [(ngModel)]="comment.userId"  name="username">
+    <p>Message text:</p>
+    <textarea type="text" class="comment_text" [(ngModel)]="comment.text" name="text" ></textarea>
+    <button (click) ="this.sendComment()">Send</button>     
+</div>
+</form>
+</div>

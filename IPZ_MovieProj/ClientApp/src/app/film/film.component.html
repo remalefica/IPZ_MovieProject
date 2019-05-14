@@ -10,9 +10,10 @@
             <p>Budget: &#36;{{film.budget}}</p>
         
             <div *ngFor="let genre of film.genres">
-                <p>{{this.getFilmGenre(this.genre)}}</p> 
+                <p>{{this.getFilmGenre(genre)}}</p> 
             </div>
-
+            
+            <app-comments-list [filmId]="film.id"></app-comments-list>
         </article>
     </div>
     

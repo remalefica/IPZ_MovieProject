@@ -10,6 +10,9 @@ import { FilmComponent } from './film/film.component';
 import { RatingVotingComponent } from './rating-voting/rating-voting.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
+import { CommentService } from './comment.service';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsListComponent } from './comments-list/comments-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { MessagesComponent } from './messages/messages.component';
     FilmsComponent,
     FilmComponent,
     RatingVotingComponent,
-    MessagesComponent
+    MessagesComponent,
+    CommentComponent,
+    CommentsListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

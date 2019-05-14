@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommentFilm } from '../commentFilm';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Film } from '../film';
+import { CommentService } from '../comment.service';
+import { filterQueryId } from '@angular/core/src/view/util';
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commentService: CommentService) { }
+
+  comment: CommentFilm;
+  @Input() filmId : number;
 
   ngOnInit() {
+    this.newFilm();
+  }
+
+  sendComment() : void{
+    this.commentService.addComment(this.comment);
+    this.newFilm();
+  }
+
+  newFilm() : void{
+    this.comment = new CommentFilm();
+    this.comment.filmId = this.filmId;
   }
 
 }
