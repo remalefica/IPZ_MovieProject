@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace IPZ_MovieProj.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("[controller]")]
 	[ApiController]
 	public class AuthorisationController : ControllerBase
 	{
@@ -84,7 +84,7 @@ namespace IPZ_MovieProj.Controllers
 			}
 
 			await _signInManager.SignInAsync(authUser, false);
-			int authUserId = _userManager.Users.FirstOrDefault(user => user.UserName == authUser.UserName).Id;
+			var authUserId = _userManager.Users.FirstOrDefault(user => user.UserName == authUser.UserName).Id;
 
 			var appUser = new User
 			{
@@ -92,11 +92,6 @@ namespace IPZ_MovieProj.Controllers
 				UserName = signUpModel.SignInModel.Login
 				//TODO: add properties of user
 			};
-			using (var memoryStream = new MemoryStream())
-			{
-				await signUpModel.UserPic.CopyToAsync(memoryStream);
-				appUser.UserPic = memoryStream.ToArray();
-			}
 
 			await _appUserService.AddUserAsync(appUser);
 

@@ -6,7 +6,7 @@ namespace Entities
 {
 	public class User
 	{
-		public int Id { get; set; }
+		public string Id { get; set; }
 		public string UserName { get; set; }
 		public byte[] UserPic { get; set; }
 		public IEnumerable<Comment> Comments { get; set; }
