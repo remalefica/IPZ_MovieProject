@@ -1,9 +1,13 @@
-<h2 id="firstElement"></h2>
-<ul id="grid" class="films">
-  <li *ngFor="let film of films">
-    <a routerLink="/{{film.id}}">
-       <img id ="filmImg" [src]="film.filmImgPath">
-    </a>
-  </li>
-</ul>
+<div class="content">
+  <h2 id="firstElement"></h2>
+    <ul id="grid" class="films">
+      <li *ngFor="let film of films">
+        <a routerLink="/{{film.id}}">
+           <img id ="filmImg" [src]="film.filmImgPath">
+        </a>
+      </li>
+    </ul>
+</div>
+
+
 
