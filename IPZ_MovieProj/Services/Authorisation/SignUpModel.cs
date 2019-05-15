@@ -19,7 +19,5 @@ namespace IPZ_MovieProj.Services.Authorisation
 		[Compare("Password", ErrorMessage = "Wrong password input")]
 		[DataType(DataType.Password)]
 		public string ConfirmPassword { get; set; }
-
-		public IFormFile UserPic { get; set; }
 	}
 }

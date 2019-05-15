@@ -5,7 +5,6 @@ export class User{
     constructor(
         public id?: number,
         public username?: string,
-        public userImgPath?: string,
         public comments?: CommentFilm[],
         public votes?: VoteFilm[],
     ){}
