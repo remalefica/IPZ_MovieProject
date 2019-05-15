@@ -9,9 +9,11 @@ import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/films', pathMatch: 'full'},
-  {path: 'films', component:  FilmsComponent},
   {path: 'sign-in', component: AuthorisationComponent},
-  {path: 'sign-up', component: RegistrationComponent}
+  {path: 'sign-up', component: RegistrationComponent},
+  {path: 'films', component:  FilmsComponent},
+  {path: ':id', component: FilmComponent},
+
 ]
 
 @NgModule({
