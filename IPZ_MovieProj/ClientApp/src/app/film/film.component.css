@@ -4,9 +4,9 @@
   {
     display: inline-block;
   }
-  .container {
+  .content {
       background-color: #FFFFFF;
-      width: 95%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       border-bottom-width: 0px;
@@ -47,7 +47,7 @@
       padding-left: 10%;
       padding-right: 10%;
   }
-  .container .columns h4 {
+  .content .columns h4 {
       text-align: center;
       color: #24292e;
   }
@@ -87,7 +87,7 @@
       width: 600px;
       height: 340px;
   }
-  .container .header_style ul {
+  .content .header_style ul {
       margin-top: 0%;
       margin-right: auto;
       margin-bottom: 0px;
@@ -127,7 +127,7 @@
   .noDisplay {
       display: none;
   }
-  .container .center_article h3 {
+  .content .center_article h3 {
       padding-left: 5%;
       padding-right: 5%;
       margin-top: 5%;
@@ -135,7 +135,7 @@
       font-weight: bold;
       text-transform: uppercase;
   }
-  .container .center_article h4 {
+  .content .center_article h4 {
       padding-left: 3%;
       padding-right: 5%;
       margin-top: 3%;
@@ -143,7 +143,7 @@
       font-weight: bold;
       text-transform: uppercase;
   }
-  .container .center_article p {
+  .content .center_article p {
       padding-left: 3%;
       text-align: justify;
       line-height: 24px;
@@ -190,7 +190,7 @@
       margin-left: 0px;
       width: 100%;
   }
-  .container .header_style ul {
+  .content .header_style ul {
       margin-top: 0px;
       margin-right: 0px;
       margin-bottom: 0px;
@@ -263,10 +263,10 @@
       padding-bottom: 0px;
       margin-bottom: 0px;
   }
-  .container .center_article h3 {
+  .content .center_article h3 {
       margin-top: 30px;
   }
-  .container .center_article h4 {
+  .content .center_article h4 {
       margin-top: 30px;
   }
   }
@@ -281,7 +281,7 @@
       margin-left: 0px;
       width: 100%;
   }
-  .container .header_style ul {
+  .content .header_style ul {
       margin-top: 0px;
       margin-right: 0px;
       margin-bottom: 0px;
@@ -394,7 +394,7 @@
       padding-right: 0px;
       padding-bottom: 0px;
   }
-  .container .columns p {
+  .content .columns p {
       padding-left: 25px;
       padding-right: 25px;
   }

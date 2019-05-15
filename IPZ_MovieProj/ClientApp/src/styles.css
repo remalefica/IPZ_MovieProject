@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.container {
+.content {
     background-color: #FFFFFF;
     width: 100%;
     margin-left: auto;
@@ -42,13 +42,13 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-.container .columns h4 {
+.content .columns h4 {
     text-align: center;
     color: #24292e;
 }
 .user_input {
     padding: 6px;
-    border-radius: 3px;
+    border-radius: 18px;
     border-color: black;
     border-width: thin;
     font-size: 90%;
@@ -65,19 +65,19 @@
 .header_style {
     width: 100%;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     background-color: #FFFFFF;
     clear: left;
 }
-.container .header_style ul li:first-child  {
+.content .header_style ul li:first-child  {
     font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-    font-size: 160%;
+    font-size: 200%;
 }
 iframe {
     width: 600px;
     height: 340px;
 }
-.container .header_style ul {
+.content .header_style ul {
     margin-top: 0%;
     margin-right: auto;
     margin-bottom: 0px;
@@ -93,7 +93,7 @@ iframe {
     float: left;
     margin-right: auto;
     margin-top: 0px;
-    font-family: "Source Sans Pro";
+    font-family: "Century Gothic";
     font-weight: normal;
     color: #24292e;
     letter-spacing: 1px;
@@ -118,7 +118,7 @@ iframe {
 .noDisplay {
     display: none;
 }
-.container .center_article h3 {
+.content .center_article h3 {
     padding-left: 5%;
     padding-right: 5%;
     margin-top: 5%;
@@ -126,7 +126,7 @@ iframe {
     font-weight: bold;
     text-transform: uppercase;
 }
-.container .center_article h4 {
+.content .center_article h4 {
     padding-left: 3%;
     padding-right: 5%;
     margin-top: 3%;
@@ -134,7 +134,7 @@ iframe {
     font-weight: bold;
     text-transform: uppercase;
 }
-.container .center_article p {
+.content .center_article p {
     padding-left: 3%;
     text-align: justify;
     line-height: 24px;
@@ -178,7 +178,7 @@ iframe {
     margin-left: 0px;
     width: 100%;
 }
-.container .header_style ul {
+.content .header_style ul {
     margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 0px;
@@ -250,10 +250,10 @@ iframe {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
-.container .center_article h3 {
+.content .center_article h3 {
     margin-top: 30px;
 }
-.container .center_article h4 {
+.content .center_article h4 {
     margin-top: 30px;
 }
 }
@@ -268,7 +268,7 @@ iframe {
     margin-left: 0px;
     width: 100%;
 }
-.container .header_style ul {
+.content .header_style ul {
     margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 0px;
@@ -358,7 +358,7 @@ iframe {
     float: left;
     margin-right: auto;
     margin-top: 0px;
-    font-family: "Source Sans Pro";
+    font-family: "Century Gothic";
     font-weight: normal;
     color: #24292e;
     letter-spacing: 1px;
@@ -394,7 +394,7 @@ iframe {
     padding-right: 0px;
     padding-bottom: 0px;
 }
-.container .columns p {
+.content .columns p {
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -417,28 +417,34 @@ iframe {
     width: 40%;
     height: auto;
 }
+.table_search {
+  margin-left: 40px;
+}
+.user_input {
+  width: 30vh;
+}
+
 }
 
 @media (min-width: 769px) and (max-width:1050px) { 
 	
-.container .header_style ul li:first-child {
+.content .header_style ul li:first-child {
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
-	width: 100%;
+	width: 98vw;
 }
 .header_style ul li:nth-child(3){
-    width: 50%;
+    width: 40%;
 }
-.header_style ul li:nth-child(4){
+.header_style ul li:nth-child(3){
     width: 20%;
-    float: right;
 }
 .table_search {
-	width: 30vh;
+	width: 40vh;
 }
 }
- 
+
 
 /*FOOTER*/
 footer {
@@ -477,6 +483,7 @@ font-size: 0.625em;
   letter-spacing: 4px;
   margin-top: 20px;
   text-transform: uppercase;
+font-family: "Century Gothic";
 }
 footer nav li {
 margin-bottom: 15px;
@@ -494,8 +501,9 @@ footer .more a {
   line-height: 1.4;
   margin: 0 auto;
   max-width: 400px;
-  padding: 15px 20px;
+  padding: 13px 20px;
   text-align: center;
+border-radius: 25px;
 }
 footer .more a:hover {
   border-color: #80c7ba;
@@ -514,7 +522,7 @@ a:active {
   color: #2E2E2E;
   outline: none;
 }
-a:hover {
+a:hover, a:focus {
   color: #80c7ba;
   text-decoration: none;
 }
@@ -530,7 +538,6 @@ form small {
 form small:before {
   content: "* "
 }
-
 footer .about {
   margin: 10px 0;
 display: block;
@@ -551,9 +558,11 @@ footer .about a:hover {
 }
 .side-commerce {
   text-align: left;
+font-family: "Gabriola";
+font-size: 16px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
 footer nav {
   font-size: 0.625em;
   letter-spacing: 4px;
@@ -592,7 +601,7 @@ footer .about {
 }
 }
 
-@media (max-width: 601px) {
+@media (max-width: 801px) {
 footer .wrap {
   position: center;
   text-align: center;
@@ -606,6 +615,16 @@ footer .more {
 }
 
 @media (min-width: 1100px) {
-
+footer nav li {
+  margin:0 25px;
 }
-
+footer .about {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0
+}
+.content .header_style ul li:first-child {
+  margin-top: -10px; 
+}
+}

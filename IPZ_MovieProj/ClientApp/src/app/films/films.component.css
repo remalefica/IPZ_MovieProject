@@ -2,11 +2,11 @@
     display: grid;
     /*grid-template-rows: 1fr 1fr 1fr 1fr;*/
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2vw;
-    width: auto;
+    grid-gap: 1vw;
+    width: 100%;
     }
   #filmImg {
-    height: 25vw;
+    height: 30vw;
   }
   #firstElement {
     margin-top: 3%;
@@ -14,4 +14,15 @@
   }
   ul {
     list-style-type: none;
+  }
+  .content {
+      background-color: #FFFFFF;
+      width: 98%;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom-width: 0px;
+      padding-left: 0px;
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
   }

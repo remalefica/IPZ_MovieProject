@@ -8,12 +8,18 @@
             <h4>Movie Description</h4>
             <p>{{film.description}}</p>
             <p>Budget: &#36;{{film.budget}}</p>
-        
+            <p>{{film.durationInMinutes}} min</p>
+            <p>STARS</p>
+            <p>{{film.director}}</p>
+            <p>{{film.originCountry}}</p>
             <div *ngFor="let genre of film.genres">
                 <p>{{GenreFilm.getFilmGenre(genre)}}</p> 
             </div>
             
+
             <app-comments-list [filmId]="film.id"></app-comments-list>
+           
+            <app-rating-voting [filmId]="film.id"></app-rating-voting>
         </article>
     </div>
     
