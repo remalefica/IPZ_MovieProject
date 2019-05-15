@@ -6,7 +6,7 @@
     width: 100%;
     }
   #filmImg {
-    height: 30vw;
+    height: 20vw;
   }
   #firstElement {
     margin-top: 3%;
@@ -16,6 +16,11 @@
     list-style-type: none;
   }
   .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1vw;
+    width: 100%;  
+
       background-color: #FFFFFF;
       width: 98%;
       margin-left: auto;
@@ -25,4 +30,28 @@
       padding-top: 0px;
       padding-right: 0px;
       padding-bottom: 0px;
+      
+  }
+
+  aside {
+    
+    padding: 10px;
+    
+   }
+   article {
+    margin-right: 240px;
+    display: block;
+   }
+   
+  .left{
+    position: auto; 
+    width: 20vw;
+    height: 68vh;
+    overflow-y: auto;
+
+  }
+  .right{
+    width: 78vw; 
+    height: 68vh;
+    overflow-y: auto;
   }
