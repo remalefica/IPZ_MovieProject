@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VoteFilm } from './voteFilm';
+import { VoteFilm } from './models/voteFilm';
 import { of, Observable } from 'rxjs';
 
 @Injectable({
@@ -17,7 +17,6 @@ export class RatingVotingService {
   addVote(rating : VoteFilm): void{
     this.votes.push(rating);
   }
-
 }
 
 export const VotesMock : VoteFilm[] = [

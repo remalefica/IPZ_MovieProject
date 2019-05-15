@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { VoteFilm } from '../voteFilm'
+import { VoteFilm } from '../models/voteFilm'
 import { RatingVotingService, VotesMock } from '../rating-voting.service';
-import { Film } from '../film';
+
 
 @Component({
   selector: 'app-rating-voting',
@@ -25,8 +25,11 @@ votes: VoteFilm[];
   }
   onClick(rating : number): void {
     this.rating.rating = rating;
-    this.ratingClick.emit();
-    //this.sendVote();
+    this.ratingClick.emit({
+      filmId: this.filmId,
+      rating: rating
+    });
+    this.sendVote();
   }
 
   sendVote() : void{
