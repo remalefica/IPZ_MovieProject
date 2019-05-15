@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CommentFilm } from './commentFilm';
+import { CommentFilm } from '../../models/commentFilm';
 import { of, Observable } from 'rxjs';
 
 @Injectable({

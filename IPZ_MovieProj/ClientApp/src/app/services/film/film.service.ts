@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
-import { Film } from './film';
-import { FILMS } from './mock-films';
+import { MessageService } from '../message/message.service';
+import { Film } from '../../models/film';
+import { FILMS } from '../../mock-films';
 
 @Injectable({
   providedIn: 'root'
