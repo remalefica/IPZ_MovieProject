@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import {Film} from '../film'
-import { FilmService } from '../film.service';
-import {Genre} from '../genre';
+import {Film} from '../models/film'
+import { FilmService } from '../services/film/film.service';
+import {Genre} from '../models/genre';
 
 
 @Component({
@@ -87,32 +87,3 @@ export class FilmComponent implements OnInit {
     this.location.back();
   }
 }
-
-var GenreString = 
-{
-  'Action' : 1,
-  'Adventure' : 2,
-  'Animation' : 3,
-  'Biography' : 4,
-  'Comedy' : 5,
-  'Crime' : 5,
-  'Documentary' : 6,
-  'Drama' : 7,
-  'Family' : 8,
-  'Fantasy' : 9,
-  'History' : 10,
-  'Horror' : 11,
-  'Music' : 12,
-  'Musical' : 13,
-  'Mystery' : 14,
-  'Romance' : 15,
-  'SciFi' : 16,
-  'Short' : 17,
-  'Sport' : 18,
-  'Superhero' : 19,
-  'Thriller' : 20,
-  'War' : 21,
-  'Western' : 21
-}
-
-

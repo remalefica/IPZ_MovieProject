@@ -15,7 +15,7 @@ namespace DAL
 		{
 			modelBuilder.Entity<User>(user =>
 			{
-				user.Property(u => u.Username).IsRequired();
+				user.Property(u => u.UserName).IsRequired();
 
 			});
 

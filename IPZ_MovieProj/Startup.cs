@@ -1,10 +1,17 @@
+using IPZ_MovieProj.Services.Authorisation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace IPZ_MovieProj
 {
@@ -20,6 +27,45 @@ namespace IPZ_MovieProj
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDbContext<AuthDbContext>(options =>
+			{
+				options.UseSqlServer(Configuration.GetConnectionString("AuthDb"));
+			});
+
+			services.AddIdentity<AuthUser, IdentityRole>()
+				.AddEntityFrameworkStores<AuthDbContext>()
+				.AddDefaultTokenProviders();
+			services.Configure<IdentityOptions>(options =>
+			{
+				options.Password.RequireDigit = false;
+				options.Password.RequiredLength = 1;
+				options.Password.RequiredUniqueChars = 0;
+				options.Password.RequireLowercase = false;
+				options.Password.RequireNonAlphanumeric = false;
+				options.Password.RequireUppercase = false;
+			});
+
+			JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+			services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			})
+				.AddJwtBearer(options =>
+				{
+					options.TokenValidationParameters = new TokenValidationParameters
+					{
+						ValidateIssuer = true,
+						ValidateAudience = true,
+						ValidateLifetime = true,
+						ValidateIssuerSigningKey = true,
+						ValidIssuer = Configuration["Jwt:Issuer"],
+						ValidAudience = Configuration["Jwt:Audience"],
+						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+					};
+				});
+
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 			// In production, the Angular files will be served from this directory

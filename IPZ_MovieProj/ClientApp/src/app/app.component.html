@@ -1,45 +1,11 @@
 <div class="container">
-    <header>
-      <nav class="header_style">
-        <ul>
-          <li style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-            <a routerLink="/films">
-              MOVI&Xi; GUID&Xi;
-            </a>
-          </li>  
-          
-          
-          <li>
-            <table class="table_search" style="border: none;">
-             <tr>
-               <td><img src="../assets/icon_search.svg"/></td>
-               <td><input class="user_input" type="text" placeholder="Search..."> </td>
-             </tr>
-       
-           </table></li> 
-          <li> TOP RATED MOVIES</li>
-          <li> ACCOUNT</li>
-        </ul>
-      </nav>
-    </header>
+<app-nav-bar></app-nav-bar>
 
     <section>
       <router-outlet></router-outlet>
     </section>
 
-    <footer>
-      <div class="wrap">
-        <nav>
-          <ul>
-            <li><a title="My Account" href="">My account </a></li>
-            <li><a title="Top Rated Movies" href="">Top Rated Movies</a></li>
-            <li><a title="All Movies" href="">All Movies</a></li>
-            
-            <li class="more"><a href="" class="inline-popup">Read about this project</a></li>
-          </ul>
-        </nav>
-        <small class="side-commerce"> Project By Sheliakhina Vladislava, Motyashova Alyona, Tkachenko Olena </small> </div>
-    </footer>
+    <app-nav-bar-footer></app-nav-bar-footer>
     </div>
 
     

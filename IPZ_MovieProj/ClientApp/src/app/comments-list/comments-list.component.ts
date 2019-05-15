@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommentFilm } from '../commentFilm';
-import { CommentService, CommentsMock } from '../comment.service';
-import { Film } from '../film';
+import { CommentFilm } from '../models/commentFilm';
+import { CommentService, CommentsMock } from '../services/comment/comment.service';
+import { Film } from '../models/film';
 
 @Component({
   selector: 'app-comments-list',

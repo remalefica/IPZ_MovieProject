@@ -1,4 +1,4 @@
-import { Film } from './film';
+import { Film } from './models/film';
 
 export const FILMS: Film[] = [
         {id: 1, name: 'The Shawshank Redemption',director: 'Frank Darabont', year: 1994, 
