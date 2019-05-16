@@ -36,10 +36,10 @@ namespace DAL.EF
 			_dbContext.Entry(film).State = EntityState.Deleted;
 		}
 
-		public async Task<IEnumerable<Film>> GetByGenre(Genre genre)
+		public async Task<IEnumerable<Film>> GetByGenre(GenreListEnum genre)
 		{
 			return await _dbContext.Films
-				.Where(f => f.Genres.Any(g => g == genre))
+				.Where(f => f.Genres.Any(g => g.GenreName == genre))
 				.ToListAsync();
 		}
 

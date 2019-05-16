@@ -8,7 +8,7 @@ namespace DAL.Interfaces
 {
 	public interface IFilmRepository
 	{
-		Task<IEnumerable<Film>> GetByGenre(Genre genre);
+		Task<IEnumerable<Film>> GetByGenre(GenreListEnum genre);
 		Task<Film> GetByName(string name);
 		Task<IEnumerable<Film>> GetTenMostPopular();
 		Task<Film> GetById(int id);

@@ -47,7 +47,7 @@ namespace BLL.Services
 			await _unitOfWork.SaveAsync();
 		}
 
-		public async Task<IEnumerable<Film>> GetByGenreAsync(Genre genre)
+		public async Task<IEnumerable<Film>> GetByGenreAsync(GenreListEnum genre)
 		{
 			return await _unitOfWork.FilmRepository.GetByGenre(genre);
 		}
