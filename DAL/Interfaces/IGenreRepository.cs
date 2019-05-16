@@ -9,7 +9,7 @@ namespace DAL.Interfaces
 	interface IGenreRepository
 	{
 		Task<Genre> GetById(int id);
-		Task<Genre> GetByUserId(int filmId);
+		Task<Genre> GetByFilmId(string filmId);
 		void AddGenre(Genre genre);
 	}
 }
