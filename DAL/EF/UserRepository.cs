@@ -18,7 +18,7 @@ namespace DAL.EF
 
 
 		}
-        public async Task<User> GetById(int id)
+        public async Task<User> GetById(string id)
         {
             return await _dbContext.Users
                         .Where(c => c.Id == id)

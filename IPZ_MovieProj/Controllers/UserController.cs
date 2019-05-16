@@ -29,7 +29,7 @@ namespace IPZ_MovieProj.Controllers
                 return BadRequest();
             }
 
-            var user = await _userService.GetByIdAsync(id);
+            var user = await _userService.GetByIdAsync(id.ToString());
 
             if (user == null)
             {
@@ -47,7 +47,6 @@ namespace IPZ_MovieProj.Controllers
             }
 
             var createdUser = await _userService.AddUserAsync(user);
-            var userNew = await _userService.GetByIdAsync(1);
 
             return CreatedAtAction(nameof(GetById), new { id = createdUser.Id }, user);
         }
@@ -61,7 +60,7 @@ namespace IPZ_MovieProj.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _userService.DeleteUserAsync(id);
+            await _userService.DeleteUserAsync(id.ToString());
 
             return NoContent();
         }
@@ -74,7 +73,7 @@ namespace IPZ_MovieProj.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _userService.UpdateUserAsync(id, user);
+            await _userService.UpdateUserAsync(id.ToString(), user);
 
             return NoContent();
         }
