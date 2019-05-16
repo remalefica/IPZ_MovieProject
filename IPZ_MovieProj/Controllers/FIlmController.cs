@@ -53,7 +53,7 @@ namespace IPZ_MovieProj.Controllers
 		}
 
 		[HttpGet("{genre}")]
-		public async Task<ActionResult<Film[]>> GetByGenre(Genre genre)
+		public async Task<ActionResult<Film[]>> GetByGenre(GenreListEnum genre)
 		{
 			var films = await _filmService.GetByGenreAsync(genre);
 

@@ -40,7 +40,7 @@ namespace DAL.EF
         }
         public async Task<Vote> GetByUserId(string userId)
         {
-            return await _dbContext.Users
+            return await _dbContext.Votes
                         .Where(v => v.UserId == userId)
                         .FirstOrDefaultAsync(); ;
         }
