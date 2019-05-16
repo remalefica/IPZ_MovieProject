@@ -23,7 +23,10 @@ export class RegistrationComponent {
       return;
     }
 
-    this.authService.singUp(<UserLoginModel> { login: this.login, email: this.email, password: this.password },
+    this.authService.singUp(<UserLoginModel> { 
+        login: this.login, 
+        email: this.email, 
+        password: this.password },
           )
     .subscribe(_ => {
       this.router.navigate(['films']);

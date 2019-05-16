@@ -76,8 +76,8 @@ namespace IPZ_MovieProj
 				configuration.RootPath = "ClientApp/dist";
 			});
 
-			services.AddMvc();
 			services.AddCors();
+			services.AddMvc();
 
 			services.RegisterDependencies(Configuration);
 		}
@@ -103,16 +103,8 @@ namespace IPZ_MovieProj
 				builder.AllowCredentials();
 			});
 
-			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseSpaStaticFiles();
-
-			app.UseMvc(routes =>
-			{
-				routes.MapRoute(
-					name: "default",
-					template: "{controller}/{action=Index}/{id?}");
-			});
 
 			app.UseSpa(spa =>
 			{
@@ -126,6 +118,8 @@ namespace IPZ_MovieProj
 					spa.UseAngularCliServer(npmScript: "start");
 				}
 			});
+
+
 
 			app.UseHttpsRedirection();
 			app.UseAuthentication();

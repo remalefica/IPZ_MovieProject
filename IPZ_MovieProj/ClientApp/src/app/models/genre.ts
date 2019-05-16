@@ -28,7 +28,7 @@ export const enum Genre
 
 export class GenreFilm{
 
-	static getFilmGenre(genre: Genre) : string {
+	getFilmGenre(genre: Genre) : string {
 		switch (genre) {
 		  case Genre.Action:
 			return 'Action';

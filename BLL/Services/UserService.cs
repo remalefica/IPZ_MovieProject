@@ -41,7 +41,7 @@ namespace BLL.Services
                 throw new ArgumentException("Id must be >= 0", nameof(id));
             }
 
-            var user = await _unitOfWork.UserRepository.GetById(id);
+            var user = await _unitOfWork.UserRepository.GetById(idString);
 
             if (user == null)
             {
@@ -65,7 +65,7 @@ namespace BLL.Services
                 throw new ArgumentException("Id must be more then zero", nameof(id));
             }
 
-            var userDb = await _unitOfWork.UserRepository.GetById(id);
+            var userDb = await _unitOfWork.UserRepository.GetById(idString);
 
             userDb = user ?? throw new ArgumentNullException(nameof(user));
             await _unitOfWork.SaveAsync();
@@ -82,7 +82,7 @@ namespace BLL.Services
                 throw new ArgumentException("Id must be more then zero", nameof(id));
             }
 
-            return await _unitOfWork.UserRepository.GetById(id);
+            return await _unitOfWork.UserRepository.GetById(idString);
         }
 
     }

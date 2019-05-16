@@ -78,7 +78,8 @@
             ],
             "scripts": [],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "web.config"
             ]
           }
         },

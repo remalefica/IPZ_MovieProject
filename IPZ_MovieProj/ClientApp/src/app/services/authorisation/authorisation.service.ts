@@ -26,7 +26,7 @@ export class AuthService {
   // login : new_user2
   // pass: 666
   public signIn(loginModel: UserLoginModel): Observable<User> {
-    const PATH = 'https://localhost:4200/api/auth/sign-in';
+    const PATH = 'https://localhost:44331/api/auth/sign-in';
 
     return this.httpClient.post<any>(PATH, loginModel).pipe(
       tap(({user, token}) => {
