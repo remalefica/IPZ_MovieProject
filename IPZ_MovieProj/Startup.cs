@@ -105,6 +105,22 @@ namespace IPZ_MovieProj
 			app.UseStaticFiles();
 			app.UseSpaStaticFiles();
 
+
+
+			app.UseHttpsRedirection();
+			app.UseAuthentication();
+
+			authDbContext.Database.EnsureCreated();
+			appDbContext.Database.EnsureCreated();
+
+
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller}/{action=Index}/{id?}");
+			});
+
 			app.UseSpa(spa =>
 			{
 				// To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -119,16 +135,6 @@ namespace IPZ_MovieProj
 					spa.UseAngularCliServer(npmScript: "start");
 				}
 			});
-
-
-
-			app.UseHttpsRedirection();
-			app.UseAuthentication();
-
-			app.UseMvc();
-
-			authDbContext.Database.EnsureCreated();
-			appDbContext.Database.EnsureCreated();
 		}
 	}
 }

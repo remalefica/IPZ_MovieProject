@@ -14,10 +14,5 @@ namespace IPZ_MovieProj.Services.Authorisation
 
 		[Required(ErrorMessage = "No email input")]
 		public string Email { get; set; }
-
-		[Required(ErrorMessage = "Please, confirm password")]
-		[Compare("Password", ErrorMessage = "Wrong password input")]
-		[DataType(DataType.Password)]
-		public string ConfirmPassword { get; set; }
 	}
 }

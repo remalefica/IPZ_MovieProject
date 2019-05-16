@@ -12,7 +12,6 @@ namespace IPZ_MovieProj.Services.Authorisation
 		public string Login { get; set; }
 
 		[Required(ErrorMessage = "No password input")]
-		[DataType(DataType.Password)]
 		public string Password { get; set; }
 	}
 }

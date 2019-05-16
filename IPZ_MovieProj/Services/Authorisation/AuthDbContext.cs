@@ -13,5 +13,7 @@ namespace IPZ_MovieProj.Services.Authorisation
 		public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
 		{
 		}
+
+		public DbSet<AuthUser> Users { get; set; }
 	}
 }

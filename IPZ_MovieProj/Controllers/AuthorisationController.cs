@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace IPZ_MovieProj.Controllers
 {
-	[Route("api/auth")]
+	[Route("api/[controller]/[action]")]
 	[ApiController]
 	public class AuthorisationController : ControllerBase
 	{
@@ -38,9 +38,8 @@ namespace IPZ_MovieProj.Controllers
 			_appUserService = appUserService ?? throw new ArgumentNullException(nameof(appUserService));
 		}
 
-		[HttpPost("sign-in")]
-		[AllowAnonymous]
-		public async Task<IActionResult> SignInAsync([FromBody] SignInModel signInModel)
+		[HttpPost]
+		public async Task<IActionResult> SignIn([FromBody] SignInModel signInModel)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -63,7 +62,8 @@ namespace IPZ_MovieProj.Controllers
 			return Ok(new { user = appUser, token });
 		}
 
-		[HttpPost("sign-up")]
+		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> SignUp([FromBody] SignUpModel signUpModel)
 		{
 			if (!ModelState.IsValid)
@@ -90,7 +90,6 @@ namespace IPZ_MovieProj.Controllers
 			{
 				Id = authUserId,
 				UserName = signUpModel.SignInModel.Login
-				//TODO: add properties of user
 			};
 
 			await _appUserService.AddUserAsync(appUser);

@@ -8,7 +8,6 @@ namespace Entities
 	{
 		public string Id { get; set; }
 		public string UserName { get; set; }
-		public byte[] UserPic { get; set; }
 		public IEnumerable<Comment> Comments { get; set; }
 		public IEnumerable<Vote> Votes { get; set; }
 

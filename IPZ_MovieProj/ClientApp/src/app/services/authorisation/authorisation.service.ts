@@ -1,4 +1,4 @@
-import { Injectable, ErrorHandler } from '@angular/core';
+import { Injectable, ErrorHandler, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { delay, catchError, tap, map } from 'rxjs/operators';
@@ -11,11 +11,14 @@ import { JwtService } from './jwt.service';
 export class AuthService {
 
   private currentUser$ = new BehaviorSubject<User>(null);
+  private url : string;
 
   constructor(private httpClient: HttpClient,
     private jwtService: JwtService,
-    private errorHandlingService: ErrorHandlingService) {
-  }
+    private errorHandlingService: ErrorHandlingService,
+    @Inject('BASE_URL') baseUrl: string) { 
+      this.url = baseUrl;
+    }
 
   public isSignedIn(): Observable<boolean> {
     return this.currentUser$.pipe(
@@ -26,7 +29,7 @@ export class AuthService {
   // login : new_user2
   // pass: 666
   public signIn(loginModel: UserLoginModel): Observable<User> {
-    const PATH = 'https://localhost:44331/api/auth/sign-up';
+    let PATH = this.url +'Authorisation/sign-in';
 
     return this.httpClient.post<any>(PATH, loginModel).pipe(
       tap(({user, token}) => {
@@ -37,11 +40,12 @@ export class AuthService {
     );
   }
 
-  public singUp(loginModel: UserLoginModel): Observable<User> {
-    const PATH = 'https://localhost:44331/api/auth/sign-up';
+  public singUp(loginModel: UserLoginModel, email: string): Observable<User> {
+    const PATH = this.url + 'api/Authorisation/SignUp';
 
     return this.httpClient.post<any>(PATH, {
-      signInModel: loginModel
+      signInModel: loginModel,
+      email: email
     }).pipe(
       tap(({user, token}) => {
         this.jwtService.persistToken(token);

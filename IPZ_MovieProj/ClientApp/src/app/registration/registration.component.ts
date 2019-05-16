@@ -25,8 +25,8 @@ export class RegistrationComponent {
 
     this.authService.singUp(<UserLoginModel> { 
         login: this.login, 
-        email: this.email, 
-        password: this.password },
+        password: this.password},
+        this.email
           )
     .subscribe(_ => {
       this.router.navigate(['films']);
