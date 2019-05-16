@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IPZ_MovieProj.Services.Authorisation
 {
-	public class AuthUser : IdentityUser<int>
+	public class AuthUser : IdentityUser
 	{
 	}
 }

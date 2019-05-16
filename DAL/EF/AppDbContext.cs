@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL
 {
@@ -13,6 +15,7 @@ namespace DAL
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+
 			modelBuilder.Entity<User>(user =>
 			{
 				user.Property(u => u.UserName).IsRequired();
@@ -23,6 +26,8 @@ namespace DAL
 			{
 				film.Property(f => f.Name).IsRequired();
 				film.HasAlternateKey(f => f.Name);
+				film.HasMany(f => f.Genres)
+					.WithOne(gs => gs.Film);
 			});
 
 			modelBuilder.Entity<Comment>(comment =>
@@ -65,6 +70,7 @@ namespace DAL
 		public DbSet<Comment> Comments { get; set; }
 		public DbSet<Vote> Votes { get; set; }
 		public DbSet<User> Users { get; set; }
+		public DbSet<Genre> Genres { get; set; }
 	}
 }
 

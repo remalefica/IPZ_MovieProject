@@ -1,3 +1,5 @@
+using DAL;
+using IPZ_MovieProj.Config;
 using IPZ_MovieProj.Services.Authorisation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -73,10 +75,15 @@ namespace IPZ_MovieProj
 			{
 				configuration.RootPath = "ClientApp/dist";
 			});
+
+			services.AddCors();
+			services.AddMvc();
+
+			services.RegisterDependencies(Configuration);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, AuthDbContext authDbContext, AppDbContext appDbContext)
 		{
 			if (env.IsDevelopment())
 			{
@@ -89,16 +96,15 @@ namespace IPZ_MovieProj
 				app.UseHsts();
 			}
 
-			app.UseHttpsRedirection();
+			app.UseCors(builder => {
+				builder.AllowAnyOrigin();
+				builder.AllowAnyHeader();
+				builder.AllowAnyMethod();
+				builder.AllowCredentials();
+			});
+
 			app.UseStaticFiles();
 			app.UseSpaStaticFiles();
-
-			app.UseMvc(routes =>
-			{
-				routes.MapRoute(
-					name: "default",
-					template: "{controller}/{action=Index}/{id?}");
-			});
 
 			app.UseSpa(spa =>
 			{
@@ -112,6 +118,16 @@ namespace IPZ_MovieProj
 					spa.UseAngularCliServer(npmScript: "start");
 				}
 			});
+
+
+
+			app.UseHttpsRedirection();
+			app.UseAuthentication();
+
+			app.UseMvc();
+
+			authDbContext.Database.EnsureCreated();
+			appDbContext.Database.EnsureCreated();
 		}
 	}
 }

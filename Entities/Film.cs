@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
@@ -19,8 +20,6 @@ namespace Entities
 		public IEnumerable<Comment> Comments { get; set; }
 		public IEnumerable<Vote> Votes { get; set; }
 		public IEnumerable<Genre> Genres { get; set; }
-
-
 	}
 
 }

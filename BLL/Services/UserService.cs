@@ -28,14 +28,20 @@ namespace BLL.Services
             return user;
         }
 
-        public async Task DeleteUserAsync(int id)
+        public async Task DeleteUserAsync(string idString)
         {
+
+			if(!int.TryParse(idString, out int id))
+			{
+				throw new ArgumentException("Id must be a number", nameof(idString));
+			}
+
             if (id <= 0)
             {
                 throw new ArgumentException("Id must be >= 0", nameof(id));
             }
 
-            var user = await _unitOfWork.UserRepository.GetById(id);
+            var user = await _unitOfWork.UserRepository.GetById(idString);
 
             if (user == null)
             {
@@ -46,26 +52,37 @@ namespace BLL.Services
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task UpdateUserAsync(int id, User user)
+        public async Task UpdateUserAsync(string idString, User user)
         {
-            if (id <= 0)
+
+			if (!int.TryParse(idString, out int id))
+			{
+				throw new ArgumentException("Id must be a number", nameof(idString));
+			}
+
+			if (id <= 0)
             {
                 throw new ArgumentException("Id must be more then zero", nameof(id));
             }
 
-            var userDb = await _unitOfWork.UserRepository.GetById(id);
+            var userDb = await _unitOfWork.UserRepository.GetById(idString);
 
             userDb = user ?? throw new ArgumentNullException(nameof(user));
             await _unitOfWork.SaveAsync();
         }
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<User> GetByIdAsync(string idString)
         {
-            if (id <= 0)
+			if (!int.TryParse(idString, out int id))
+			{
+				throw new ArgumentException("Id must be a number", nameof(idString));
+			}
+
+			if (id <= 0)
             {
                 throw new ArgumentException("Id must be more then zero", nameof(id));
             }
 
-            return await _unitOfWork.UserRepository.GetById(id);
+            return await _unitOfWork.UserRepository.GetById(idString);
         }
 
     }
