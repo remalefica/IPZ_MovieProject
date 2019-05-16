@@ -1,6 +1,7 @@
 <div *ngIf="film">
-    <div class="sectionInAppComponent">
-        <article style="margin-top:4vh;">
+    <div>
+        <article class="film">
+            <div style=display:inline-block;>
             <h3>{{film.name | uppercase}} ({{film.year}})</h3> 
             <p>
              <img [src]="film.filmImgPath" class="placeholder_left">
@@ -9,17 +10,16 @@
             <p>{{film.description}}</p>
             <p>Budget: &#36;{{film.budget}}</p>
             <p>{{film.durationInMinutes}} min</p>
-            <p>STARS</p>
-            <p>{{film.director}}</p>
-            <p>{{film.originCountry}}</p>
+            <p>Director: {{film.director}}</p>
+            <p>Country: {{film.originCountry}}</p>
             <div *ngFor="let genre of film.genres">
-                <p>{{this.getFilmGenre(genre)}}</p> 
+                <p>Genre: {{this.getFilmGenre(genre)}}</p> 
             </div>
-            
-
+            </div>
+            <div style = display:block;><app-rating-voting [filmId]="film.id"></app-rating-voting></div>
+            <br><br><br>
             <app-comments-list [filmId]="film.id"></app-comments-list>
-           
-            <app-rating-voting [filmId]="film.id"></app-rating-voting>
+        
         </article>
     </div>
     
