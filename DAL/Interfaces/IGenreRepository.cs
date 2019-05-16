@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	interface IGenreRepository
+	public interface IGenreRepository
 	{
 		Task<Genre> GetById(int id);
-		Task<Genre> GetByUserId(int filmId);
+		Task<Genre> GetByFilmId(int filmId);
 		void AddGenre(Genre genre);
 	}
 }

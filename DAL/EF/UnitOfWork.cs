@@ -14,8 +14,9 @@ namespace DAL.EF
 		private CommentRepository _commentRepository;
 		private UserRepository _userRepository;
 		private VoteRepository _voteRepository;
+        private GenreRepository _genreRepository;
 
-		public UnitOfWork(AppDbContext dbContext)
+        public UnitOfWork(AppDbContext dbContext)
 		{
 			_dbContext = dbContext ?? throw new NullReferenceException();
 		}
@@ -72,7 +73,20 @@ namespace DAL.EF
 			}
 		}
 
-		public async Task<int> SaveAsync()
+        public IGenreRepository GenreRepository
+        {
+            get
+            {
+                if (_genreRepository == null)
+                {
+                    _genreRepository = new GenreRepository(_dbContext);
+                }
+
+                return _genreRepository;
+            }
+        }
+
+        public async Task<int> SaveAsync()
 		{
 			return await _dbContext.SaveChangesAsync();
 		}
