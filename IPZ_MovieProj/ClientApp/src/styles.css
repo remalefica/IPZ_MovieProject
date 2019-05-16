@@ -47,12 +47,12 @@
     color: #24292e;
 }
 .user_input {
-    padding: 6px;
+    padding: 6px 7px 6px 15px;
     border-radius: 18px;
     border-color: black;
     border-width: thin;
     font-size: 90%;
-	float: left;
+	  float: left;
     outline-color: #80c7ba;
 }
 .table_search {
