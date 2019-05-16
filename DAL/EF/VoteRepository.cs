@@ -32,5 +32,17 @@ namespace DAL.EF
         {
             _dbContext.Votes.Update(vote);
         }
+        public async Task<Vote> GetByFilmId(int filmId)
+        {
+            return await _dbContext.Votes
+                        .Where(v => v.FilmId == filmId)
+                        .FirstOrDefaultAsync(); ;
+        }
+        public async Task<Vote> GetByUserId(string userId)
+        {
+            return await _dbContext.Users
+                        .Where(v => v.UserId == userId)
+                        .FirstOrDefaultAsync(); ;
+        }
     }
 }

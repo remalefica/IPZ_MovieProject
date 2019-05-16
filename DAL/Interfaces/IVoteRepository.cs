@@ -10,8 +10,9 @@ namespace DAL.Interfaces
 	{
 		void AddVote(Vote vote);
         void UpdateVote(Vote vote);
-
         Task<Vote> GetById(int id);
+        Task<Vote> GetByFilmId(int filmId);
+        Task<Vote> GetByUserId(string userId);
 
     }
 }

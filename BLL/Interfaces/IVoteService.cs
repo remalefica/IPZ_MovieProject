@@ -11,5 +11,7 @@ namespace BLL.Interfaces
 		Task<Vote> AddVoteAsync(Vote vote);
         Task UpdateVoteAsync(int id, Vote vote);
         Task<Vote> GetByIdAsync(int id);
+        Task<Vote> GetByFilmIdAsync(int filmId);
+        Task<Vote> GetByUserIdAsync(string userId);
     }
 }
