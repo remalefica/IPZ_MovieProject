@@ -16,6 +16,11 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthorisationComponent } from './authorisation/authorisation.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavBarFooterComponent } from './nav-bar-footer/nav-bar-footer.component';
+
+import { TopfilmsComponent } from './topfilms/topfilms.component';
+import { AccountComponent } from './account/account.component';
+import { AllcommentsComponent } from './allcomments/allcomments.component';
+import { AllvotesComponent } from './allvotes/allvotes.component';
 import { AuthService } from './services/authorisation/authorisation.service';
 import { JwtService } from './services/authorisation/jwt.service';
 import { ErrorHandlingService } from './services/authorisation/error-handling.service';
@@ -33,7 +38,11 @@ import {TokenInterceptor} from './interceptor/token.interceptor'
     RegistrationComponent,
     AuthorisationComponent,
     NavBarComponent,
-    NavBarFooterComponent
+    NavBarFooterComponent,
+    TopfilmsComponent,
+    AccountComponent,
+    AllcommentsComponent,
+    AllvotesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
