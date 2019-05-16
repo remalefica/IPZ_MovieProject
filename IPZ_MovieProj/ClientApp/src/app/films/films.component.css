@@ -15,13 +15,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1vw;
-    width: 100%;  
       background-color: #FFFFFF;
       width: 98%;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 30px; 
       border-bottom-width: 0px;
+      padding-left: 0px;
+      padding-top: 23px;
+      padding-right: 0px;
+      padding-bottom: 0px;
   }
 
   aside {
