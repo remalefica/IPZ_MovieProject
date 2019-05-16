@@ -36,11 +36,11 @@
 	font-size: 18px;
     border-bottom: 1px solid #AEADAD;
     color: #2E2E2E;
-    padding: 10px 23vw 10px 5vw;
+    padding: 10px 0px 10px 5vw;
     line-height: 1.5;
 }
 .table_all th:first-child {
-	width: 40vh;
+	width: 40vw;
 }
 
 .table_all td {
@@ -55,8 +55,8 @@
     line-height: 1.4;
     text-align: center;
 	text-align: left;
-	width: 33vw;
-	margin-left: -8px;
+    width: 38vw;
+    margin-bottom: 10px; 
 }
 .filmname p {
 	color: #2E2E2E;
@@ -71,10 +71,14 @@
 .m-t-20 {
 	margin-top: 20px;
 }
-.m-b-40 {
-	margin-bottom: 40px;
-}
 .yellow {
   color:#FFC800;
 	padding-right: 3px;
+}
+
+@media (max-width: 1200px)
+{
+    .comment {
+        width: 50vw;
+    }
 }
