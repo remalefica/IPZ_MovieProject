@@ -8,7 +8,7 @@ namespace BLL.Interfaces
 {
 	public interface IFilmService
 	{
-        Task<IEnumerable<Film>> GetByGenreAsync(Genre genre);
+        Task<IEnumerable<Film>> GetByGenreAsync(GenreListEnum genre);
         Task<Film> GetByNameAsync(string name);
         Task<IEnumerable<Film>> GetTenMostPopularAsync();
         Task<Film> GetByIdAsync(int id);

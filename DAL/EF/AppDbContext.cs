@@ -16,6 +16,11 @@ namespace DAL
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 
+			modelBuilder.Entity<Genre>(genre => {
+				genre.Property(g => g.GenreName)
+						.HasConversion<int>();
+			});
+
 			modelBuilder.Entity<User>(user =>
 			{
 				user.Property(u => u.UserName).IsRequired();
