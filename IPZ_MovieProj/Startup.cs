@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -68,8 +69,6 @@ namespace IPZ_MovieProj
 					};
 				});
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
 			{
@@ -88,6 +87,11 @@ namespace IPZ_MovieProj
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+
+				app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+				{
+					HotModuleReplacement = true
+				});
 			}
 			else
 			{
@@ -112,6 +116,8 @@ namespace IPZ_MovieProj
 				// see https://go.microsoft.com/fwlink/?linkid=864501
 
 				spa.Options.SourcePath = "ClientApp";
+
+				spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
 
 				if (env.IsDevelopment())
 				{
