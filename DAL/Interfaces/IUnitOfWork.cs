@@ -11,7 +11,8 @@ namespace DAL.Interfaces
 		ICommentRepository CommentRepository { get; }
 		IUserRepository UserRepository { get; }
 		IVoteRepository VoteRepository { get; }
+        IGenreRepository GenreRepository { get; }
 
-		Task<int> SaveAsync();
+        Task<int> SaveAsync();
 	}
 }

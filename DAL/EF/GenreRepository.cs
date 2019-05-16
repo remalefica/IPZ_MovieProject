@@ -23,10 +23,10 @@ namespace DAL.EF
                         .Where(g => g.Id == id)
                         .FirstOrDefaultAsync();
         }
-        public async Task<Genre> GetByFilmId(string filmId)
+        public async Task<Genre> GetByFilmId(int filmId)
         {
             return await _dbContext.Genres
-                        .Where(g => g.Film.Id == id)
+                        .Where(g => g.FilmId == filmId)
                         .FirstOrDefaultAsync(); ;
         }
 
