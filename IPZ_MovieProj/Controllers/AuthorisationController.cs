@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace IPZ_MovieProj.Controllers
 {
-	[Route("[controller]")]
+	[Route("api/auth")]
 	[ApiController]
 	public class AuthorisationController : ControllerBase
 	{

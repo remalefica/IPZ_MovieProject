@@ -1,3 +1,5 @@
+import { Film } from "./film";
+
 export const enum Genre
 	{
 		Action = 1,
@@ -27,6 +29,11 @@ export const enum Genre
 
 
 export class GenreFilm{
+
+		public id: number;
+		public filmId: number;
+		public film: Film;
+		public genreName: Genre;
 
 	getFilmGenre(genre: Genre) : string {
 		switch (genre) {
