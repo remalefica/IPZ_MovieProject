@@ -1,6 +1,6 @@
 <div class="content">
 
-<aside class="left">
+<aside class="left scrollbar">
   <ul>
     <li>Action</li>
     <li>Adventure</li>
@@ -28,9 +28,7 @@
 </ul>
 </aside>
 
-<aside class ="right">
-
-  <h2 id="firstElement"></h2>
+<section class ="right scrollbar">
     <ul id="grid" class="films">
       <li *ngFor="let film of films">
         <a routerLink="/{{film.id}}">
@@ -38,7 +36,7 @@
         </a>
       </li>
     </ul>
-  </aside>
+  </section>
   
 </div>
 
