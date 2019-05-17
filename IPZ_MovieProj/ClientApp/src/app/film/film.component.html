@@ -12,10 +12,10 @@
             <p>{{film.durationInMinutes}} min</p>
             <p>Director: {{film.director}}</p>
             <p>Country: {{film.originCountry}}</p>
+            <p>Genre: 
             <div *ngFor="let genre of film.genres">
 
-                <p>Genre: {{this.getFilmGenre(genre)}}</p> 
-                <p>{{getFilmGenre(genre)}}</p> 
+                <p>{{genre.getFilmGenreString()}}</p> 
 
             </div>
             </div>

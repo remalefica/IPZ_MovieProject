@@ -1,4 +1,5 @@
 import { Film } from './models/film';
+import { GenreFilm, Genre } from './models';
 
 export const FILMS: Film[] = [
         {id: 1, name: 'The Shawshank Redemption',director: 'Frank Darabont', year: 1994, 
@@ -8,7 +9,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 25000000, ratingAvg: 9.3, 
         comments:[],
         votes:[],
-        genres:[8],
+        genres:[new GenreFilm(1, Genre.Drama)],
         durationInMinutes: 142
         },
         {id: 2, name: 'Forrest Gump', director: 'Robert Zemeckis', year: 1994, 
@@ -18,7 +19,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 55000000, ratingAvg: 8.8, 
         comments:[],
         votes:[],
-        genres:[8, 16],
+        genres:[new GenreFilm (1, Genre.Drama), new GenreFilm(1, Genre.Romance)],
         durationInMinutes: 142},
         {id: 3, name: '1 + 1 (Intouchables)', director: 'Olivier Nakache, Éric Toledano', year: 2011, 
         description: 'After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.',
@@ -27,7 +28,7 @@ export const FILMS: Film[] = [
         originCountry:'France', budget:9500000, ratingAvg: 8.5, 
         comments:[],
         votes:[],
-        genres:[4, 5, 8],
+        genres:[new GenreFilm(1, Genre.Biography ), new GenreFilm(2, Genre.Comedy), new GenreFilm(3, Genre.Drama)],
         durationInMinutes: 112},
         {id: 4, name: 'Pulp Fiction',director: 'Quentin Tarantino', year: 1994, 
         description: 'The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
@@ -36,7 +37,7 @@ export const FILMS: Film[] = [
         originCountry:'USA', budget: 8000000, ratingAvg: 8.9, 
         comments:[],
         votes:[],
-        genres:[6, 8],
+        genres:[new GenreFilm(1, Genre.Crime), new GenreFilm(1, Genre.Drama)],
         durationInMinutes: 154},
         
         

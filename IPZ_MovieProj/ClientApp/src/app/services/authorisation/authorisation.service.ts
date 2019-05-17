@@ -26,10 +26,8 @@ export class AuthService {
     );
   }
 
-  // login : new_user2
-  // pass: 666
   public signIn(loginModel: UserLoginModel): Observable<User> {
-    let PATH = this.url +'Authorisation/sign-in';
+    let PATH = this.url +'api/Authorisation/SignIn';
 
     return this.httpClient.post<any>(PATH, loginModel).pipe(
       tap(({user, token}) => {

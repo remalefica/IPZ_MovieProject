@@ -1,6 +1,6 @@
 import { CommentFilm } from "./commentFilm";
 import { VoteFilm } from "./voteFilm";
-import {Genre} from "./genre";
+import {Genre, GenreFilm} from "./genre";
 
 export class Film{
         public id: number;
@@ -16,6 +16,6 @@ export class Film{
         public ratingAvg: number;
         public comments: CommentFilm[];
         public votes: VoteFilm[];
-        public genres: Genre[] ;
+        public genres: GenreFilm[] ;
     
 }

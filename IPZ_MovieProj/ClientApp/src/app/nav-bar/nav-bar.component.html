@@ -14,11 +14,12 @@
            <td><img src="../assets/icon_search.svg"/></td>
            <td><input class="user_input" type="text" placeholder="Search..."> </td>
          </tr>
-   
-       </table></li> 
+       </table>
+      </li> 
 
-       <li routerLink="/topmovies">TOP RATED MOVIES</li> 
-      <li routerLink="/account">ACCOUNT</li>
+       <li routerLink="/topmovies">TOP RATED MOVIES</li>
+        <li *ngIf="this.authService.isSignedIn()" routerLink="/account">ACCOUNT</li>
+        <li routerLink="/sign-in">SIGN IN</li>
     </ul>
   </nav>
 </header>

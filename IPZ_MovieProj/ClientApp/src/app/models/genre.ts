@@ -1,6 +1,6 @@
 import { Film } from "./film";
 
-export const enum Genre
+export enum Genre
 	{
 		Action = 1,
 		Adventure = 2,
@@ -29,14 +29,15 @@ export const enum Genre
 
 
 export class GenreFilm{
+constructor(
+		public id?: number,
+		public genreName?: Genre,
+		public filmId?: number,
+		public film?: Film
+		) {}
 
-		public id: number;
-		public filmId: number;
-		public film: Film;
-		public genreName: Genre;
-
-	getFilmGenre(genre: Genre) : string {
-		switch (genre) {
+	public getFilmGenreString() : string {
+		switch (this.genreName) {
 		  case Genre.Action:
 			return 'Action';
 		  case Genre.Adventure:
@@ -81,8 +82,8 @@ export class GenreFilm{
 			return 'War';
 		  case Genre.Western:
 			return 'Western';
-		  default:
-			break;
+			default:
+			return 'some genre';
 		}
 	}
 }

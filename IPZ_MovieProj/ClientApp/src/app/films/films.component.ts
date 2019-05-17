@@ -11,11 +11,13 @@ import { Genre } from '../models/genre';
 })
 export class FilmsComponent implements OnInit {
   films: Film[];
+  genres: string[];
 
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
     this.getFilms();
+    this.genres = Object.keys(Genre).filter(k => typeof Genre[k as any] === "number");
   }
 
   getFilms(): void {
