@@ -75,10 +75,10 @@ namespace IPZ_MovieProj
 				configuration.RootPath = "ClientApp/dist";
 			});
 
+			services.RegisterDependencies(Configuration);
+
 			services.AddCors();
 			services.AddMvc();
-
-			services.RegisterDependencies(Configuration);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

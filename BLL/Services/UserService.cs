@@ -72,16 +72,6 @@ namespace BLL.Services
         }
         public async Task<User> GetByIdAsync(string idString)
         {
-			if (!int.TryParse(idString, out int id))
-			{
-				throw new ArgumentException("Id must be a number", nameof(idString));
-			}
-
-			if (id <= 0)
-            {
-                throw new ArgumentException("Id must be more then zero", nameof(id));
-            }
-
             return await _unitOfWork.UserRepository.GetById(idString);
         }
 

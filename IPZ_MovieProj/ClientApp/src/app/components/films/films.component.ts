@@ -16,8 +16,8 @@ export class FilmsComponent implements OnInit {
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
-    this.genres = Object.keys(Genre).filter(k => typeof Genre[k as any] === "number");
     this.getFilms();
+    this.genres = Object.keys(Genre).filter(k => typeof Genre[k as any] === "number");
   }
 
   getFilms(): void {

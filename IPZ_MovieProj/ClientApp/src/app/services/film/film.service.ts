@@ -19,18 +19,15 @@ export class FilmService {
       this.url = 'https://localhost:44331' + '/api/Film';
     }
 
-  getFilms() {
+  getFilms() : Observable<Film[]> {
     let PATH = this.url +'/all';
 
     this.messageService.add('FilmService: fetched films');
 
-    return this.httpClient.get<Film[]>(PATH)
-            .pipe(
-              catchError(this.errorHandlingService.handleError)
-            );
+    return this.httpClient.get<Film[]>(PATH);
 }
 
-getFilm(id: number) {
+getFilm(id: number): Observable<Film> {
   let PATH = this.url + `/${id}`;
 
   this.messageService.add('FilmService: fetched film id ' + `{${id}}`);
