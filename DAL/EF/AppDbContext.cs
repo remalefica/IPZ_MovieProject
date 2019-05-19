@@ -35,7 +35,11 @@ namespace DAL
 					.WithOne(gs => gs.Film);
 			});
 
-			modelBuilder.Entity<Comment>(comment =>
+modelBuilder.Entity<Film>().HasData(
+            new Film() { Id = 1, Name = "Pulp Fiction", Director = "Quentin Tarantino", FilmImgPath = "https://img0.liveinternet.ru/images/attach/c/5/87/551/87551274_743664_kinopoisk_ruPulpFiction1480737.jpg" },
+            new Film() { Id = 2, Name = "BLSLLSLD", Director = "MR WORK PLS", FilmImgPath = "http://bm.img.com.ua/img/prikol/images/large/0/0/307600.jpg" });
+
+            modelBuilder.Entity<Comment>(comment =>
 			{
 				comment.HasOne(c => c.Film)
 					.WithMany(f => f.Comments)

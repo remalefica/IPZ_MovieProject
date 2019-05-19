@@ -16,3 +16,9 @@ E:\Универ\IPZ_MovieProj\DAL\bin\Debug\netcoreapp2.1\Entities.pdb
 E:\Универ\IPZ_MovieProj\DAL\obj\Debug\netcoreapp2.1\DAL.csproj.CopyComplete
 E:\Универ\IPZ_MovieProj\DAL\obj\Debug\netcoreapp2.1\DAL.dll
 E:\Универ\IPZ_MovieProj\DAL\obj\Debug\netcoreapp2.1\DAL.pdb
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\bin\Debug\netcoreapp2.1\DAL.pdb
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\bin\Debug\netcoreapp2.1\Entities.dll
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\bin\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.csproj.CopyComplete
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.dll
+C:\Users\Vladislava\Documents\IPZ_MovieProject\DAL\obj\Debug\netcoreapp2.1\DAL.pdb
