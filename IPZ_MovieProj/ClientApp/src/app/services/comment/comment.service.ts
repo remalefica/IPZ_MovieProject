@@ -14,16 +14,12 @@ export class CommentService {
       .filter(comment => comment.filmId == filmId));
   }
 
-
-  //add back async method
-
   addComment(comment : CommentFilm): void{
     this.comments.push(comment);
   }
 
 }
 
-//delete after testing
 export const CommentsMock : CommentFilm[] = [
 
   {id: 1, filmId: 1, userId: 1, text: 'Great film, liked a lot', createdAt: new Date(2011, 0, 1, 0, 0, 0, 0)},
