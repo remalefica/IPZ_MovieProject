@@ -63,7 +63,7 @@ namespace DAL.EF
 					.Select(f => new { Film = f, VoteNumber = f.Votes.Count() })
 					.OrderByDescending(fs => fs.VoteNumber)
 					.Select(f => f.Film)
-					.Take(10)
+					.Take(20)
 					.ToListAsync();
 		}
 

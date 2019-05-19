@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
@@ -16,6 +17,7 @@ namespace Entities
 		public string Director { get; set; }
 		public string OriginCountry { get; set; }
 		public int Budget { get; set; }
+		[Column(TypeName = "float")]
 		public double RatingAvg { get; set; }
 		public IEnumerable<Comment> Comments { get; set; }
 		public IEnumerable<Vote> Votes { get; set; }
