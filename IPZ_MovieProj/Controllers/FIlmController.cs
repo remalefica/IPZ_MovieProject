@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IPZ_MovieProj.Controllers
 {
-	[Route("api/[controller]/[action]")]
+	[Route("api/[controller]")]
 	[ApiController]
 	public class FilmController : ControllerBase
 	{

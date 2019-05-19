@@ -17,9 +17,8 @@ export class AuthService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private jwtService: JwtService,
-    private errorHandlingService: ErrorHandlingService,
-    @Inject('BASE_URL') baseUrl: string) { 
-      this.url = baseUrl + 'api/Authorisation/';
+    private errorHandlingService: ErrorHandlingService) { 
+      this.url = 'https://localhost:44331' + '/api/Authorisation/';
     }
 
   public isSignedIn(): Observable<boolean> {
