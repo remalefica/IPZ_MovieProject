@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/authorisation/authorisation.service';
+import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router } from '@angular/router';
-import { UserLoginModel } from '../models';
+import { UserLoginModel } from '../../models';
 
 @Component({
   selector: 'app-registration',

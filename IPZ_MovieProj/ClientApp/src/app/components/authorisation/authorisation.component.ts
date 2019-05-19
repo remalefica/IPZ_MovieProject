@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/authorisation/authorisation.service';
+import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { JwtService } from '../services/authorisation/jwt.service';
+import { JwtService } from '../../services/authorisation/jwt.service';
 
 @Component({
   selector: 'app-authorisation',

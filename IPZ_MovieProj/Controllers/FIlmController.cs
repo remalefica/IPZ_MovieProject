@@ -10,18 +10,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IPZ_MovieProj.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/[controller]/[action]")]
 	[ApiController]
-	public class FIlmController : ControllerBase
+	public class FilmController : ControllerBase
 	{
 		private readonly IFilmService _filmService;
 
-		public FIlmController(IFilmService filmService)
+		public FilmController(IFilmService filmService)
 		{
 			_filmService = filmService ?? throw new ArgumentNullException(nameof(filmService));
 		}
 
-		[HttpGet("films")]
+		[HttpGet("all")]
 		public async Task<ActionResult<Film[]>> GetTenMostPopular()
 		{
 			var films = await _filmService.GetTenMostPopularAsync();

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { VoteFilm } from '../models/voteFilm'
-import { RatingVotingService, VotesMock } from '../rating-voting.service';
+import { VoteFilm } from '../../models/voteFilm'
+import { RatingVotingService, VotesMock } from '../../services/rating/rating-voting.service';
 
 
 @Component({

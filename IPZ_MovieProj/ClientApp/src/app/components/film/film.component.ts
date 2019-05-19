@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import {Film} from '../models/film'
-import { FilmService } from '../services/film/film.service';
-import {Genre, GenreFilm} from '../models/genre'; 
+import {Film} from '../../models/film'
+import { FilmService } from '../../services/film/film.service';
+import {Genre, GenreFilm} from '../../models/genre'; 
 
 @Component({
   selector: 'app-film',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VoteFilm } from './models/voteFilm';
+import { VoteFilm } from '../../models/voteFilm';
 import { of, Observable } from 'rxjs';
 
 @Injectable({

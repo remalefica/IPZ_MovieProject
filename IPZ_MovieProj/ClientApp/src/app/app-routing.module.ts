@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FilmComponent } from './film/film.component';
-import { RatingVotingComponent} from './rating-voting/rating-voting.component'
-import { FilmsComponent } from './films/films.component';
+import { FilmComponent } from './components/film/film.component';
+import { RatingVotingComponent} from './components/rating-voting/rating-voting.component'
+import { FilmsComponent } from './components/films/films.component';
 import { Film } from './models/film';
-import { AuthorisationComponent } from './authorisation/authorisation.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { TopfilmsComponent } from './topfilms/topfilms.component'
-import { AccountComponent } from './account/account.component';
-import { AllcommentsComponent } from './allcomments/allcomments.component';
-import { AllvotesComponent } from './allvotes/allvotes.component';
+import { AuthorisationComponent } from './components/authorisation/authorisation.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { TopfilmsComponent } from './components/topfilms/topfilms.component'
+import { AccountComponent } from './components/account/account.component';
+import { AllcommentsComponent } from './components/allcomments/allcomments.component';
+import { AllvotesComponent } from './components/allvotes/allvotes.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/films', pathMatch: 'full'},

@@ -6,6 +6,7 @@ import { ErrorHandlingService } from './error-handling.service';
 import { User, UserLoginModel } from '../../models';
 import { HttpClient } from '@angular/common/http';
 import { JwtService } from './jwt.service';
+import { MessageService } from '../message/message.service';
 
 @Injectable()
 export class AuthService {
@@ -13,11 +14,12 @@ export class AuthService {
   private currentUser$ = new BehaviorSubject<User>(null);
   private url : string;
 
-  constructor(private httpClient: HttpClient,
+  constructor(private messageService: MessageService,
+    private httpClient: HttpClient,
     private jwtService: JwtService,
     private errorHandlingService: ErrorHandlingService,
     @Inject('BASE_URL') baseUrl: string) { 
-      this.url = baseUrl;
+      this.url = baseUrl + 'api/Authorisation/';
     }
 
   public isSignedIn(): Observable<boolean> {
@@ -27,19 +29,21 @@ export class AuthService {
   }
 
   public signIn(loginModel: UserLoginModel): Observable<User> {
-    let PATH = this.url +'api/Authorisation/SignIn';
+    let PATH = this.url +'SignIn';
 
     return this.httpClient.post<any>(PATH, loginModel).pipe(
       tap(({user, token}) => {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
+
+        this.messageService.add('AuthorisationService: user signed in');
       }),
       catchError(this.errorHandlingService.handleError)
     );
   }
 
   public singUp(loginModel: UserLoginModel, email: string): Observable<User> {
-    const PATH = this.url + 'api/Authorisation/SignUp';
+    const PATH = this.url + 'SignUp';
 
     return this.httpClient.post<any>(PATH, {
       signInModel: loginModel,
@@ -48,6 +52,8 @@ export class AuthService {
       tap(({user, token}) => {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
+
+        this.messageService.add('AuthorisationService: user signed up');
       }),
       catchError(this.errorHandlingService.handleError)
     );
