@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'allcomments', component: AllcommentsComponent},
   {path: 'allvotes', component: AllvotesComponent},
   {path: 'films', component:  FilmsComponent},
-  {path: ':id', component: FilmComponent}
+  {path: 'films/:id', component: FilmComponent}
 ]
 
 @NgModule({
