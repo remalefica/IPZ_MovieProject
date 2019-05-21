@@ -27,7 +27,7 @@ namespace BLL.Services
             return await _unitOfWork.GenreRepository.GetById(id);
         }
 
-        public async Task<Genre> GetByFilmIdAsync(int filmId)
+        public async Task<IEnumerable<Genre>> GetByFilmIdAsync(int filmId)
         {
             if (filmId <= 0)
             {

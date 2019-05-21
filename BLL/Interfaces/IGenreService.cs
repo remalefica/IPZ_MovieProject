@@ -9,7 +9,7 @@ namespace BLL.Interfaces
     public interface IGenreService
     {
         Task<Genre> GetByIdAsync(int id);
-        Task<Genre> GetByFilmIdAsync(int filmId);
+        Task<IEnumerable<Genre>> GetByFilmIdAsync(int filmId);
         Task <Genre> AddGenreAsync(Genre genre);
     }
 }

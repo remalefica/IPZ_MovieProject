@@ -13,7 +13,7 @@
             <p>Director: {{film.director}}</p>
             <p>Country: {{film.originCountry}}</p>
             <p>Genre: 
-            <div *ngFor="let genre of film.genres">
+            <div *ngFor="let genre of this.film.genres">
 
                 <p>{{genre.getFilmGenreString()}}</p> 
 
