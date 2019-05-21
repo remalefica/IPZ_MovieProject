@@ -54,26 +54,19 @@ namespace BLL.Services
 
         public async Task UpdateUserAsync(string idString, User user)
         {
-
-			if (!int.TryParse(idString, out int id))
-			{
-				throw new ArgumentException("Id must be a number", nameof(idString));
-			}
-
-			if (id <= 0)
-            {
-                throw new ArgumentException("Id must be more then zero", nameof(id));
-            }
-
             var userDb = await _unitOfWork.UserRepository.GetById(idString);
 
             userDb = user ?? throw new ArgumentNullException(nameof(user));
             await _unitOfWork.SaveAsync();
         }
-        public async Task<User> GetByIdAsync(string idString)
+        public async Task<User> GetByNameAsync(string username)
         {
-            return await _unitOfWork.UserRepository.GetById(idString);
+            return await _unitOfWork.UserRepository.GetByUsername(username);
         }
 
-    }
+		public async Task<User> GetById(string id)
+		{
+			return await _unitOfWork.UserRepository.GetById(id);
+		}
+	}
 }

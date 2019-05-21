@@ -32,17 +32,17 @@ namespace DAL.EF
                         .Where(c => c.Id == id)
                         .FirstOrDefaultAsync();
         }
-        public async Task<Comment> GetByFilmId(int filmId)
+        public async Task<IEnumerable<Comment>> GetByFilmId(int filmId)
         {
-            return await _dbContext.Comments
-                        .Where(c => c.FilmId == filmId)
-                        .FirstOrDefaultAsync(); ;
-        }
-        public async Task<Comment> GetByUserId(string userId)
+			return await _dbContext.Comments
+						.Where(c => c.FilmId == filmId)
+						.ToListAsync();
+		}
+        public async Task<IEnumerable<Comment>> GetByUserId(string userId)
         {
             return await _dbContext.Comments
                         .Where(c => c.UserId == userId)
-                        .FirstOrDefaultAsync(); ;
+                        .ToListAsync();
         }
     } 
 }

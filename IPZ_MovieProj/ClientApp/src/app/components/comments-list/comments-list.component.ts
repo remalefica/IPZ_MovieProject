@@ -21,7 +21,7 @@ export class CommentsListComponent implements OnInit {
   }
 
  getComments(): void{
-    this.commentService.getComments(this.filmId)
+    this.commentService.getCommentsByFilmId(this.filmId)
           .subscribe(comments => this.comments = comments);
   }
 

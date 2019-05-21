@@ -20,7 +20,7 @@ namespace IPZ_MovieProj.Controllers
         {
             _commentService = commentService ?? throw new ArgumentNullException(nameof(commentService));
         }
-        [HttpGet("comment")]
+
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetById(int id)
         {
@@ -38,7 +38,25 @@ namespace IPZ_MovieProj.Controllers
 
             return Ok(comment);
         }
-        [HttpPost()]
+
+		[HttpGet("film/{id}")]
+		public async Task<ActionResult<User>> GetByFilmId(int id)
+		{
+			if (id <= 0)
+			{
+				return BadRequest();
+			}
+
+			var comment = await _commentService.GetByFilmIdAsync(id);
+
+			if (comment == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(comment);
+		}
+		[HttpPost()]
         public async Task<ActionResult<Comment>> Create([FromBody][Required]Comment comment)
         {
             if (!ModelState.IsValid)

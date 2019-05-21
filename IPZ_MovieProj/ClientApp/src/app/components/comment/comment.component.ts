@@ -21,10 +21,10 @@ export class CommentComponent implements OnInit {
     this.newFilm();
   }
 
-  sendComment() : void{
-    this.commentService.addComment(this.comment);
-    this.newFilm();
-  }
+  // sendComment() : void{
+  //   this.commentService.addComment(this.comment);
+  //   this.newFilm();
+  // }
 
   newFilm() : void{
     this.comment = new CommentFilm();

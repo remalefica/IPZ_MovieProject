@@ -55,7 +55,7 @@ namespace BLL.Services
             return await _unitOfWork.CommentRepository.GetById(id);
         }
 
-        public async Task<Comment> GetByFilmIdAsync(int filmId)
+        public async Task<IEnumerable<Comment>> GetByFilmIdAsync(int filmId)
         {
             if (filmId <= 0)
             {
@@ -65,7 +65,7 @@ namespace BLL.Services
             return await _unitOfWork.CommentRepository.GetByFilmId(filmId);
         }
 
-        public async Task<Comment> GetByUserIdAsync(string userId)
+        public async Task<IEnumerable<Comment>> GetByUserIdAsync(string userId)
         {
             if (!int.TryParse(userId, out int id))
             {
