@@ -32,8 +32,7 @@ export class GenreFilm{
 constructor(
 		public id?: number,
 		public genreName?: Genre,
-		public filmId?: number,
-		public film?: Film
+		public filmId?: number
 		) {}
 
 	public getFilmGenreString() : string {

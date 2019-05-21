@@ -5,6 +5,7 @@ import { Film } from '../../models/film';
 import { HttpClient } from '@angular/common/http';
 import { ErrorHandlingService } from '../authorisation/error-handling.service';
 import { catchError } from 'rxjs/operators';
+import { Genre } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +34,13 @@ getFilm(id: number): Observable<Film> {
   this.messageService.add('FilmService: fetched film id ' + `{${id}}`);
   return this.httpClient.get<Film>(PATH);
 }
+
+getByGenre(genre: number): Observable<Film[]> {
+
+  let PATH = this.url + `/genre/${genre}`;
+
+  this.messageService.add('FilmService: fetched genre id ' + `{${genre}}`);
+  return this.httpClient.get<Film[]>(PATH);
+}
+
 }

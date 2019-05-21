@@ -24,4 +24,9 @@ export class FilmsComponent implements OnInit {
     this.filmService.getFilms()
     .subscribe(films => this.films = films);
   }
+
+  getByGenreFilms(genreNumber: number): void {
+    this.filmService.getByGenre(genreNumber)
+      .subscribe(films => this.films = films);
+  }
 }
