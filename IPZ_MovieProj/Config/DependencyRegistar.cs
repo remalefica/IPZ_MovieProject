@@ -27,11 +27,13 @@ namespace IPZ_MovieProj.Config
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IVoteRepository, VoteRepository>();
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
 
 			services.AddScoped<ICommentService, CommentService>();
 			services.AddScoped<IFilmService, FilmService>();
 			services.AddScoped<IUserService, UserService>();
 			services.AddScoped<IVoteService, VoteService>();
+            services.AddScoped<IGenreService, GenreService>();
 		}
 	}
 }

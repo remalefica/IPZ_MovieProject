@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import {Film} from '../../models/film'
 import { FilmService } from '../../services/film/film.service';
 import {Genre, GenreFilm} from '../../models/genre'; 
+import { GenreService } from 'src/app/services/genre.service';
 
 @Component({
   selector: 'app-film',
@@ -18,11 +19,14 @@ export class FilmComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
+    private genreService: GenreService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
     this.getFilm();
+    this.genreService.getGenre(this.film.id)
+      .subscribe(genres => this.film.genres = genres);
   }
 
   getFilm(): void {

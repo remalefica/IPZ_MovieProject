@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IPZ_MovieProj.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/genre")]
     [ApiController]
     public class GenreController : ControllerBase
     {
@@ -20,7 +20,6 @@ namespace IPZ_MovieProj.Controllers
         {
             _genreService = genreService ?? throw new ArgumentNullException(nameof(genreService));
         }
-        [HttpGet("genres")]
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Genre>> GetById(int id)
@@ -53,8 +52,8 @@ namespace IPZ_MovieProj.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdGenre.Id }, genre);
         }
         /* MUST BE MODIFIED*/
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Genre>> GetByFilmId(int id)
+        [HttpGet("film/{id}")]
+        public async Task<ActionResult<Genre[]>> GetByFilmId(int id)
         {
             if (id <= 0)
             {
