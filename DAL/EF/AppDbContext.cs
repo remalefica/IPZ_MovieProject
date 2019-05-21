@@ -303,51 +303,324 @@ namespace DAL
 					DurationInMinutes = 1
 				});
 
-			modelBuilder.Entity<Genre>(genre =>
-			{
-				genre.Property(g => g.GenreName)
-						.HasConversion<int>();
-				genre.HasData(
-				new
-				{
-					Id = 1,
-					GenreName = GenreListEnum.Action,
-					FilmId = 1
-					//Film = Film 
-				});
-			});
+            modelBuilder.Entity<Genre>(genre =>
+            {
+                genre.Property(g => g.GenreName)
+                        .HasConversion<int>();
+                genre.HasData(
+                // ACTION
+               new Genre
+               {
+                   Id = 1,
+                   GenreName = GenreListEnum.Action,
+                   FilmId = 1
+               },
+               new Genre
+               {
+                   Id = 2,
+                   GenreName = GenreListEnum.Action,
+                   FilmId = 4
+               },
+               new Genre
+               {
+                   Id = 3,
+                   GenreName = GenreListEnum.Action,
+                   FilmId = 5
+               },
 
-			modelBuilder.Entity<Comment>(comment =>
-			{
-				comment.HasOne(c => c.Film)
-					.WithMany(f => f.Comments)
-					.HasForeignKey(c => c.FilmId);
+                // ADVENTURE
+                new Genre
+                {
+                    Id = 4,
+                    GenreName = GenreListEnum.Adventure,
+                    FilmId = 4
 
-				comment.HasOne(c => c.User)
-					.WithMany(u => u.Comments)
-					.HasForeignKey(c => c.UserId);
+                },
+                new Genre
+                {
+                    Id = 5,
+                    GenreName = GenreListEnum.Adventure,
+                    FilmId = 10
+                },
+                // ANIMATION
+                new Genre
+                {
+                    Id = 6,
+                    GenreName = GenreListEnum.Animation,
 
-				comment.Property(c => c.FilmId)
-					.IsRequired();
+                },
 
-			});
+                // BIOGRAPHY
+                new Genre
+                {
+                    Id = 7,
+                    GenreName = GenreListEnum.Biography,
+                    FilmId = 7
+                },
+                new Genre
+                {
+                    Id = 8,
+                    GenreName = GenreListEnum.Biography,
+                    FilmId = 9
+                },
 
-			modelBuilder.Entity<Vote>(vote =>
-			{
-				vote.HasOne(v => v.Film)
-					.WithMany(f => f.Votes)
-					.HasForeignKey(v => v.FilmId);
+                // COMEDY
+                new Genre
+                {
+                    Id = 9,
+                    GenreName = GenreListEnum.Comedy,
+                    FilmId = 7
+                },
+                new Genre
+                {
+                    Id = 10,
+                    GenreName = GenreListEnum.Comedy,
+                    FilmId = 8
+                },
 
-				vote.HasOne(v => v.User)
-					.WithMany(f => f.Votes)
-					.HasForeignKey(v => v.UserId);
+                // CRIME
+                new Genre
+                {
+                    Id = 11,
+                    GenreName = GenreListEnum.Crime,
+                    FilmId = 5
+                },
+                new Genre
+                {
+                    Id = 12,
+                    GenreName = GenreListEnum.Crime,
+                    FilmId = 6
+                },
+                new Genre
+                {
+                    Id = 13,
+                    GenreName = GenreListEnum.Crime,
+                    FilmId = 9
+                });
+            });
 
-				vote.Property(v => v.FilmId)
-					.IsRequired();
+                // DOCUMENTARY 
+                //new Genre
+                //{
+                //    Id = 14,
+                //    GenreName = GenreListEnum.Documentary,
 
-				vote.HasAlternateKey(v => v.UserId);
-			});
+                //},
 
+                // DRAMA
+            ////    new Genre
+            ////    {
+            ////        Id = 15,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 1
+
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 16,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 2
+
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 17,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 3
+
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 18,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 6
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 19,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 7
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 20,
+            ////        GenreName = GenreListEnum.Drama,
+            ////        FilmId = 9
+            ////    },
+
+
+            ////    // FAMILT
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 21,
+            ////    //    GenreName = GenreListEnum.Family,
+
+            ////    //});
+
+            ////    // FANTASY
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 22,
+            ////    //    GenreName = GenreListEnum.Fantasy,
+
+
+            ////    //});
+
+            ////    // HISTORY
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 23,
+            ////    //    GenreName = GenreListEnum.History,
+
+
+            ////    //},
+
+            ////    // HORROR
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 24,
+            ////    //    GenreName = GenreListEnum.Horror,
+
+            ////    //});
+
+            ////    // MUSIC
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 25,
+            ////    //    GenreName = GenreListEnum.Music,
+
+            ////    //});
+
+            ////    // MUSICAL 
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 26,
+            ////    //    GenreName = GenreListEnum.Musical,
+
+            ////    //});
+
+            ////    //new
+            ////    //{
+            ////    //    Id = 27,
+            ////    //    GenreName = GenreListEnum.Mystery,
+
+            ////    //});
+
+            ////    // ROMANCE
+            ////    new Genre
+            ////    {
+            ////        Id = 28,
+            ////        GenreName = GenreListEnum.Romance,
+            ////        FilmId = 2
+
+            ////    },
+
+            ////    // SCI-FI
+            ////    new Genre
+            ////    {
+            ////        Id = 29,
+            ////        GenreName = GenreListEnum.SciFi,
+            ////        FilmId = 4
+            ////    },
+
+            ////    // SHORT
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 30,
+            ////    //    GenreName = GenreListEnum.Short,
+
+            ////    //});
+
+            ////    // SPORT
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 31,
+            ////    //    GenreName = GenreListEnum.Sport,
+
+            ////    //});
+
+            ////    // SUPERHERO
+            ////    //genre.HasData(
+            ////    //new
+            ////    //{
+            ////    //    Id = 32,
+            ////    //    GenreName = GenreListEnum.Superhero,
+
+
+            ////    //});
+
+            ////    // THRILLER 
+            ////    new Genre
+            ////    {
+            ////        Id = 33,
+            ////        GenreName = GenreListEnum.Thriller,
+            ////        FilmId = 4
+            ////    },
+            ////    new Genre
+            ////    {
+            ////        Id = 33,
+            ////        GenreName = GenreListEnum.Thriller,
+            ////        FilmId = 5
+            ////    });
+            ////});
+            ////    // WAR 
+            ////    ////genre.HasData(
+            ////    ////new
+            ////    ////{
+            ////    ////    Id = 34,
+            ////    ////    GenreName = GenreListEnum.War,
+
+            ////    ////});
+
+            ////    // WESTERN 
+            ////    //    genre.HasData(
+            ////    //    new
+            ////    //    {
+            ////    //        Id = 35,
+            ////    //        GenreName = GenreListEnum.Western,
+
+            ////    //    });
+            ////    //
+
+
+                modelBuilder.Entity<Comment>(comment =>
+                {
+                    comment.HasOne(c => c.Film)
+                        .WithMany(f => f.Comments)
+                        .HasForeignKey(c => c.FilmId);
+
+                    comment.HasOne(c => c.User)
+                        .WithMany(u => u.Comments)
+                        .HasForeignKey(c => c.UserId);
+
+                    comment.Property(c => c.FilmId)
+                        .IsRequired();
+
+                });
+
+                modelBuilder.Entity<Vote>(vote =>
+                {
+                    vote.HasOne(v => v.Film)
+                        .WithMany(f => f.Votes)
+                        .HasForeignKey(v => v.FilmId);
+
+                    vote.HasOne(v => v.User)
+                        .WithMany(f => f.Votes)
+                        .HasForeignKey(v => v.UserId);
+
+                    vote.Property(v => v.FilmId)
+                        .IsRequired();
+
+                    vote.HasAlternateKey(v => v.UserId);
+                });
 
 			base.OnModelCreating(modelBuilder);
 		}

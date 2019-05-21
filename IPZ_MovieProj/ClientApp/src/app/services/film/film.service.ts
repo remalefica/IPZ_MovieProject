@@ -16,7 +16,7 @@ export class FilmService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:44331' + '/api/Film';
+      this.url = 'https://localhost:5001' + '/api/Film';
     }
 
   getFilms() : Observable<Film[]> {

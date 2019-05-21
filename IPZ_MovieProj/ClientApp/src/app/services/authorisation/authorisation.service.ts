@@ -18,7 +18,7 @@ export class AuthService {
     private httpClient: HttpClient,
     private jwtService: JwtService,
     private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:44331' + '/api/Authorisation/';
+      this.url = 'https://localhost:5001' + '/api/Authorisation/';
     }
 
   public isSignedIn(): Observable<boolean> {
