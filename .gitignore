@@ -11,3 +11,7 @@
 /BLL/bin
 /BLL/obj
 .ide
+/IPZProj/ClientApp/node_modules
+/IPZProj/bin/Debug/netcoreapp2.1
+/IPZProj/obj/Debug/netcoreapp2.1
+/IPZProj/obj/Release/netcoreapp2.1

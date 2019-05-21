@@ -56,7 +56,7 @@ namespace IPZ_MovieProj.Controllers
 			}
 
 			AuthUser authUser = _userManager.Users.FirstOrDefault(user => user.UserName == signInModel.Login);
-			User appUser = await _appUserService.GetByIdAsync(authUser.Id);
+			User appUser = await _appUserService.GetByNameAsync(authUser.Id);
 			string token = GenerateJwtTokenString(authUser);
 
 			return Ok(new { user = appUser, token });
@@ -73,7 +73,8 @@ namespace IPZ_MovieProj.Controllers
 
 			var authUser = new AuthUser
 			{
-				UserName = signUpModel.SignInModel.Login
+				UserName = signUpModel.SignInModel.Login,
+				Email = signUpModel.Email
 			};
 
 			var result = await _userManager.CreateAsync(authUser, signUpModel.SignInModel.Password);
@@ -89,7 +90,8 @@ namespace IPZ_MovieProj.Controllers
 			var appUser = new User
 			{
 				Id = authUserId,
-				UserName = signUpModel.SignInModel.Login
+				UserName = signUpModel.SignInModel.Login,
+				Email = signUpModel.Email
 			};
 
 			await _appUserService.AddUserAsync(appUser);

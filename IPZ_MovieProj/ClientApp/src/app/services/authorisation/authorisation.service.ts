@@ -35,7 +35,7 @@ export class AuthService {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
 
-        this.messageService.add('AuthorisationService: user signed in');
+        this.messageService.add('AuthorisationService: user signed in. Username ');
       }),
       catchError(this.errorHandlingService.handleError)
     );

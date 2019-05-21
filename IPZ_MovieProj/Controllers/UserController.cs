@@ -20,16 +20,11 @@ namespace IPZ_MovieProj.Controllers
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
-        [HttpGet("users")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
-        {
-            if (id <= 0)
-            {
-                return BadRequest();
-            }
 
-            var user = await _userService.GetByIdAsync(id.ToString());
+        [HttpGet("id/{id}")]
+        public async Task<ActionResult<User>> GetById(string name)
+        {
+            var user = await _userService.GetByNameAsync(name);
 
             if (user == null)
             {
@@ -38,7 +33,21 @@ namespace IPZ_MovieProj.Controllers
 
             return Ok(user);
         }
-        [HttpPost()]
+
+		[HttpGet("username/{name}")]
+		public async Task<ActionResult<User>> GetByUsername(string name)
+		{
+			var user = await _userService.GetByNameAsync(name);
+
+			if (user == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(user);
+		}
+
+		[HttpPost()]
         public async Task<ActionResult<User>> Create([FromBody][Required]User user)
         {
             if (!ModelState.IsValid)
