@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentFilm } from '../../models/commentFilm';
-import { CommentService, CommentsMock } from '../../services/comment/comment.service';
+import { CommentService} from '../../services/comment/comment.service';
 import { Film } from '../../models/film';
 
 @Component({

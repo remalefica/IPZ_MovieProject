@@ -6,6 +6,7 @@ import {Film} from '../../models/film'
 import { FilmService } from '../../services/film/film.service';
 import {Genre, GenreFilm} from '../../models/genre'; 
 import { GenreService } from 'src/app/services/genre.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-film',
@@ -14,25 +15,38 @@ import { GenreService } from 'src/app/services/genre.service';
 })
 export class FilmComponent implements OnInit {
   
+  trustedVideoURL : any;
   film: Film;
+  genres = [];
 
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
     private genreService: GenreService,
-    private location: Location
+    private location: Location,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
-    this.getFilm();
-    this.genreService.getGenre(this.film.id)
-      .subscribe(genres => this.film.genres = genres);
+    this.getInfo();
   }
 
-  getFilm(): void {
+  getInfo(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+
     this.filmService.getFilm(id)
-      .subscribe(film => this.film = film);
+      .subscribe(film => {
+        this.film = film;
+        this.trustedVideoURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.filmTrailerPath);
+      });
+
+    this.genreService.getGenre(id)
+    .subscribe(genres => {
+      this.film.genres = genres;
+      genres.forEach(genre => {
+        this.genres.push(Genre[genre.genreName]);
+      });
+    });
   }
 
   goBack(): void {

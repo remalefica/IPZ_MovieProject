@@ -8,18 +8,33 @@
             </p>
             <h4>Movie Description</h4>
             <p>{{film.description}}</p>
+            <div *ngIf="film.budget">
             <p>Budget: &#36;{{film.budget}}</p>
+            </div>
+            <div *ngIf="film.durationInMinutes">
             <p>{{film.durationInMinutes}} min</p>
+            </div>
+            <div *ngIf="film.director">
             <p>Director: {{film.director}}</p>
+            </div>
+            <div *ngIf="film.originCountry">
             <p>Country: {{film.originCountry}}</p>
+            </div>
+            <div *ngIf="this.film.genres">
             <p>Genre: 
-            <div *ngFor="let genre of this.film.genres">
-
-                <p>{{genre.getFilmGenreString()}}</p> 
-
+            <div *ngFor="let genre of this.genres">
+                <p>{{genre}}</p> 
             </div>
             </div>
+            </div>
+            <p></p>
+
             <div style = display:block;><app-rating-voting [filmId]="film.id"></app-rating-voting></div>
+
+            <br><br><br>
+
+            <iframe [src]="this.trustedVideoURL"></iframe>
+
             <br><br><br>
             <app-comments-list [filmId]="film.id"></app-comments-list>
         
