@@ -21,7 +21,8 @@
        
         <div class="wrap-input100 validate-input">
           <span class="label-input100">Username</span>
-          <input class="input100" type="text" [(ngModel)]="this.login" formControlName="login" required placeholder="Type your username">
+          <input class="input100" type="text" [(ngModel)]="this.login" formControlName="login" 
+          required placeholder="Type your username">
           
           
           <div *ngIf="login.invalid && (login.dirty || login.touched ) ">
@@ -67,7 +68,8 @@
 		  
 		 <div class="wrap-input100 validate-input" data-validate="Password is required"> 
 			<span class="label-input100">Password</span>
-          	<input class="input100" type="password" [(ngModel)]="this.password" formControlName="password" required placeholder="Type your password">
+            <input class="input100" type="password" [(ngModel)]="this.password" formControlName="password" 
+            required appConfirmEqualValidator="onfirmPassword"  placeholder="Type your password">
             <div *ngIf="password.invalid && (password.dirty || password.touched) ">
 
               <div *ngIf="password.errors.required" class=" alert-validate" 
@@ -86,10 +88,10 @@
     <div class="wrap-input100 validate-input" data-validate="Password is required"> 
 			<span class="label-input100">Password Confirm</span>
             <input class="input100" type="password" [(ngModel)]="this.passwordConfirm" formControlName="passwordConfirm" required 
-            validateEqual="password" placeholder="Repeat your password">
+            appConfirmEqualValidator="password" placeholder="Repeat your password">
 
             <div *ngIf="passwordConfirm.invalid && (password.dirty || password.touched) " 
-            class=" alert-validate" 
+            class="alert-validate" 
             data-validate="Password are different">
             </div>
 

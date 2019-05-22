@@ -28,6 +28,8 @@ import {TokenInterceptor} from './interceptor/token.interceptor';
 
 import { ForbiddenValidatorDirective } from './directives/forbidden-name.directive';
 import { IdentityRevealedValidatorDirective } from './directives/identity-revealed.directive';
+import { ConfirmEqualValidatorDirective } from './directives/password-confirm.directive';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { IdentityRevealedValidatorDirective } from './directives/identity-reveal
     AllvotesComponent,
 
     ForbiddenValidatorDirective,
-    IdentityRevealedValidatorDirective
+    IdentityRevealedValidatorDirective,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

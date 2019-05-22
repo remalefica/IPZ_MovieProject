@@ -1,8 +1,9 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { RegistrationComponent } from './app/components/registration/registration.component';
+
 
 export function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
