@@ -24,7 +24,7 @@ namespace IPZ_MovieProj.Controllers
         [HttpGet("id/{id}")]
         public async Task<ActionResult<User>> GetById(string name)
         {
-            var user = await _userService.GetByNameAsync(name);
+            var user = await _userService.GetById(name);
 
             if (user == null)
             {
@@ -33,19 +33,6 @@ namespace IPZ_MovieProj.Controllers
 
             return Ok(user);
         }
-
-		[HttpGet("username/{name}")]
-		public async Task<ActionResult<User>> GetByUsername(string name)
-		{
-			var user = await _userService.GetByNameAsync(name);
-
-			if (user == null)
-			{
-				return NotFound();
-			}
-
-			return Ok(user);
-		}
 
 		[HttpPost()]
         public async Task<ActionResult<User>> Create([FromBody][Required]User user)
@@ -75,7 +62,7 @@ namespace IPZ_MovieProj.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update([Range(1, int.MaxValue)]int id, [FromBody]User user)
+        public async Task<ActionResult> Update(string  id, [FromBody]User user)
         {
             if (!ModelState.IsValid)
             {

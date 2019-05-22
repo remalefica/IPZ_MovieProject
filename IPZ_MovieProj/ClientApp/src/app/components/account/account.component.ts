@@ -16,20 +16,14 @@ export class AccountComponent implements OnInit {
   user : User;
 
   constructor(private router: Router, 
-              private authService: AuthService, 
-              private userService: UserService) { }
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.getUser();
   }
 
   getUser() : void{
-    let userNameDb;
-
     this.authService.getCurrentUser()
-          .subscribe(u => userNameDb =this.user.username);
-
-    this.userService.getUser(userNameDb)
-          .subscribe(uDb => this.user = uDb);
+      .subscribe(userAut => this.user = userAut);
   }
 }

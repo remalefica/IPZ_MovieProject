@@ -11,7 +11,6 @@ namespace BLL.Interfaces
         Task<User> AddUserAsync(User user);
         Task DeleteUserAsync(string id);
         Task UpdateUserAsync(string id, User user);
-        Task<User> GetByNameAsync(string username);
 		Task<User> GetById(string id);
 	}
 }
