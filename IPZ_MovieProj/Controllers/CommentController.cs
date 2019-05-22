@@ -22,7 +22,7 @@ namespace IPZ_MovieProj.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
+        public async Task<ActionResult<Comment>> GetById(int id)
         {
             if (id <= 0)
             {
@@ -40,7 +40,7 @@ namespace IPZ_MovieProj.Controllers
         }
 
 		[HttpGet("film/{id}")]
-		public async Task<ActionResult<User>> GetByFilmId(int id)
+		public async Task<ActionResult<IEnumerable<Comment>>> GetByFilmId(int id)
 		{
 			if (id <= 0)
 			{
@@ -57,7 +57,20 @@ namespace IPZ_MovieProj.Controllers
 			return Ok(comment);
 		}
 
-		[HttpPost()]
+		[HttpGet("user/{id}")]
+		public async Task<ActionResult<IEnumerable<Comment>>> GetByUserId(string id)
+		{
+			var comment = await _commentService.GetByUserIdAsync(id);
+
+			if (comment == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(comment);
+		}
+
+		[HttpPost("Create")]
         public async Task<ActionResult<Comment>> Create([FromBody][Required]Comment comment)
         {
             if (!ModelState.IsValid)
