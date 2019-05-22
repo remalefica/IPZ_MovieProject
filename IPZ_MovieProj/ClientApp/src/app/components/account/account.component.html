@@ -23,7 +23,8 @@
           </tr>
 			<tr>
 			<td></td>
-			<td class="button_all"><a href="" class="inline-popup">Cancel Membership</a></td>
+      <td class="button_all"><a href="" class="inline-popup" (click)="this.authService.signOut()">Sign out</a></td>
+      <td class="button_all"><a href="" class="inline-popup">Cancel Membership</a></td>
 			</tr>
 		</table>
 		
