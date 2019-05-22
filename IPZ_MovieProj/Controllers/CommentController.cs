@@ -56,6 +56,7 @@ namespace IPZ_MovieProj.Controllers
 
 			return Ok(comment);
 		}
+
 		[HttpPost()]
         public async Task<ActionResult<Comment>> Create([FromBody][Required]Comment comment)
         {
@@ -65,7 +66,6 @@ namespace IPZ_MovieProj.Controllers
             }
 
             var createdComment = await _commentService.AddCommentAsync(comment);
-            var userNew = await _commentService.GetByIdAsync(1);
 
             return CreatedAtAction(nameof(GetById), new { id = createdComment.Id }, comment);
         }

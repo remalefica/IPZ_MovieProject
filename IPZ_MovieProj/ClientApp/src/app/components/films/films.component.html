@@ -1,12 +1,14 @@
 <div class="content">
 <aside class="left scrollbar">
   <ul>
-    <button (click)="this.getFilms()">All</button>
+    <li>
+    <button class="buttonGenre buttonGenreAll" (click)="this.getFilms()">All</button>
       <div *ngFor="let genre of this.genres; let genreIndex = index">
-            <button (click)="this.getByGenreFilms(genreIndex + 1)">
+            <button class="buttonGenre" (click)="this.getByGenreFilms(genreIndex + 1)">
                 {{genre}}
             </button>
       </div>
+    </li>
 </ul>
 </aside>
 

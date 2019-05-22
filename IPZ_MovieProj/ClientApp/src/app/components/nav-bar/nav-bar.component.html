@@ -18,8 +18,14 @@
       </li> 
 
        <li routerLink="/topmovies">TOP RATED MOVIES</li>
-        <li *ngIf="this.authService.isSignedIn()" routerLink="/account">ACCOUNT</li>
-        <li routerLink="/sign-in">SIGN IN</li>
+       <ng-content *ngIf="isUserSignedIn$ | async; then signedIn; else signedOut">
+        </ng-content>
+        <ng-template #signedIn>
+            <li *ngIf="this.authService.isSignedIn()" routerLink="/account">ACCOUNT</li>
+        </ng-template>
+        <ng-template #signedOut>
+            <li routerLink="/sign-in">SIGN IN | SIGN UP</li>
+        </ng-template>
     </ul>
   </nav>
 </header>

@@ -1,9 +1,9 @@
 <!--Output all comments-->
 <app-comment [filmId]="filmId"></app-comment>
 
-        <table class="table_all m-t-20">
-            <td class="filmname"><br><p>Comments:</p></td>
-        </table>
+    <table class="table_all m-t-20">
+        <td class="filmname"><br><p>Comments:</p></td>
+    </table>
 
     <ul class="comment" *ngFor="let comment of comments">
      <span class="text" style ="font-weight: 600">{{comment.userId}}</span><br>

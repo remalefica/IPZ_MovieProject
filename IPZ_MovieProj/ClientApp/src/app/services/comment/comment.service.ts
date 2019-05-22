@@ -26,14 +26,9 @@ export class CommentService {
     return this.httpClient.get<CommentFilm[]>(PATH);
 }
 
-  /*getComments(filmId: number) : Observable<CommentFilm[]>{
-    return of(this.comments
-      .filter(comment => comment.filmId == filmId));
+  addComment(comment : CommentFilm): Observable<CommentFilm[]>{
+    let PATH = this.url;
+    return this.httpClient.post<any>(PATH, comment);
   }
-
-  addComment(comment : CommentFilm): void{
-    this.comments.push(comment);
-  }*/
-
 }
 
