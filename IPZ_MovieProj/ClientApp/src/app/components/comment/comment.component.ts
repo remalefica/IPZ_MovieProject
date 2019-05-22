@@ -32,7 +32,8 @@ export class CommentComponent implements OnInit {
    addComment() : void{
     this.comment.userId = this.user.id;
     this.comment.filmId = this.filmId;
-    this.commentService.addComment(this.comment);
+    this.commentService.addComment(this.comment)
+      .subscribe();
     this.newComment();
    }
 

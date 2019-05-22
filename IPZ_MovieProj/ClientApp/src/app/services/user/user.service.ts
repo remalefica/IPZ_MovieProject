@@ -17,13 +17,13 @@ export class UserService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:5001' + '/api/User';
+      this.url = 'https://localhost:5001' + '/api/user';
     }
 
-  getUser(name : string) : Observable<User> {
-    let PATH = this.url + '/username/' + name;
+  getUser(id : string) : Observable<User> {
+    let PATH = this.url + '/' + id;
 
-    this.messageService.add('UserService: fetched user');
+    this.messageService.add('UserService: fetched user ' + id);
 
     return this.httpClient.get<User>(PATH);
   }

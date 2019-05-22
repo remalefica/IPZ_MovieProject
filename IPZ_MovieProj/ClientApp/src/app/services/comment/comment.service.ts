@@ -30,12 +30,7 @@ export class CommentService {
   addComment(comment : CommentFilm): Observable<CommentFilm>{
     let PATH = this.url + '/Create';
 
-    return this.httpClient.post<CommentFilm>(PATH, {
-      id: comment.id,
-      filmId: comment.filmId,
-      userId: comment.userId,
-      text: comment.text
-    })
+    return this.httpClient.post<CommentFilm>(PATH, comment)
         .pipe(
           tap(() => {
             this.messageService.add('CommentService: fetched comments of film ' + `${comment.userId}` + `${comment.text}`);
