@@ -18,6 +18,7 @@ export class GenreService {
     private errorHandlingService: ErrorHandlingService) { 
       this.url = 'https://localhost:5001' + '/api/genre';
     }
+    
     getGenre(id: number): Observable<GenreFilm[]> {
       let PATH = this.url + `/film/${id}`;
 
