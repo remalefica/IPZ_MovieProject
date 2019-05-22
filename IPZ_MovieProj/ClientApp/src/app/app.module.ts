@@ -24,7 +24,10 @@ import { AllvotesComponent } from './components/allvotes/allvotes.component';
 import { AuthService } from './services/authorisation/authorisation.service';
 import { JwtService } from './services/authorisation/jwt.service';
 import { ErrorHandlingService } from './services/authorisation/error-handling.service';
-import {TokenInterceptor} from './interceptor/token.interceptor'
+import {TokenInterceptor} from './interceptor/token.interceptor';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import {TokenInterceptor} from './interceptor/token.interceptor'
     FormsModule,
     RouterModule.forRoot([
     ]),
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthService,  JwtService,
     { provide: Window, useValue: window },
