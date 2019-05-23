@@ -64,8 +64,15 @@ namespace DAL.EF
 					.Take(20)
 					.ToListAsync();
 		}
+        public async Task<IEnumerable<Film>> GetFiveMostPopular()
+        {
+            return await _dbContext.Films
+                    .OrderByDescending(fs => fs.RatingAvg)
+                    .Take(5)
+                    .ToListAsync();
+        }
 
-		public void UpdateFilm(Film film)
+        public void UpdateFilm(Film film)
 		{
 			_dbContext.Films.Update(film);
 		}

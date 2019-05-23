@@ -34,7 +34,20 @@ namespace IPZ_MovieProj.Controllers
 			return Ok(films);
 		}
 
-		[HttpGet("{id}")]
+        [HttpGet("topfive")]
+        public async Task<ActionResult<Film[]>> GetFiveMostPopular()
+        {
+            var films = await _filmService.GetFiveMostPopularAsync();
+
+            if (films == null || !films.Any())
+            {
+                return Ok(Array.Empty<Film>());
+            }
+
+            return Ok(films);
+        }
+
+        [HttpGet("{id}")]
 		public async Task<ActionResult<Film>> GetById(int id)
 		{
 			if (id <= 0)
