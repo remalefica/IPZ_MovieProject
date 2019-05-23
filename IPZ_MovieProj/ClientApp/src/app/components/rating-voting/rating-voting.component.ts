@@ -17,8 +17,8 @@ export class RatingVotingComponent implements OnInit {
 constructor(private ratingvotingService : RatingVotingService,
             private authService : AuthService){ }
 
-votes: VoteFilm;
-@Input() rating: VoteFilm;
+vote: VoteFilm;
+@Input() rating: number;
 @Input() filmId: number;
           user : User;
 @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
@@ -32,41 +32,38 @@ votes: VoteFilm;
                 this.user = user);
 
             if(isSignedIn){
-                this.rating = new VoteFilm();
+                this.vote = new VoteFilm();
                 this.getVote();
-
-                this.ratingClick.emit({
-                  rating: this.rating.rating
-                });
               }
           });
   }
-  onClick(ratingInput : number): void {
+  onClick(rating : number): void {
 
+    this.rating = rating;
     this.ratingClick.emit({
-      rating: ratingInput
+      rating: rating
     });
-    this.sendVote(ratingInput);
+    this.sendVote(rating);
   }
 
   ratingConstructor(ratingInput: number) : void{
-    this.rating.filmId = this.filmId;
-    this.rating.userId = this.user.id;
-    this.rating.rating  = ratingInput;
+    this.vote.filmId = this.filmId;
+    this.vote.userId = this.user.id;
+    this.vote.rating  = this.rating;
   }
 
   sendVote(ratingInput : number) : void{
 
     if(this.rating == null){
-      this.rating = new VoteFilm();
+      this.vote = new VoteFilm();
       this.ratingConstructor(ratingInput);
 
-      this.ratingvotingService.addVote(this.rating)
+      this.ratingvotingService.addVote(this.vote)
       .subscribe();
     } 
     else{
       this.ratingConstructor(ratingInput);
-      this.ratingvotingService.updateVote(this.rating.id, this.rating)
+      this.ratingvotingService.updateVote(this.vote.id, this.vote)
         .subscribe();
     }
   }
@@ -77,7 +74,8 @@ votes: VoteFilm;
 
   getVote() : void{
       this.ratingvotingService.getFilmUserVote(this.filmId, this.user.id)
-        .subscribe(vote => this.rating = vote);
+        .subscribe(vote => {this.vote = vote;
+            this.rating = this.vote.rating});
   }
 
 }
