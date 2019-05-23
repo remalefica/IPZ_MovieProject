@@ -35,13 +35,15 @@
           <div class="wrap-input100 validate-input">
               <span class="label-input100">Username</span>
               <input class="input100" type="text"
-               placeholder="Type your username" (keydown.space)="$event.preventDefault();"
-               formControlName="login" maxlength="40"
+               placeholder="Type your username" 
+               formControlName="login" maxlength="35" pattern="^([a-zA-Z0-9_\-\.]+)$"
+               (keydown.space)="$event.preventDefault();"
                [ngClass]="{ 'is-invalid': f.login.errors }">
                 <div *ngIf="f.login.errors">
-                    <div *ngIf="f.login.errors.required" class="alert-validate" data-validate="Username is required"></div>
-                    <div *ngIf="f.login.errors.minlength" class="alert-validate" data-validate="Username must be between 4 and 30 characters long"></div>
-                    <div *ngIf="f.login.errors.maxlength" class="alert-validate" data-validate="Username must be between 4 and 30 characters long"></div>
+                    <div [hidden]="!f.login.errors.required || f.login.untouched" class="alert-validate" data-validate="Username is required"></div>
+                    <div *ngIf="f.login.errors.minlength" class="alert-validate" data-validate="Username must be between 4 and 20 characters long"></div>
+                    <div *ngIf="f.login.errors.maxlength" class="alert-validate" data-validate="Username must be between 4 and 20 characters long"></div>
+                    <div *ngIf="f.login.errors.pattern" class="alert-validate" data-validate="Only latin letters, numbers, underscore, hyphen and points are allowed "></div>
                 </div>
               <span class="focus-input100" data-symbol="&#xf190;"></span>
             </div>
@@ -49,14 +51,13 @@
 
           <div class="wrap-input100 validate-input">
             <span class="label-input100">E-mail</span>
-            <input class="input100" type="email"  formControlName="email" maxlength="40"
-            
+            <input class="input100" type="email"  formControlName="email" maxlength="45"
             (keydown.space)="$event.preventDefault();"
             [(ngModel)]="user.email" 
             pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
             placeholder="Type your e-mail" [ngClass]="{ 'is-invalid': f.email.errors }">
             <div *ngIf="f.email.errors">
-              <div *ngIf="f.email.errors.required" class="alert-validate" data-validate="Email is required"></div>
+              <div [hidden]="!f.email.errors.required || f.email.untouched" class="alert-validate" data-validate="Email is required"></div>
               <div *ngIf="f.email.errors.pattern" class="alert-validate" data-validate="Valid e-mail is required: ex@abc.xyz"></div>
             </div>           
             <span class="focus-input100" data-symbol="&#x2709;"></span>
@@ -72,7 +73,7 @@
                formControlName="password" maxlength="35"
                [ngClass]="{ 'is-invalid': f.password.errors }">
                 <div *ngIf="f.password.errors">
-                    <div *ngIf="f.password.errors.required" class="alert-validate" data-validate="Password is required"></div>
+                    <div [hidden]="!f.password.errors.required || f.password.untouched" class="alert-validate" data-validate="Password is required"></div>
                     <div *ngIf="f.password.errors.minlength" class="alert-validate" data-validate="Password must be between 6 and 20 characters long"></div>
                     <div *ngIf="f.password.errors.maxlength" class="alert-validate" data-validate="Password must be between 6 and 20 characters long"></div>
                 </div>
@@ -86,7 +87,7 @@
              formControlName="confirmPassword" maxlength="35"
              [ngClass]="{ 'is-invalid': f.confirmPassword.errors }">
               <div *ngIf="f.confirmPassword.errors">
-                  <div *ngIf="f.confirmPassword.errors.required" class="alert-validate" data-validate="Confirm Password is required"></div>
+                  <div [hidden]="!f.confirmPassword.errors.required || f.confirmPassword.untouched" class="alert-validate" data-validate="Confirm Password is required"></div>
                   <div *ngIf="f.confirmPassword.errors.mustMatch" class="alert-validate" data-validate="Passwords are different"></div>
               </div>
             <span class="focus-input100" data-symbol="&#xf190;"></span>
