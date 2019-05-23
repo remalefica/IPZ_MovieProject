@@ -11,8 +11,9 @@ namespace BLL.Interfaces
 		Task<Comment> AddCommentAsync(Comment comment);
 		Task DeleteCommentAsync(int id);
         Task<Comment> GetByIdAsync(int id);
+        Task<Comment> GetByUserIdLastAsync(string userId);
         Task<IEnumerable<Comment>> GetByFilmIdAsync(int filmId);
         Task<IEnumerable<Comment>> GetByUserIdAsync(string userId);
-		Task<Comment> GetByUserIdLastAsync(string userId);
+		
 	}
 }
