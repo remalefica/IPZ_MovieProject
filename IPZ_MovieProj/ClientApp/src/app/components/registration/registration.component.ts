@@ -5,7 +5,6 @@ import { MustMatch} from '../../directives/must-match.validator';
 import { UserRegistrationModel } from '../../models/user-registration-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',

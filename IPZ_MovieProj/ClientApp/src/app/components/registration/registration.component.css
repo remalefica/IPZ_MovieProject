@@ -365,23 +365,22 @@ button:disabled,
 button[disabled]
 {
     color: #fff;
-    /*8C141F*/
-    background-color: #962B2B;
-  font-family: Century Gothic;
-  font-size: 16px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  width: 100%;
-  height: 50px;
-  cursor: not-allowed;
+    background-color: lightgray;
+    font-family: Century Gothic;
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    cursor: not-allowed;
 }
 
 .login100-form-btn:hover {
