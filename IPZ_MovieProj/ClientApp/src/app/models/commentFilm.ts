@@ -9,6 +9,5 @@ export class CommentFilm{
         public username: string;
         public user?: User;
         public text: string;
-        public createdAt: Date;
 
 }

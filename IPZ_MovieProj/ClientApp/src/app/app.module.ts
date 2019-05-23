@@ -10,7 +10,6 @@ import { RatingVotingComponent } from './components/rating-voting/rating-voting.
 import { AppRoutingModule } from './/app-routing.module';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CommentService } from './services/comment/comment.service';
-import { CommentComponent } from './components/comment/comment.component';
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthorisationComponent } from './components/authorisation/authorisation.component';
@@ -35,7 +34,6 @@ import { FilmSearchPipe } from './components/nav-bar/filmname.pipe';
     FilmComponent,
     RatingVotingComponent,
     MessagesComponent,
-    CommentComponent,
     CommentsListComponent,
     RegistrationComponent,
     AuthorisationComponent,

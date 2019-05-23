@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IPZ_MovieProj.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/comment")]
     [ApiController]
     public class CommentController : ControllerBase
     {
@@ -61,6 +61,19 @@ namespace IPZ_MovieProj.Controllers
 		public async Task<ActionResult<IEnumerable<Comment>>> GetByUserId(string id)
 		{
 			var comment = await _commentService.GetByUserIdAsync(id);
+
+			if (comment == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(comment);
+		}
+
+		[HttpGet("user/{id}/last")]
+		public async Task<ActionResult<Comment>> GetByUserIdLast(string id)
+		{
+			var comment = await _commentService.GetByUserIdLastAsync(id);
 
 			if (comment == null)
 			{

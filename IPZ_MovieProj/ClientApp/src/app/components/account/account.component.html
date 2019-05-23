@@ -29,22 +29,29 @@
 		</table>
 		
         <table class="table_all m-t-20">
+            <tr>
+                <th>MY COMMENTS</th>
+                <th></th>
+              </tr>
+            <ng-content *ngIf="comment; then commented; else nocomments"></ng-content>
+            <ng-template #commented>
+            <td class="filmname"><p>{{this.filmComment.name | uppercase}} ({{this.filmComment.year}})</p></td>    
           <tr>
-            <th>MY COMMENTS</th>
-            <th></th>
+            <td></td>
+
           </tr>
           <tr>
             <td></td>
-            <td class="filmname"><p>FILMNAME (YEAR)</p></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+            <td class="comment">{{this.comment.text}}</td>
           </tr>
 			<tr>
 			<td></td>
 			<td class="button_all"><a routerLink="/allcomments" class="inline-popup">See All</a></td>
-			</tr>
+      </tr>
+      </ng-template>
+      <ng-template #nocomments>
+        <td>You haven`t commented anything yet</td>
+      </ng-template>
 		</table>
 	  
 	  <table class="table_all m-t-20 m-b-40">

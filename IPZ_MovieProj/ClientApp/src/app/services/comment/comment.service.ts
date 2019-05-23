@@ -16,7 +16,7 @@ export class CommentService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:5001' + '/api/Comment';
+      this.url = 'https://localhost:5001' + '/api/comment';
     }
 
   getCommentsByFilmId(filmId : number) : Observable<CommentFilm[]> {
@@ -26,6 +26,18 @@ export class CommentService {
 
     return this.httpClient.get<CommentFilm[]>(PATH);
 }
+
+  getCommentByUserIdLast(userId: string) : Observable<CommentFilm>{
+    let PATH = this.url +'/user/' + userId + '/last';
+
+    return this.httpClient.get<CommentFilm>(PATH);
+  }
+
+  getCommentByUserId(userId: string) : Observable<CommentFilm[]>{
+    let PATH = this.url +'/user/' + userId;
+
+    return this.httpClient.get<CommentFilm[]>(PATH);
+  }
 
   addComment(comment : CommentFilm): Observable<CommentFilm>{
     let PATH = this.url + '/Create';
