@@ -1,5 +1,7 @@
-<!--Add event voting-->
-<!--Add event voting-->
+
+<ng-content *ngIf="isUserSignedIn$ | async; then signedIn">
+</ng-content>
+<ng-template #signedIn>
 <fieldset class="rating">
     
 
@@ -33,13 +35,6 @@
   
     <input type="radio" [name]="inputName" value="1" [checked]="rating===1" />
     <label title="Sucks big time" (click)='onClick(1)'>1 star</label>
-
-    <!-- <ul class="votes">
-      <li *ngFor="let vote of votes">
-        <span>{{vote.filmId}}</span> {{vote.rating}}
-      </li>
-      </ul> -->
-
   </fieldset>
-
+</ng-template>
   

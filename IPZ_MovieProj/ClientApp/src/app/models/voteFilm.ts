@@ -6,7 +6,7 @@ export class VoteFilm{
         public id?: number,
         public filmId?: number,
         public film?: Film,
-        public userId?: number,
+        public userId?: string,
         public user?: User,
         public rating?: number
     ){}

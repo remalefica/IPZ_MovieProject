@@ -2,7 +2,8 @@
     <div>
         <article class="film">
             <div style=display:inline-block;>
-            <h3>{{film.name | uppercase}} ({{film.year}})</h3> 
+            <h3>{{film.name | uppercase}} ({{film.year}})</h3>
+            <p>{{film.id}}</p> 
             <p>
              <img [src]="film.filmImgPath" class="placeholder_left">
             </p>
@@ -20,6 +21,7 @@
             <div *ngIf="film.originCountry">
             <p>Country: {{film.originCountry}}</p>
             </div>
+            <h3>Rating: {{ratingAvg | number}}</h3>
             <div *ngIf="this.film.genres">
             <p>Genre: 
             <div *ngFor="let genre of this.genres">
@@ -28,6 +30,8 @@
             </div>
             </div>
             <p></p>
+
+
 
             <div style = display:block;><app-rating-voting [filmId]="film.id"></app-rating-voting></div>
 

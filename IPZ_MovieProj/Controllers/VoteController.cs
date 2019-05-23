@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IPZ_MovieProj.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/vote")]
     [ApiController]
     public class VoteController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace IPZ_MovieProj.Controllers
         {
             _voteService = voteService ?? throw new ArgumentNullException(nameof(voteService));
         }
-        [HttpGet("votes")]
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Vote>> GetById(int id)
         {
@@ -38,7 +38,21 @@ namespace IPZ_MovieProj.Controllers
 
             return Ok(vote);
         }
-        [HttpPost()]
+
+		[HttpGet("film/{filmId}/user/{userId}")]
+		public async Task<ActionResult<Vote>> GetByFilmUserId(int filmId, string userId)
+		{
+			if (filmId <= 0)
+			{
+				return BadRequest();
+			}
+
+			var vote = await _voteService.GetByFilmUserIdAsync(filmId, userId);
+
+			return Ok(vote);
+		}
+
+		[HttpPost("make-vote")]
         public async Task<ActionResult<Vote>> Create([FromBody][Required]Vote vote)
         {
             if (!ModelState.IsValid)
@@ -53,7 +67,7 @@ namespace IPZ_MovieProj.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("update-vote/{id}")]
         public async Task<ActionResult> Update([Range(1, int.MaxValue)]int id, [FromBody]Vote vote)
         {
             if (!ModelState.IsValid)

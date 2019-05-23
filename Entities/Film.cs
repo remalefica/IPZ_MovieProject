@@ -17,7 +17,6 @@ namespace Entities
 		public string Director { get; set; }
 		public string OriginCountry { get; set; }
 		public double Budget { get; set; }
-		[Column(TypeName = "float")]
 		public double RatingAvg { get; set; }
 		public IEnumerable<Comment> Comments { get; set; }
 		public IEnumerable<Vote> Votes { get; set; }

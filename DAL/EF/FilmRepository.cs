@@ -60,9 +60,7 @@ namespace DAL.EF
 		public async Task<IEnumerable<Film>> GetTenMostPopular()
 		{
 			return await _dbContext.Films
-					.Select(f => new { Film = f, VoteNumber = f.Votes.Count() })
-					.OrderByDescending(fs => fs.VoteNumber)
-					.Select(f => f.Film)
+					.OrderByDescending(fs => fs.RatingAvg)
 					.Take(20)
 					.ToListAsync();
 		}

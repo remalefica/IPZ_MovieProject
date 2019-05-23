@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentFilm } from '../../models/commentFilm';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { Film } from '../../models/film';
 import { CommentService } from '../../services/comment/comment.service';
 import { AuthService } from 'src/app/services/authorisation/authorisation.service';
 import { MessageService } from 'src/app/services/message/message.service';

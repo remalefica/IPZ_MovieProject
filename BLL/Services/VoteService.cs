@@ -38,6 +38,7 @@ namespace BLL.Services
             var voteDb = await _unitOfWork.VoteRepository.GetById(id);
 
             voteDb = vote ?? throw new ArgumentNullException(nameof(vote));
+			
             await _unitOfWork.SaveAsync();
         }
         public async Task<Vote> GetByIdAsync(int id)
@@ -49,17 +50,17 @@ namespace BLL.Services
 
             return await _unitOfWork.VoteRepository.GetById(id);
         }
-        public async Task<Vote> GetByFilmIdAsync(int filmId)
+        public async Task<Vote> GetByFilmUserIdAsync(int filmId, string userId)
         {
             if (filmId <= 0)
             {
                 throw new ArgumentException("Id must be more then zero", nameof(filmId));
             }
 
-            return await _unitOfWork.VoteRepository.GetByFilmId(filmId);
+            return await _unitOfWork.VoteRepository.GetByFilmUserId(filmId, userId);
         }
 
-        public async Task<Vote> GetByUserIdAsync(string userId)
+        public async Task<IEnumerable<Vote>> GetByUserIdAsync(string userId)
         {
             if (!int.TryParse(userId, out int id))
             {

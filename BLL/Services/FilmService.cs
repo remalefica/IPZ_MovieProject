@@ -24,6 +24,7 @@ namespace BLL.Services
 				throw new ArgumentNullException(nameof(film));
 			}
 
+			film.RatingAvg = CountFilmRatingAvg(film);
 			_unitOfWork.FilmRepository.AddFilm(film);
 			await _unitOfWork.SaveAsync();
 			return film;
