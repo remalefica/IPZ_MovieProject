@@ -67,24 +67,12 @@ namespace BLL.Services
 
         public async Task<IEnumerable<Comment>> GetByUserIdAsync(string userId)
         {
-            if (!int.TryParse(userId, out int id))
-            {
-                throw new ArgumentException("Id must be a number", nameof(userId));
-            }
-
-            if (id <= 0)
-            {
-                throw new ArgumentException("Id must be more then zero", nameof(id));
-            }
-
-            var user = await _unitOfWork.UserRepository.GetById(userId);
-
-            if (user == null)
-            {
-                throw new ArgumentException("not found", nameof(id));
-            }
-
             return await _unitOfWork.CommentRepository.GetByUserId(userId);
         }
-    }
+
+		public async Task<Comment> GetByUserIdLastAsync(string userId)
+		{
+			return await _unitOfWork.CommentRepository.GetByUserIdLast(userId);
+		}
+	}
 }

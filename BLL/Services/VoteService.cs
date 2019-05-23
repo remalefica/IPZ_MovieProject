@@ -3,7 +3,7 @@ using DAL.Interfaces;
 using Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -25,7 +25,11 @@ namespace BLL.Services
             }
 
             _unitOfWork.VoteRepository.AddVote(vote);
-            await _unitOfWork.SaveAsync();
+
+			var film = await _unitOfWork.FilmRepository.GetById(vote.FilmId);
+			film.RatingAvg = await CountRatingAvg(vote.FilmId);
+
+			await _unitOfWork.SaveAsync();
             return vote;
         }
         public async Task UpdateVoteAsync(int id, Vote vote)
@@ -36,9 +40,13 @@ namespace BLL.Services
             }
 
             var voteDb = await _unitOfWork.VoteRepository.GetById(id);
-
             voteDb = vote ?? throw new ArgumentNullException(nameof(vote));
-			
+
+			_unitOfWork.VoteRepository.UpdateVote(voteDb);
+
+			var film = await _unitOfWork.FilmRepository.GetById(voteDb.FilmId);
+			film.RatingAvg = await CountRatingAvg(voteDb.FilmId);
+
             await _unitOfWork.SaveAsync();
         }
         public async Task<Vote> GetByIdAsync(int id)
@@ -62,24 +70,32 @@ namespace BLL.Services
 
         public async Task<IEnumerable<Vote>> GetByUserIdAsync(string userId)
         {
-            if (!int.TryParse(userId, out int id))
-            {
-                throw new ArgumentException("Id must be a number", nameof(userId));
-            }
-
-            if (id <= 0)
-            {
-                throw new ArgumentException("Id must be more then zero", nameof(id));
-            }
-
             var user = await _unitOfWork.UserRepository.GetById(userId);
 
             if (user == null)
             {
-                throw new ArgumentException("not found", nameof(id));
+                throw new ArgumentException("not found", nameof(userId));
             }
 
             return await _unitOfWork.VoteRepository.GetByUserId(userId);
         }
+
+		private async Task<double> CountRatingAvg(int filmId)
+		{
+			var votes = await _unitOfWork.VoteRepository.GetByFilmId(filmId);
+
+			if (votes.Count() > 0)
+			{
+				double rating = 0;
+				foreach (var vote in votes)
+				{
+					rating += vote.Rating;
+				}
+				return rating / votes.Count();
+			}
+
+			return 0;
+
+		}
     }
 }

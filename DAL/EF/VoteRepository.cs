@@ -28,11 +28,11 @@ namespace DAL.EF
                         .Where(c => c.Id == id)
                         .FirstOrDefaultAsync();
         }
-        public void UpdateVote(Vote vote)
+        public async void UpdateVote(Vote vote)
         {
-			//var voteDb = await GetById(vote.Id);
-			//voteDb.Rating = 
-            _dbContext.Votes.Update(vote);
+			var voteDb = await GetById(vote.Id);
+			voteDb.Rating = vote.Rating;
+			_dbContext.Votes.Update(voteDb);
         }
         public async Task<Vote> GetByFilmUserId(int filmId, string userId)
         {

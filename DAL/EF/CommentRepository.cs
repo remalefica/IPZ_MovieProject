@@ -44,5 +44,12 @@ namespace DAL.EF
                         .Where(c => c.UserId == userId)
                         .ToListAsync();
         }
-    } 
+
+		public async Task<Comment> GetByUserIdLast(string userId)
+		{
+			return await _dbContext.Comments
+						.Where(c => c.UserId == userId)
+						.LastOrDefaultAsync();
+		}
+	} 
 }

@@ -16,25 +16,33 @@ export class CommentService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:5001' + '/api/Comment';
+      this.url = 'https://localhost:5001' + '/api/comment';
     }
 
   getCommentsByFilmId(filmId : number) : Observable<CommentFilm[]> {
     let PATH = this.url +'/film/' + `${filmId}`;
 
-    this.messageService.add('CommentService: fetched comments of film ' + `${filmId}`);
 
     return this.httpClient.get<CommentFilm[]>(PATH);
 }
+
+  getCommentByUserIdLast(userId: string) : Observable<CommentFilm>{
+    let PATH = this.url +'/user/' + userId + '/last';
+
+    return this.httpClient.get<CommentFilm>(PATH);
+  }
+
+  getCommentByUserId(userId: string) : Observable<CommentFilm[]>{
+    let PATH = this.url +'/user/' + userId;
+
+    return this.httpClient.get<CommentFilm[]>(PATH);
+  }
 
   addComment(comment : CommentFilm): Observable<CommentFilm>{
     let PATH = this.url + '/Create';
 
     return this.httpClient.post<CommentFilm>(PATH, comment)
         .pipe(
-          tap(() => {
-            this.messageService.add('CommentService: fetched comments of film ' + `${comment.userId}` + `${comment.text}`);
-          }),
           catchError(this.errorHandlingService.handleError)
           );
   }

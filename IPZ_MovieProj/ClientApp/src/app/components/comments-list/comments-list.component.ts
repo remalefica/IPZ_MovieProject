@@ -3,6 +3,9 @@ import { CommentFilm } from '../../models/commentFilm';
 import { CommentService} from '../../services/comment/comment.service';
 import { Film } from '../../models/film';
 import { UserService } from 'src/app/services/user/user.service';
+import { User } from 'src/app/models';
+import { AuthService } from 'src/app/services/authorisation/authorisation.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-comments-list',
@@ -13,14 +16,40 @@ export class CommentsListComponent implements OnInit {
 
 
   comments : CommentFilm[];
-
-  @Input() filmId: number;
+  comment: CommentFilm;
+  user : User;
+  @Input() filmId : number;
 
   constructor(private commentService: CommentService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.getComments();
+    this.authService.getCurrentUser()
+    .subscribe(userDb => {
+      this.user = userDb;
+      this.comment.username = userDb.username;
+    });
+    this.newComment();
+  }
+
+  addComment() : void{
+    this.comment.userId = this.user.id;
+    this.comment.filmId = this.filmId;
+    this.comment.username = this.user.username;
+    this.commentService.addComment(this.comment)
+      .subscribe();
+    this.comments.push(this.comment)
+    this.newComment();
+   }
+
+  newComment() : void{
+    this.comment = new CommentFilm();
+  }
+
+  public get isUserSignedIn$(): Observable<boolean> {
+    return this.authService.isSignedIn();
   }
 
  getComments(): void{

@@ -22,7 +22,6 @@ export class GenreService {
     getGenre(id: number): Observable<GenreFilm[]> {
       let PATH = this.url + `/film/${id}`;
 
-      this.messageService.add('GenreService: fetched genre id ' + `{${id}}`);
       return this.httpClient.get<GenreFilm[]>(PATH);
     }
 

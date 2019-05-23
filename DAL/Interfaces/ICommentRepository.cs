@@ -11,7 +11,8 @@ namespace DAL.Interfaces
         Task <Comment> GetById(int id);
         Task<IEnumerable<Comment>> GetByFilmId(int filmId);
         Task<IEnumerable<Comment>> GetByUserId(string userId);
-        void AddComment(Comment comment);
+		Task<Comment> GetByUserIdLast(string userId);
+		void AddComment(Comment comment);
 		void DeleteComment(Comment comment);
      
     }
