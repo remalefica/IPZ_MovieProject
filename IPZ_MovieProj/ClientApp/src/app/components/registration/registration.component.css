@@ -294,6 +294,13 @@ iframe {
 .has-val.input100 + .focus-input100::after {
     color: #6868D3;
 }
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
