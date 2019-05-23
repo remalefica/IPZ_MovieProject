@@ -25,8 +25,7 @@ import { AuthService } from './services/authorisation/authorisation.service';
 import { JwtService } from './services/authorisation/jwt.service';
 import { ErrorHandlingService } from './services/authorisation/error-handling.service';
 import {TokenInterceptor} from './interceptor/token.interceptor';
-
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilmSearchPipe } from './components/nav-bar/filmname.pipe';
 
 
 @NgModule({
@@ -45,7 +44,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     TopfilmsComponent,
     AccountComponent,
     AllcommentsComponent,
-    AllvotesComponent
+    AllvotesComponent,
+    FilmSearchPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,8 +53,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     RouterModule.forRoot([
     ]),
-    AppRoutingModule,
-    Ng2SearchPipeModule
+    AppRoutingModule
   ],
   providers: [AuthService,  JwtService,
     { provide: Window, useValue: window },

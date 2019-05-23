@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class CommentsListComponent implements OnInit {
 
+
   comments : CommentFilm[];
 
   @Input() filmId: number;
