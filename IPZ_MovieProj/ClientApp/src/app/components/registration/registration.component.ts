@@ -11,6 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent implements OnInit{
+
+  registerForm: FormGroup;
+
   user: UserRegistrationModel = {
     login: '',
     email: '',
@@ -19,8 +22,19 @@ export class RegistrationComponent implements OnInit{
   };
  @ViewChild('userForm') form: any;
 
- constructor() { }
- ngOnInit() { }
+ constructor(private formBuilder: FormBuilder) { }
+
+ ngOnInit() {
+  this.registerForm = this.formBuilder.group({
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
+  }, {
+      validator: MustMatch('password', 'confirmPassword')
+  });
+}
+
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
 
  onSubmit({value,valid}: {value: UserRegistrationModel, valid: boolean}) {
    if(!valid){
