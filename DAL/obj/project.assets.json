@@ -3239,11 +3239,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Универ\\IPZ_MovieProj\\DAL\\DAL.csproj",
+      "projectUniqueName": "E:\\Универ\\IPZ\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "E:\\Универ\\IPZ_MovieProj\\DAL\\DAL.csproj",
+      "projectPath": "E:\\Универ\\IPZ\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\crims\\.nuget\\packages\\",
-      "outputPath": "E:\\Универ\\IPZ_MovieProj\\DAL\\obj\\",
+      "outputPath": "E:\\Универ\\IPZ\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3262,8 +3262,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj": {
-              "projectPath": "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj"
+            "E:\\Универ\\IPZ\\Entities\\Entities.csproj": {
+              "projectPath": "E:\\Универ\\IPZ\\Entities\\Entities.csproj"
             }
           }
         }

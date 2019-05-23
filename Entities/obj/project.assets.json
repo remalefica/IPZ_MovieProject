@@ -1156,11 +1156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj",
+      "projectUniqueName": "E:\\Универ\\IPZ\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "E:\\Универ\\IPZ_MovieProj\\Entities\\Entities.csproj",
+      "projectPath": "E:\\Универ\\IPZ\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\crims\\.nuget\\packages\\",
-      "outputPath": "E:\\Универ\\IPZ_MovieProj\\Entities\\obj\\",
+      "outputPath": "E:\\Универ\\IPZ\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
