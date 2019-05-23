@@ -46,7 +46,6 @@ namespace IPZ_MovieProj.Controllers
 				return BadRequest(ModelState);
 			}
 
-
 			Microsoft.AspNetCore.Identity.SignInResult result =
 				await _signInManager.PasswordSignInAsync(signInModel.Login, signInModel.Password, false, false);
 
@@ -56,7 +55,7 @@ namespace IPZ_MovieProj.Controllers
 			}
 
 			AuthUser authUser = _userManager.Users.FirstOrDefault(user => user.UserName == signInModel.Login);
-			User appUser = await _appUserService.GetByNameAsync(authUser.Id);
+			User appUser = await _appUserService.GetById(authUser.Id);
 			string token = GenerateJwtTokenString(authUser);
 
 			return Ok(new { user = appUser, token });
@@ -90,7 +89,7 @@ namespace IPZ_MovieProj.Controllers
 			var appUser = new User
 			{
 				Id = authUserId,
-				UserName = signUpModel.SignInModel.Login,
+				Username = signUpModel.SignInModel.Login,
 				Email = signUpModel.Email
 			};
 

@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentFilm } from '../../models/commentFilm';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { Film } from '../../models/film';
 import { CommentService } from '../../services/comment/comment.service';
-import { filterQueryId } from '@angular/core/src/view/util';
 import { AuthService } from 'src/app/services/authorisation/authorisation.service';
 import { MessageService } from 'src/app/services/message/message.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/models';
 
 @Component({
   selector: 'app-comment',
@@ -19,27 +18,29 @@ export class CommentComponent implements OnInit {
               private messageService: MessageService) { }
 
   comment: CommentFilm;
+  user : User;
   @Input() filmId : number;
 
   ngOnInit() {
+    this.authService.getCurrentUser()
+    .subscribe(userDb => this.user = userDb);
     this.newComment();
   }
 
-   sendComment() : void{
-     this.commentService.addComment(this.comment);
-     this.newComment();
+   addComment() : void{
+    this.comment.userId = this.user.id;
+    this.comment.filmId = this.filmId;
+    this.commentService.addComment(this.comment)
+      .subscribe();
+    this.newComment();
    }
 
   newComment() : void{
     this.comment = new CommentFilm();
-    this.comment.filmId = this.filmId;
-    if (!this.authService.isSignedIn())
-    {
-      this.messageService.add("You`re not signed in");
-      return;
-    }
-    this.authService.getCurrentUser()
-          .subscribe(user => this.comment.userId = user.id);
+  }
+
+  public get isUserSignedIn$(): Observable<boolean> {
+    return this.authService.isSignedIn();
   }
 
 }

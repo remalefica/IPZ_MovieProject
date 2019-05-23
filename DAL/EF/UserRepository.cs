@@ -25,14 +25,6 @@ namespace DAL.EF
                         .FirstOrDefaultAsync();
         }
 
-		public async Task<User> GetByUsername(string username)
-		{
-			return await _dbContext.Users
-						.Where(c => c.UserName == username)
-						.FirstOrDefaultAsync();
-		}
-
-
 		public void AddUser(User user)
 		{
 			_dbContext.Users.Add(user);

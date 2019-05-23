@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChange, Input } from '@angular/core';
 import { Film } from '../../models/film';
 import { FilmService } from '../../services/film/film.service';
 import { Genre } from '../../models/genre';

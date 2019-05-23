@@ -59,10 +59,6 @@ namespace BLL.Services
             userDb = user ?? throw new ArgumentNullException(nameof(user));
             await _unitOfWork.SaveAsync();
         }
-        public async Task<User> GetByNameAsync(string username)
-        {
-            return await _unitOfWork.UserRepository.GetByUsername(username);
-        }
 
 		public async Task<User> GetById(string id)
 		{

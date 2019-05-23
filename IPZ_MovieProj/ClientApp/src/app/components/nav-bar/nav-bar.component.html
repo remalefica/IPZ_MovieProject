@@ -10,10 +10,19 @@
       
       <li>
         <table class="table_search" style="border: none;">
-         <tr>
+         <tr class="dropdown">
            <td><img src="../assets/icon_search.svg"/></td>
-           <td><input class="user_input" type="text" placeholder="Search..."> </td>
+           <td><input class="user_input" type="text" placeholder="Search..." [(ngModel)]="searchText"> </td>
+           <div *ngIf="searchText">
+            <div class="dropdown-content">
+           <tr *ngFor="let film of (films | filmSearch:searchText)">
+            <td (click)="this.goToUrl(film.id)">{{film.name}}</td>
          </tr>
+         </div>
+        </div>
+         </tr>
+         
+
        </table>
       </li> 
 

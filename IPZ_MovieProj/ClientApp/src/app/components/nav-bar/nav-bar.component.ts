@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Film } from '../../models/film';
+import { FilmService } from '../../services/film/film.service';
+import {FilmSearchPipe} from './filmname.pipe';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,10 +14,22 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private authService: AuthService,
-               private router: Router) { }
+  url : string;
+  searchText : string;
+  films: Film[];
+
+  constructor(@Inject(DOCUMENT) private document: any,
+              private authService: AuthService,
+               private router: Router,
+               private filmService: FilmService) { }
 
   ngOnInit() {
+    this.getFilms();
+    this.url = "https://localhost:5001/films/";
+  }
+  getFilms(): void {
+    this.filmService.getFilms()
+    .subscribe(films => this.films = films);
   }
 
   public get isUserSignedIn$(): Observable<boolean> {
@@ -25,5 +41,9 @@ export class NavBarComponent implements OnInit {
       this.router.navigate([''])
     })
   }
+
+  goToUrl(filmId : number): void {
+    this.document.location.href = this.url + `${filmId}`;
+}
 
 }

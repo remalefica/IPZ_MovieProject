@@ -18,7 +18,7 @@ namespace DAL
         {
             modelBuilder.Entity<User>(user =>
              {
-                 user.Property(u => u.UserName).IsRequired();
+                 user.Property(u => u.Username).IsRequired();
 
              });
 
@@ -273,7 +273,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/0pdqf4P9MB8",
 
                     OriginCountry = "USA | Hong Kong",
-                    RatingAvg = 30000000,
+                    Budget = 30000000,
                     DurationInMinutes = 128
                 },
                 new Film
@@ -768,8 +768,6 @@ namespace DAL
 
                     vote.Property(v => v.FilmId)
                         .IsRequired();
-
-                    vote.HasAlternateKey(v => v.UserId);
                 });
 
 			base.OnModelCreating(modelBuilder);

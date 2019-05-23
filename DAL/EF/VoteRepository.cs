@@ -30,19 +30,28 @@ namespace DAL.EF
         }
         public void UpdateVote(Vote vote)
         {
+			//var voteDb = await GetById(vote.Id);
+			//voteDb.Rating = 
             _dbContext.Votes.Update(vote);
         }
-        public async Task<Vote> GetByFilmId(int filmId)
+        public async Task<Vote> GetByFilmUserId(int filmId, string userId)
         {
             return await _dbContext.Votes
-                        .Where(v => v.FilmId == filmId)
+                        .Where(v => v.FilmId == filmId && v.UserId == userId)
                         .FirstOrDefaultAsync(); ;
         }
-        public async Task<Vote> GetByUserId(string userId)
+        public async Task<IEnumerable<Vote>> GetByUserId(string userId)
         {
             return await _dbContext.Votes
                         .Where(v => v.UserId == userId)
-                        .FirstOrDefaultAsync(); ;
+                        .ToListAsync();
         }
-    }
+
+		public async Task<IEnumerable<Vote>> GetByFilmId(int filmId)
+		{
+			return await _dbContext.Votes
+						.Where(v => v.FilmId == filmId)
+						.ToListAsync();
+		}
+	}
 }

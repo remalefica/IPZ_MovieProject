@@ -12,6 +12,5 @@ namespace DAL.Interfaces
 		void DeleteUser(User user);
 		void UpdateUser(User user);
         Task<User> GetById(string id);
-		Task<User> GetByUsername(string id);
 	}
 }

@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IPZ_MovieProj.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace IPZ_MovieProj.Controllers
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
-        [HttpGet("id/{id}")]
-        public async Task<ActionResult<User>> GetById(string name)
+		[HttpGet("{id}")]
+		public async Task<ActionResult<User>> GetById(string id)
         {
-            var user = await _userService.GetByNameAsync(name);
+            var user = await _userService.GetById(id);
 
             if (user == null)
             {
@@ -34,20 +34,7 @@ namespace IPZ_MovieProj.Controllers
             return Ok(user);
         }
 
-		[HttpGet("username/{name}")]
-		public async Task<ActionResult<User>> GetByUsername(string name)
-		{
-			var user = await _userService.GetByNameAsync(name);
-
-			if (user == null)
-			{
-				return NotFound();
-			}
-
-			return Ok(user);
-		}
-
-		[HttpPost()]
+		[HttpPost("Create")]
         public async Task<ActionResult<User>> Create([FromBody][Required]User user)
         {
             if (!ModelState.IsValid)
@@ -61,7 +48,7 @@ namespace IPZ_MovieProj.Controllers
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<ActionResult> Delete([Range(1, int.MaxValue)]int id)
         {
             if (!ModelState.IsValid)
@@ -74,8 +61,8 @@ namespace IPZ_MovieProj.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Update([Range(1, int.MaxValue)]int id, [FromBody]User user)
+        [HttpPut("put/{id}")]
+        public async Task<ActionResult> Update(string  id, [FromBody]User user)
         {
             if (!ModelState.IsValid)
             {

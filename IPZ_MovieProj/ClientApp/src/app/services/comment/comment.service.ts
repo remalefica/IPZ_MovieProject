@@ -4,6 +4,7 @@ import { of, Observable } from 'rxjs';
 import { MessageService } from '../message/message.service';
 import { ErrorHandlingService } from '../authorisation/error-handling.service';
 import { HttpClient } from '@angular/common/http';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +22,21 @@ export class CommentService {
   getCommentsByFilmId(filmId : number) : Observable<CommentFilm[]> {
     let PATH = this.url +'/film/' + `${filmId}`;
 
-    this.messageService.add('COmmentService: fetched comments of film ' + `${filmId}`);
+    this.messageService.add('CommentService: fetched comments of film ' + `${filmId}`);
 
     return this.httpClient.get<CommentFilm[]>(PATH);
 }
 
-  addComment(comment : CommentFilm): Observable<CommentFilm[]>{
-    let PATH = this.url;
-    return this.httpClient.post<any>(PATH, comment);
+  addComment(comment : CommentFilm): Observable<CommentFilm>{
+    let PATH = this.url + '/Create';
+
+    return this.httpClient.post<CommentFilm>(PATH, comment)
+        .pipe(
+          tap(() => {
+            this.messageService.add('CommentService: fetched comments of film ' + `${comment.userId}` + `${comment.text}`);
+          }),
+          catchError(this.errorHandlingService.handleError)
+          );
   }
 }
 
