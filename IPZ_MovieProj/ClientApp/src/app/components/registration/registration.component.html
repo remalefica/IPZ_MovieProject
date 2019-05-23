@@ -19,7 +19,7 @@
 
         <form class="login100-form validate-form" [formGroup]="registerForm" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
 
-          <div class="wrap-input100 validate-input">
+          <!-- <div class="wrap-input100 validate-input">
             <span class="label-input100">Username</span>
             <input class="input100" type="text" name="login" [(ngModel)]="user.login"
             #userLogin="ngModel" required minlength="4" maxlength="30"
@@ -30,45 +30,51 @@
             <div class="alert-validate" data-validate="Username must be between 4 and 30 characters long" 
             [hidden] = "!userLogin.errors?.minlength"></div>
             <span class="focus-input100" data-symbol="&#xf206;"></span>
-          </div>
+          </div> -->
+
+          <div class="wrap-input100 validate-input">
+              <span class="label-input100">Username</span>
+              <input class="input100" type="text"
+               placeholder="Type your username" (keydown.space)="$event.preventDefault();"
+               formControlName="login" maxlength="40"
+               [ngClass]="{ 'is-invalid': f.login.errors }">
+                <div *ngIf="f.login.errors">
+                    <div *ngIf="f.login.errors.required" class="alert-validate" data-validate="Username is required"></div>
+                    <div *ngIf="f.login.errors.minlength" class="alert-validate" data-validate="Username must be between 4 and 30 characters long"></div>
+                    <div *ngIf="f.login.errors.maxlength" class="alert-validate" data-validate="Username must be between 4 and 30 characters long"></div>
+                </div>
+              <span class="focus-input100" data-symbol="&#xf190;"></span>
+            </div>
+
 
           <div class="wrap-input100 validate-input">
             <span class="label-input100">E-mail</span>
-            <input class="input100" type="email" name="email"
-            #userEmail="ngModel" required minlength="4" maxlength="256" 
+            <input class="input100" type="email"  formControlName="email" maxlength="40"
+            
             (keydown.space)="$event.preventDefault();"
-            [(ngModel)]="user.email"
+            [(ngModel)]="user.email" 
             pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
-            placeholder="Type your e-mail">
-            <div class="alert-validate" data-validate="Email is required"
-            [hidden] = "!userEmail.errors?.required || userEmail.untouched"></div>
-            <div class="alert-validate" data-validate="Valid e-mail is required: ex@abc.xyz" [hidden] = "!userEmail.errors?.pattern"></div>
+            placeholder="Type your e-mail" [ngClass]="{ 'is-invalid': f.email.errors }">
+            <div *ngIf="f.email.errors">
+              <div *ngIf="f.email.errors.required" class="alert-validate" data-validate="Email is required"></div>
+              <div *ngIf="f.email.errors.pattern" class="alert-validate" data-validate="Valid e-mail is required: ex@abc.xyz"></div>
+            </div>           
             <span class="focus-input100" data-symbol="&#x2709;"></span>
           </div>
 
-          
 
-          <!-- <div >
-            <span class="label-input100">Password</span>
-            <input class="input100" type="password" formControlName="password"
-            [ngClass]="{ 'is-invalid': f.password.errors }"
-            placeholder="Type your password">
-            <div *ngIf="f.password.errors" class="">
-                <div *ngIf="f.password.errors.required">Password is required</div>
-                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-            </div>
-            <span class="focus-input100" data-symbol="&#xf190;"></span>
-          </div> -->
+          
 
           <div class="wrap-input100 validate-input">
               <span class="label-input100">Password</span>
               <input class="input100" type="text"
                placeholder="Type your password"
-               formControlName="password"
+               formControlName="password" maxlength="35"
                [ngClass]="{ 'is-invalid': f.password.errors }">
-                <div *ngIf="f.password.errors" class="">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
-                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                <div *ngIf="f.password.errors">
+                    <div *ngIf="f.password.errors.required" class="alert-validate" data-validate="Password is required"></div>
+                    <div *ngIf="f.password.errors.minlength" class="alert-validate" data-validate="Password must be between 6 and 20 characters long"></div>
+                    <div *ngIf="f.password.errors.maxlength" class="alert-validate" data-validate="Password must be between 6 and 20 characters long"></div>
                 </div>
               <span class="focus-input100" data-symbol="&#xf190;"></span>
             </div>
@@ -77,11 +83,11 @@
             <span class="label-input100">Password Confirm</span>
             <input class="input100" type="text"
              placeholder="Repeat your password"
-             formControlName="confirmPassword"
+             formControlName="confirmPassword" maxlength="35"
              [ngClass]="{ 'is-invalid': f.confirmPassword.errors }">
-              <div *ngIf="submitted && f.confirmPassword.errors" class="">
-                  <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                  <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+              <div *ngIf="f.confirmPassword.errors">
+                  <div *ngIf="f.confirmPassword.errors.required" class="alert-validate" data-validate="Confirm Password is required"></div>
+                  <div *ngIf="f.confirmPassword.errors.mustMatch" class="alert-validate" data-validate="Passwords are different"></div>
               </div>
             <span class="focus-input100" data-symbol="&#xf190;"></span>
           </div>
