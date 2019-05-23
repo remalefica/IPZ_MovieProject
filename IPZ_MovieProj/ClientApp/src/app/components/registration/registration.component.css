@@ -140,9 +140,6 @@ button {
     border: none;
     background: transparent;
 }
-button:hover {
-    cursor: pointer;
-}
 iframe {
     border: none !important;
 }
@@ -322,6 +319,16 @@ iframe {
     -o-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
     -ms-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
 }
+
+.wrap-login100-form-btn-false {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+}
 .login100-form-bgbtn {
     position: absolute;
     z-index: -1;
@@ -354,6 +361,33 @@ iframe {
     width: 100%;
     height: 50px;
 }
+button:disabled,
+button[disabled]
+{
+    color: #fff;
+    /*8C141F*/
+    background-color: #962B2B;
+  font-family: Century Gothic;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  cursor: not-allowed;
+}
+
+.login100-form-btn:hover {
+    cursor: pointer;
+}
+
 .wrap-login100-form-btn:hover .login100-form-bgbtn {
     left: 0;
 }
@@ -417,27 +451,6 @@ iframe {
     visibility: visible;
     opacity: 1;
 }
-}
-/*//////////////////////////////////////////////////////////////////
-[ Social item ]*/
-.login100-social-item {
-    font-size: 25px;
-    color: #fff;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 5px;
-}
-.login100-social-item:hover {
-    color: #fff;
-    background-color: #333333;
 }
 
 /*//////////////////////////////////////////////////////////////////

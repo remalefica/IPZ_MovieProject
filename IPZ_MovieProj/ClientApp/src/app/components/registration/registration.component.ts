@@ -1,50 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router } from '@angular/router';
-import { UserLoginModel } from '../../models';
+import { MustMatch} from '../../directives/must-match.validator';
+import { UserRegistrationModel } from '../../models/user-registration-model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit{
+  user: UserRegistrationModel = {
+    login: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+ @ViewChild('userForm') form: any;
 
-  public login: string;
-  public password: string;
-  public password2: string;
-  public email: string;
+ constructor() { }
+ ngOnInit() { }
 
-  constructor(private authService: AuthService, private router: Router) { }
-
-  public signUp(): void {
-    if (this.password !== this.password2) {
-      alert('passwords are differrent!');
-      return;
-    }
-
-    this.authService.singUp(<UserLoginModel> { 
-        login: this.login, 
-        password: this.password},
-        this.email
-          )
-    .subscribe(_ => {
-      this.router.navigate(['films']);
-    });
-
-    // this.authService.validateLogin(this.login).pipe(
-    //   tap(isValid => {
-    //     if (!isValid) {
-    //       alert('user with such login already exists');
-    //     }
-    //   }),
-    //   filter(isValid => isValid),
-    //   mergeMap(_ =>
-    //     this.authService.singUp(<UserLoginModel> { login: this.login, password: this.password },
-    //       this.firstName, this.lastName))
-    // ).subscribe(_ => {
-    //   this.router.navigate(['dashboards'])
-    // });
-  }
-
+ onSubmit({value,valid}: {value: UserRegistrationModel, valid: boolean}) {
+   if(!valid){
+     console.log('Form is not valid');
+   } else {
+     console.log('Form was submitted');
+     this.form.reset();
+   }
+ }
+  //constructor(private authService: AuthService, private router: Router) { }
+ 
+  //   this.authService.singUp(<UserLoginModel> { 
+  //     login: this.registerForm.controls.firstName, 
+  //     password: this.registerForm.controls.password},
+  //     this.registerForm.controls.email
+  //       )
+  // .subscribe(_ => {
+  //   this.router.navigate(['films']);
+  // });
 }
