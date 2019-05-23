@@ -24,7 +24,6 @@ namespace BLL.Services
 				throw new ArgumentNullException(nameof(film));
 			}
 
-			film.RatingAvg = CountFilmRatingAvg(film);
 			_unitOfWork.FilmRepository.AddFilm(film);
 			await _unitOfWork.SaveAsync();
 			return film;
@@ -89,27 +88,9 @@ namespace BLL.Services
 
 			filmDb = film ?? throw new ArgumentNullException(nameof(film));
 
-			filmDb.RatingAvg = CountFilmRatingAvg(film);
-
 			_unitOfWork.FilmRepository.UpdateFilm(filmDb);
 
 			await _unitOfWork.SaveAsync();
-		}
-
-
-		private double CountFilmRatingAvg(Film film)
-		{
-			if(film.Votes.Count() > 0)
-			{
-				double rating = 0;
-				foreach (var vote in film.Votes)
-				{
-					rating += vote.Rating;
-				}
-				return rating / film.Votes.Count();
-			}
-
-			return 0;
 		}
 	}
 }
