@@ -11,7 +11,8 @@ namespace DAL.Interfaces
 		Task<IEnumerable<Film>> GetByGenre(GenreListEnum genre);
 		Task<Film> GetByName(string name);
 		Task<IEnumerable<Film>> GetTenMostPopular();
-		Task<Film> GetById(int id);
+        Task<IEnumerable<Film>> GetFiveMostPopular();
+        Task<Film> GetById(int id);
 		void AddFilm(Film film);
 		void DeleteFilm(Film film);
 		void UpdateFilm(Film film);

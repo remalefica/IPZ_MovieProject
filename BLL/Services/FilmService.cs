@@ -77,7 +77,12 @@ namespace BLL.Services
 			return await _unitOfWork.FilmRepository.GetTenMostPopular();
 		}
 
-		public async Task UpdateFilmAsync(int id, Film film)
+        public async Task<IEnumerable<Film>> GetFiveMostPopularAsync()
+        {
+            return await _unitOfWork.FilmRepository.GetFiveMostPopular();
+        }
+
+        public async Task UpdateFilmAsync(int id, Film film)
 		{
 			if (id <= 0)
 			{
