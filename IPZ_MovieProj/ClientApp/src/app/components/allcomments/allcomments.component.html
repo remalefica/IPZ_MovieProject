@@ -4,21 +4,15 @@
     <th>ALL YOUR COMMENTS<br><span class="style_top_th">Here you can find all your comments. Don't get greedy, share your thoughts</span>
     </th>
   </tr>
+<div *ngFor="let comment of this.comments">
 <tr>
 <td class="filmname">
-<p>FILMNAME (YEAR)</p>
+<p>{{comment.film.name | uppercase}} ({{comment.film.year}})</p>
 </td>
 </tr>
 <tr>
-<td class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+<td class="comment">{{comment.text}}</td>
 </tr>
-<tr>
-<td class="filmname">
-<p>FILMNAME (YEAR)</p>
-</td>
-</tr>
-<tr>
-<td class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-</tr>
+</div>
 
 </table>

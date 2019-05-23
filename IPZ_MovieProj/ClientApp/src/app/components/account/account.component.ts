@@ -43,7 +43,6 @@ export class AccountComponent implements OnInit {
           .subscribe(film => 
             this.filmComment = film);})
 
-
-
+      //get vote here
   }
 }
