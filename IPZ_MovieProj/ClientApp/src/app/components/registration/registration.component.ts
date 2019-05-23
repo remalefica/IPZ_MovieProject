@@ -3,6 +3,7 @@ import { AuthService } from '../../services/authorisation/authorisation.service'
 import { Router } from '@angular/router';
 import { MustMatch} from '../../directives/must-match.validator';
 import { UserRegistrationModel } from '../../models/user-registration-model';
+import { UserLoginModel } from '../../models/user-login-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -22,7 +23,12 @@ export class RegistrationComponent implements OnInit{
   };
  @ViewChild('userForm') form: any;
 
- constructor(private formBuilder: FormBuilder) { }
+ constructor (
+   private formBuilder: FormBuilder, 
+   private authService: AuthService, 
+   private router: Router
+   )
+   { }
 
  ngOnInit() {
   this.registerForm = this.formBuilder.group({
@@ -38,16 +44,31 @@ export class RegistrationComponent implements OnInit{
 // convenience getter for easy access to form fields
 get f() { return this.registerForm.controls; }
 
- onSubmit({value,valid}: {value: UserRegistrationModel, valid: boolean}) {
-   if(!valid){
-     console.log('Form is not valid');
-   } else {
-     console.log('Form was submitted');
-     this.form.reset();
+ public onSubmit() {
+     //this.form.reset();
+     this.authService.singUp(<UserLoginModel> { 
+      login: this.user.login, 
+      password: this.user.password},
+      this.user.email)
+      .subscribe(_ => {
+        this.router.navigate(['films']);})
    }
- }
-  //constructor(private authService: AuthService, private router: Router) { }
- 
+
+
+//  public signUp(): void {
+
+
+//   this.authService.singUp(<UserLoginModel> { 
+//       login: this.login, 
+//       password: this.password},
+//       this.email
+//         )
+//   .subscribe(_ => {
+//     this.router.navigate(['films']);
+//   });
+
+
+
   //   this.authService.singUp(<UserLoginModel> { 
   //     login: this.registerForm.controls.firstName, 
   //     password: this.registerForm.controls.password},
