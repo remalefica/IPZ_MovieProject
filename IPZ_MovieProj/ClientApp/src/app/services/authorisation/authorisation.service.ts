@@ -34,6 +34,7 @@ export class AuthService {
       tap(({user, token}) => {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
+        this.messageService.add('Authorization was successful.');
       }),
       catchError(this.errorHandlingService.handleError)
     );
@@ -50,7 +51,7 @@ export class AuthService {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
 
-        this.messageService.add('AuthorisationService: user signed up');
+        this.messageService.add('Registration was successful.');
       }),
       catchError(this.errorHandlingService.handleError)
     );

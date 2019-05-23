@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JwtService } from '../../services/authorisation/jwt.service';
+import { MessageService } from '../../services/message/message.service';
 
 @Component({
   selector: 'app-authorisation',
@@ -12,7 +13,7 @@ export class AuthorisationComponent {
   username: string;
   password: string;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private messageService: MessageService,private router: Router, private authService: AuthService) { }
 
   login(): void {
     this.authService.signIn({
@@ -21,7 +22,7 @@ export class AuthorisationComponent {
     }).subscribe(() => {
      this.router.navigate(['films']);
     }, () => {
-      alert('Invalid credentials');
+      this.messageService.add('Authorization error.');
     });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router } from '@angular/router';
 import { UserLoginModel } from '../../models';
+import { MessageService } from '../../services/message/message.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,7 @@ export class RegistrationComponent {
   public password2: string;
   public email: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private messageService: MessageService, private router: Router) { }
 
   public signUp(): void {
     if (this.password !== this.password2) {
