@@ -23,8 +23,6 @@ export class UserService {
   getUser(id : string) : Observable<User> {
     let PATH = this.url + '/' + id;
 
-    this.messageService.add('UserService: fetched user ' + id);
-
     return this.httpClient.get<User>(PATH);
   }
 }

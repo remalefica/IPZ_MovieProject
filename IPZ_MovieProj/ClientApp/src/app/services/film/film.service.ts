@@ -23,15 +23,12 @@ export class FilmService {
   getFilms() : Observable<Film[]> {
     let PATH = this.url +'/all';
 
-    this.messageService.add('FilmService: fetched films');
-
     return this.httpClient.get<Film[]>(PATH);
 }
 
 getFilm(id: number): Observable<Film> {
   let PATH = this.url + `/${id}`;
 
-  this.messageService.add('FilmService: fetched film id ' + `{${id}}`);
   return this.httpClient.get<Film>(PATH);
 }
 
@@ -39,7 +36,6 @@ getByGenre(genre: number): Observable<Film[]> {
 
   let PATH = this.url + `/genre/${genre}`;
 
-  this.messageService.add('FilmService: fetched genre id ' + `{${genre}}`);
   return this.httpClient.get<Film[]>(PATH);
 }
 

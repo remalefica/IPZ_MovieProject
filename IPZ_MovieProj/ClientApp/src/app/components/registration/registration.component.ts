@@ -1,50 +1,80 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService } from '../../services/authorisation/authorisation.service';
 import { Router } from '@angular/router';
-import { UserLoginModel } from '../../models';
+import { MustMatch} from '../../directives/must-match.validator';
+import { UserRegistrationModel } from '../../models/user-registration-model';
+import { UserLoginModel } from '../../models/user-login-model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit{
 
-  public login: string;
-  public password: string;
-  public password2: string;
-  public email: string;
+  registerForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  user: UserRegistrationModel = {
+    login: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+ @ViewChild('userForm') form: any;
 
-  public signUp(): void {
-    if (this.password !== this.password2) {
-      alert('passwords are differrent!');
-      return;
-    }
+ constructor (
+   private formBuilder: FormBuilder, 
+   private authService: AuthService, 
+   private router: Router
+   )
+   { }
 
-    this.authService.singUp(<UserLoginModel> { 
-        login: this.login, 
-        password: this.password},
-        this.email
-          )
-    .subscribe(_ => {
-      this.router.navigate(['films']);
-    });
+ ngOnInit() {
+  this.registerForm = this.formBuilder.group({
+      login: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern]],
+      email: ['', [Validators.required, Validators.pattern]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      confirmPassword: ['', Validators.required]
+  }, {
+      validator: MustMatch('password', 'confirmPassword')
+  });
+}
 
-    // this.authService.validateLogin(this.login).pipe(
-    //   tap(isValid => {
-    //     if (!isValid) {
-    //       alert('user with such login already exists');
-    //     }
-    //   }),
-    //   filter(isValid => isValid),
-    //   mergeMap(_ =>
-    //     this.authService.singUp(<UserLoginModel> { login: this.login, password: this.password },
-    //       this.firstName, this.lastName))
-    // ).subscribe(_ => {
-    //   this.router.navigate(['dashboards'])
-    // });
-  }
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
 
+ public onSubmit() {
+     //this.form.reset();
+     this.authService.singUp(<UserLoginModel> { 
+      login: this.user.login, 
+      password: this.user.password},
+      this.user.email)
+      .subscribe(_ => {
+        this.router.navigate(['films']);})
+   }
+
+
+//  public signUp(): void {
+
+
+//   this.authService.singUp(<UserLoginModel> { 
+//       login: this.login, 
+//       password: this.password},
+//       this.email
+//         )
+//   .subscribe(_ => {
+//     this.router.navigate(['films']);
+//   });
+
+
+
+  //   this.authService.singUp(<UserLoginModel> { 
+  //     login: this.registerForm.controls.firstName, 
+  //     password: this.registerForm.controls.password},
+  //     this.registerForm.controls.email
+  //       )
+  // .subscribe(_ => {
+  //   this.router.navigate(['films']);
+  // });
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { AuthService } from './services/authorisation/authorisation.service';
 import { JwtService } from './services/authorisation/jwt.service';
 import { ErrorHandlingService } from './services/authorisation/error-handling.service';
 import {TokenInterceptor} from './interceptor/token.interceptor';
+import { MustMatch } from './directives/must-match.validator';
 import { FilmSearchPipe } from './components/nav-bar/filmname.pipe';
 
 
@@ -49,6 +50,7 @@ import { FilmSearchPipe } from './components/nav-bar/filmname.pipe';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
     ]),
     AppRoutingModule
