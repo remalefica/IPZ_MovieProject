@@ -1,4 +1,16 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+</head>
+
+<body>
+
 <div *ngIf="film">
     <div>
         <article class="film">
@@ -16,7 +28,7 @@
                         <p><span style="font-weight: 600;">Country:</span> {{film.originCountry}}</p>
                     </div>
                     <div *ngIf="film.durationInMinutes">
-                        <p><span style="font-weight: 600;">Duration:</span>{{film.durationInMinutes}} min</p>
+                        <p><span style="font-weight: 600;">Duration:</span> {{film.durationInMinutes}} min</p>
                     </div>
                     <div *ngIf="film.director">
                         <p><span style="font-weight: 600;">Director:</span> {{film.director}}</p>
@@ -26,7 +38,9 @@
                     </div>
 
                     <div>
-                        <p><span style="font-weight: 600;">Rating:</span> {{this.film.ratingAvg}}</p>
+                        <p><span style="font-weight: 600;">Rating:</span> 
+                            <i class="fas fa-star yellow" style="padding-left: 10px;"></i>
+                            {{this.film.ratingAvg}}</p>
                     </div>
 
                     <!-- <div class="line"></div> -->
@@ -46,7 +60,7 @@
                 
                 <div style="display: inline-block;">
                         <div style=display:inline-block;>
-                                <app-rating-voting [filmId]="film.id"></app-rating-voting>
+                            <app-rating-voting [filmId]="film.id"></app-rating-voting>
                         </div>
                     <br>
                     <h4>Movie Description</h4>
@@ -62,15 +76,6 @@
         </article>
     </div>
 
-
-
-    <!--Detailed info output about selected film-->
-
-    <!--Write up the remaining film properties-->
-
-
-
-    <!--Add voting component-->
-    <!--Add comment list component-->
-
 </div>
+</body>
+</html>
