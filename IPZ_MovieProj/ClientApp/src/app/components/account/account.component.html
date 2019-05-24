@@ -48,13 +48,9 @@
         <td></td>
         <td class="comment">{{this.comment.text}}</td>
       </tr>
-      <tr>
-        <td></td>
-        <td class="button_all"><a routerLink="/allcomments" class="inline-popup">See All</a></td>
-      </tr>
+
     </ng-template>
     <ng-template #nocomments>
-      <td></td>
       <td>You haven`t commented anything yet</td>
     </ng-template>
   </table>
@@ -67,16 +63,18 @@
     <tr>
       <td></td>
       <td class="filmname">
-        <p>FILMNAME (YEAR)</p>
+        <p>{{this.filmVote.name | uppercase}} ({{this.filmVote.year}})</p>
       </td>
     </tr>
     <tr>
       <td></td>
-      <td>Overall Rating: <i class="fas fa-star yellow"></i><span style="font-weight: 600">4.2</span></td>
+      <td>Overall Rating: <i class="fas fa-star yellow"></i><span style="font-weight: 600">
+          {{this.filmVote.ratingAvg}}</span></td>
     </tr>
     <tr>
       <td></td>
-      <td>My Vote: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>5</span></td>
+      <td>My Vote: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>
+          {{this.vote.rating}} </span></td>
     </tr>
     <tr>
       <td></td>

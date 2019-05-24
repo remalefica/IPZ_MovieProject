@@ -38,5 +38,18 @@ export class RatingVotingService {
     return this.httpClient.put<VoteFilm>(PATH, rating);
   }
 
+  getVoteByUserId(userId: string) : Observable<VoteFilm[]>{
+    let PATH = this.url +'/user/' + userId;
+
+    return this.httpClient.get<VoteFilm[]>(PATH);
+  }
+
+  getVoteByUserIdLast(userId: string) : Observable<VoteFilm>{
+    let PATH = this.url +'/user/' + userId + '/last';
+
+    return this.httpClient.get<VoteFilm>(PATH);
+  }
+
+
 }
 

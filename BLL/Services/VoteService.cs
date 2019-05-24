@@ -68,17 +68,7 @@ namespace BLL.Services
             return await _unitOfWork.VoteRepository.GetByFilmUserId(filmId, userId);
         }
 
-        public async Task<IEnumerable<Vote>> GetByUserIdAsync(string userId)
-        {
-            var user = await _unitOfWork.UserRepository.GetById(userId);
-
-            if (user == null)
-            {
-                throw new ArgumentException("not found", nameof(userId));
-            }
-
-            return await _unitOfWork.VoteRepository.GetByUserId(userId);
-        }
+       
 
 		private async Task<double> CountRatingAvg(int filmId)
 		{
@@ -97,5 +87,13 @@ namespace BLL.Services
 			return 0;
 
 		}
+        public async Task<IEnumerable<Vote>> GetByUserIdAsync(string userId)
+        {
+            return await _unitOfWork.VoteRepository.GetByUserId(userId);
+        }
+        public async Task<Vote> GetByUserIdLastAsync(string userId)
+        {
+            return await _unitOfWork.VoteRepository.GetByUserIdLast(userId);
+        }
     }
 }

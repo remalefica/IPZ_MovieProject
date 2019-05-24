@@ -12,7 +12,8 @@ namespace DAL.Interfaces
         void UpdateVote(Vote vote);
         Task<Vote> GetById(int id);
         Task<Vote> GetByFilmUserId(int filmId, string userId);
-		Task<IEnumerable<Vote>> GetByFilmId(int filmId);
+        Task<Vote> GetByUserIdLast(string userId);
+        Task<IEnumerable<Vote>> GetByFilmId(int filmId);
 		Task<IEnumerable<Vote>> GetByUserId(string userId);
 
     }
