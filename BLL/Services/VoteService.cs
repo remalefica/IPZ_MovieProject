@@ -24,10 +24,10 @@ namespace BLL.Services
                 throw new ArgumentNullException(nameof(vote));
             }
 
-            _unitOfWork.VoteRepository.AddVote(vote);
+            //var film = await _unitOfWork.FilmRepository.GetById(vote.FilmId);
+            //film.RatingAvg = await CountRatingAvg(vote.FilmId);
 
-			var film = await _unitOfWork.FilmRepository.GetById(vote.FilmId);
-			film.RatingAvg = await CountRatingAvg(vote.FilmId);
+            _unitOfWork.VoteRepository.AddVote(vote);
 
 			await _unitOfWork.SaveAsync();
             return vote;
@@ -44,8 +44,8 @@ namespace BLL.Services
 
 			_unitOfWork.VoteRepository.UpdateVote(voteDb);
 
-			var film = await _unitOfWork.FilmRepository.GetById(voteDb.FilmId);
-			film.RatingAvg = await CountRatingAvg(voteDb.FilmId);
+			//var film = await _unitOfWork.FilmRepository.GetById(voteDb.FilmId);
+			//film.RatingAvg = await CountRatingAvg(voteDb.FilmId);
 
             await _unitOfWork.SaveAsync();
         }

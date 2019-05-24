@@ -78,8 +78,8 @@ namespace IPZ_MovieProj.Controllers
 			return Ok(vote);
 		}
 
-		[HttpPost("make-vote")]
-        public async Task<ActionResult<Vote>> Create([FromBody][Required]Vote vote)
+		[HttpPost("Create")]
+        public async Task<ActionResult<Vote>> Create([FromBody]Vote vote)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace IPZ_MovieProj.Controllers
 
             var createdVote = await _voteService.AddVoteAsync(vote);
 
-            return CreatedAtAction(nameof(GetById), new { id = createdVote.Id }, vote);
+            return CreatedAtAction(nameof(GetById), new { id = createdVote.Id }, createdVote);
         }
 
 

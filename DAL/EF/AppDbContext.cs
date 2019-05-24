@@ -42,6 +42,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/BXUEUwwgIyU",
                     OriginCountry = "USA",
                     Budget = 25000000,
+                    RatingAvg = 9.3,
                     DurationInMinutes = 142
 
                 },
@@ -56,6 +57,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/eYSnxZKTZzU",
                     OriginCountry = "USA",
                     Budget = 55000000,
+                    RatingAvg = 8.7,
                     DurationInMinutes = 142
                 },
                 new Film
@@ -67,7 +69,7 @@ namespace DAL
                     Description = "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMjJmYTNkNmItYjYyZC00MGUxLWJhNWMtZDY4Nzc1MDAwMzU5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,676,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/D3Yw9Yc1YmY",
-
+                    RatingAvg = 8.8,
                     OriginCountry = "USA | Germany",
                     Budget = 63000000,
                     DurationInMinutes = 112
@@ -81,7 +83,7 @@ namespace DAL
                     Description = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/YoHD9XEInc0",
-
+                    RatingAvg = 8.7,
                     OriginCountry = "USA | UK",
                     Budget = 160000000,
                     DurationInMinutes = 148
@@ -95,7 +97,7 @@ namespace DAL
                     Description = "It's tough to picture anyone other than Christian Bale as Batman in Christopher Nolan's trilogy, but plenty of other actors were considered. See who they were.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/g8evyE9TuYk",
-
+                    RatingAvg = 9,
                     OriginCountry = "USA | UK",
                     Budget = 185000000,
                     DurationInMinutes = 152
@@ -111,7 +113,8 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/sY1S34973zA",
                     OriginCountry = "USA",
                     Budget = 6000000,
-                    DurationInMinutes = 175
+                    DurationInMinutes = 175,
+                    RatingAvg = 9.2
                 },
                 new Film
                 {
@@ -124,6 +127,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/34WIbmXkewU",
                     OriginCountry = "France",
                     Budget = 9500000,
+                    RatingAvg = 8.5,
                     DurationInMinutes = 112
                 },
                 new Film
@@ -135,7 +139,7 @@ namespace DAL
                     Description = "Jeff The Dude Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SY1000_CR0,0,670,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/cd-go0oBF4Y",
-
+                    RatingAvg = 7.8,
                     OriginCountry = "USA | UK",
                     Budget = 15000000,
                     DurationInMinutes = 117
@@ -149,7 +153,7 @@ namespace DAL
                     Description = "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/iszwuX1AK6A",
-
+                    RatingAvg = 8.2,
                     OriginCountry = "USA",
                     Budget = 100000000,
                     DurationInMinutes = 180
@@ -163,7 +167,7 @@ namespace DAL
                     Description = "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/r5X-hFf6Bwo",
-
+                    RatingAvg = 8.9,
                     OriginCountry = "New Zealand | USA",
                     Budget = 94000000,
                     DurationInMinutes = 201
@@ -177,7 +181,7 @@ namespace DAL
                     Description = "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/m8e-FF8MsqU",
-
+                    RatingAvg = 8.1,
                     OriginCountry = "USA",
                     Budget = 63000000,
                     DurationInMinutes = 136
@@ -191,7 +195,7 @@ namespace DAL
                     Description = "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_SY1000_CR0,0,658,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/n9DwoQ7HWvI",
-
+                    RatingAvg = 8.7,
                     OriginCountry = "USA",
                     Budget = 175000000,
                     DurationInMinutes = 133
@@ -205,7 +209,7 @@ namespace DAL
                     Description = "Ben, a young Irish boy, and his little sister Saoirse, a girl who can turn into a seal, go on an adventure to free the fairies and save the spirit world.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMTQ2MDMwNjEwNV5BMl5BanBnXkFtZTgwOTkxMzI0MzE@._V1_SY1000_CR0,0,691,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/B7ZIugIa8KI",
-
+                    RatingAvg = 7.2,
                     OriginCountry = "Ireland | Denmark | Belgium | Luxembourg | France",
                     Budget = 857524,
                     DurationInMinutes = 93
@@ -219,7 +223,7 @@ namespace DAL
                     Description = "The story of the legendary rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_SY1000_CR0,0,674,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/mP0VHJYFOAU",
-
+                    RatingAvg = 7.7,
                     OriginCountry = "UK | USA",
                     Budget = 52000000,
                     DurationInMinutes = 134
@@ -233,7 +237,7 @@ namespace DAL
                     Description = "Allied soldiers from Belgium, the British Empire, and France are surrounded by the German Army, and evacuated during a fierce battle in World War II.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BN2YyZjQ0NTEtNzU5MS00NGZkLTg0MTEtYzJmMWY3MWRhZjM2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/F-eMt3SrfFU",
-
+                    RatingAvg = 7.9,
                     OriginCountry = "UK | Netherlands | France | USA",
                     Budget = 100000000,
                     DurationInMinutes = 106
@@ -247,7 +251,8 @@ namespace DAL
                     Description = "An authorized documentary on the late musician Kurt Cobain, from his early days in Aberdeen, Washington to his success and downfall with the grunge band Nirvana.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMjIyOTcxMTU2NV5BMl5BanBnXkFtZTgwNjcyMDg3NDE@._V1_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/uH00BUAvJmQ",
-                    OriginCountry = " USA"
+                    OriginCountry = " USA",
+                    RatingAvg = 6.8
                 },
                 new Film
                 {
@@ -260,7 +265,8 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/AWm_mkbdpCA",
                     OriginCountry = "USA",
                     Budget = 14000000,
-                    DurationInMinutes = 111
+                    DurationInMinutes = 111,
+                    RatingAvg = 7.2
                 },
                 new Film
                 {
@@ -271,7 +277,7 @@ namespace DAL
                     Description = "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
                     FilmImgPath = "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg",
                     FilmTrailerPath = "https://www.youtube.com/embed/0pdqf4P9MB8",
-
+                    RatingAvg = 8,
                     OriginCountry = "USA | Hong Kong",
                     Budget = 30000000,
                     DurationInMinutes = 128
@@ -287,7 +293,8 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/nIOmotayDMY",
                     OriginCountry = "USA",
                     Budget = 44000000,
-                    DurationInMinutes = 168
+                    DurationInMinutes = 168,
+                    RatingAvg = 7.9
                 },
                 new Film
                 {
@@ -300,6 +307,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/0pauY5cgRU4",
                     OriginCountry = "USA",
                     Budget = 5000,
+                    RatingAvg = 8,
                     DurationInMinutes = 4
                 },
                 new Film
@@ -313,6 +321,7 @@ namespace DAL
                     FilmTrailerPath = "https://www.youtube.com/embed/OXZQ5DfSAAc",
                     OriginCountry = "UK | USA",
                     Budget = 5000,
+                    RatingAvg = 6.5,
                     DurationInMinutes = 4
                 });
 

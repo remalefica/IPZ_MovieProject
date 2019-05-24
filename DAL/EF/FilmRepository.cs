@@ -28,6 +28,7 @@ namespace DAL.EF
 
 		public void AddFilm(Film film)
 		{
+            film.RatingAvg = CountRatingAvg(film);
 			_dbContext.Films.Add(film);
 		}
 
@@ -76,5 +77,19 @@ namespace DAL.EF
 		{
 			_dbContext.Films.Update(film);
 		}
+
+        private double CountRatingAvg(Film film)
+        {
+            if (film.Votes != null && film.Votes.Count() > 0)
+            {
+                double rating = 0;
+                foreach (var vote in film.Votes)
+                {
+                    rating += vote.Rating;
+                }
+                return film.RatingAvg = rating / film.Votes.Count();
+            }
+                return film.RatingAvg = 0;
+        }
 	}
 }

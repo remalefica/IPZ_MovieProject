@@ -50,7 +50,7 @@ vote: VoteFilm;
 
   sendVote(ratingInput : number) : void{
 
-    if(this.vote.id == null){
+    if(this.vote == null){
       this.vote = new VoteFilm();
       this.ratingConstructor(ratingInput);
 
@@ -71,7 +71,9 @@ vote: VoteFilm;
   getVote() : void{
       this.ratingvotingService.getFilmUserVote(this.filmId, this.user.id)
         .subscribe(vote => {this.vote = vote;
-            this.rating = this.vote.rating});
+          if(vote){
+            this.rating = this.vote.rating
+          }});
   }
 
 }
