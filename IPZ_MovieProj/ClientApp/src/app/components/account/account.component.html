@@ -48,6 +48,11 @@
         <td></td>
         <td class="comment">{{this.comment.text}}</td>
       </tr>
+      <tr>
+        <td></td>
+        <td class="button_all"><a routerLink="/allcomments" class="inline-popup">See All</a></td>
+        </tr>
+        
 
     </ng-template>
     <ng-template #nocomments>
@@ -60,6 +65,8 @@
       <th>MY VOTES</th>
       <th></th>
     </tr>
+    <ng-content *ngIf="vote; then voted; else novotes"></ng-content>
+    <ng-template #voteded>
     <tr>
       <td></td>
       <td class="filmname">
@@ -80,6 +87,11 @@
       <td></td>
       <td class="button_all"><a routerLink="/allvotes" class="inline-popup">See All</a></td>
     </tr>
+
+  </ng-template>
+  <ng-template #novotes>
+    <td>You haven`t voteed anything yet</td>
+  </ng-template>
   </table>
 </body>
 
