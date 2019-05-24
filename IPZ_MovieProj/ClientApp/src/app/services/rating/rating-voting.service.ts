@@ -21,13 +21,12 @@ export class RatingVotingService {
   getFilmUserVote(filmId : number, userId : string) : Observable<VoteFilm> {
     let PATH = this.url +'/film/' + `${filmId}` + '/user/' + userId;
 
-
     return this.httpClient.get<VoteFilm>(PATH);
   }
 
   addVote(rating : VoteFilm) : Observable<VoteFilm>{
     let PATH = this.url +'/make-vote';
-    this.messageService.add('Your vote was added. ');
+    this.messageService.add('Your vote was added.');
     return this.httpClient.post<VoteFilm>(PATH, rating)
   }
 

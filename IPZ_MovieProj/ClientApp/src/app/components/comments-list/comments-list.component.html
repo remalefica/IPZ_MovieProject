@@ -1,5 +1,5 @@
 <!--Output all comments-->
-<ng-content *ngIf="isUserSignedIn$ | async; then signedIn">
+<ng-content *ngIf="isUserSignedIn$; then signedIn">
     </ng-content >
     <ng-template #signedIn>
     <div class="input-area">

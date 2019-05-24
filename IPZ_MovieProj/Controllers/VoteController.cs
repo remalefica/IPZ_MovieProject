@@ -87,7 +87,6 @@ namespace IPZ_MovieProj.Controllers
             }
 
             var createdVote = await _voteService.AddVoteAsync(vote);
-            var voteNew = await _voteService.GetByIdAsync(1);
 
             return CreatedAtAction(nameof(GetById), new { id = createdVote.Id }, vote);
         }

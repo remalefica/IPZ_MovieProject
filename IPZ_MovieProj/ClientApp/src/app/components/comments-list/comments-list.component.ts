@@ -26,12 +26,14 @@ export class CommentsListComponent implements OnInit {
 
   ngOnInit() {
     this.getComments();
+    if(this.authService.isSignedIn()){
     this.authService.getCurrentUser()
     .subscribe(userDb => {
       this.user = userDb;
       this.comment.username = userDb.username;
     });
     this.newComment();
+  }
   }
 
   addComment() : void{
@@ -48,7 +50,7 @@ export class CommentsListComponent implements OnInit {
     this.comment = new CommentFilm();
   }
 
-  public get isUserSignedIn$(): Observable<boolean> {
+  public get isUserSignedIn$(): boolean {
     return this.authService.isSignedIn();
   }
 

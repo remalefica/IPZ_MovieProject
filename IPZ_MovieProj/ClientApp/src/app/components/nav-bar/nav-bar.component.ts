@@ -32,7 +32,7 @@ export class NavBarComponent implements OnInit {
     .subscribe(films => this.films = films);
   }
 
-  public get isUserSignedIn$(): Observable<boolean> {
+  public get isUserSignedIn$(): boolean {
     return this.authService.isSignedIn();
   }
 

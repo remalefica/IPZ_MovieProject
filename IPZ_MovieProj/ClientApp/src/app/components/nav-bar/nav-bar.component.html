@@ -27,7 +27,7 @@
       </li> 
 
        <li routerLink="/topmovies">TOP RATED MOVIES</li>
-       <ng-content *ngIf="isUserSignedIn$ | async; then signedIn; else signedOut">
+       <ng-content *ngIf="isUserSignedIn$; then signedIn; else signedOut">
         </ng-content>
         <ng-template #signedIn>
             <li *ngIf="this.authService.isSignedIn()" routerLink="/account">ACCOUNT</li>

@@ -1,6 +1,8 @@
+import {Request, Response} from "express";
+import * as express from 'express';
 import { Injectable } from '@angular/core';
 import { JwtPayload } from '../../models';
-
+import * as jwt_decode from "jwt-decode";
 @Injectable()
 export class JwtService {
 
@@ -11,6 +13,15 @@ export class JwtService {
 
   constructor(private window: Window) { }
 
+  getDecodedAccessToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
+  }
+  
   public persistToken(jwtBase64String: string): void {
     this.token.raw = jwtBase64String;
     this.token.payload = this.createFromString(jwtBase64String);
@@ -33,7 +44,7 @@ export class JwtService {
   public clearToken(): void {
     this.token.payload = null;
     this.token.raw = null;
-    this.window.localStorage.removeItem('rawToken');
+    this.window.localStorage.clear();
   }
 
   private fetchToken(): { raw: string, payload: JwtPayload } {

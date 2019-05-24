@@ -26,16 +26,16 @@ export class AllcommentsComponent implements OnInit {
 
   getUserInfo() : void{
     this.authService.getCurrentUser()
-      .subscribe(userAuth => {this.user = userAuth});
-
-    this.commentService.getCommentByUserId(this.user.id)
-      .subscribe(commentsDb => 
-        {this.comments = commentsDb;
-
-          this.comments.forEach(comment => {
-            this.filmService.getFilm(comment.filmId)
-               .subscribe(film => comment.film = film);
-               });});
+      .subscribe(userAuth => {
+        this.user = userAuth;
+        this.commentService.getCommentByUserId(this.user.id)
+        .subscribe(commentsDb => 
+          {this.comments = commentsDb;
+  
+            this.comments.forEach(comment => {
+              this.filmService.getFilm(comment.filmId)
+                 .subscribe(film => comment.film = film);
+                 });});});
 
 
   }

@@ -34,14 +34,14 @@ export class AccountComponent implements OnInit {
 
   getUserInfo() : void{
     this.authService.getCurrentUser()
-      .subscribe(userAuth => {this.user = userAuth});
-
-    this.commentService.getCommentByUserIdLast(this.user.id)
-      .subscribe(commentDb => 
-        {this.comment = commentDb;
-          this.filmService.getFilm(this.comment.filmId)
-          .subscribe(film => 
-            this.filmComment = film);})
+      .subscribe(userAuth => {
+        this.user = userAuth;
+        this.commentService.getCommentByUserIdLast(this.user.id)
+        .subscribe(commentDb => 
+          {this.comment = commentDb;
+            this.filmService.getFilm(this.comment.filmId)
+            .subscribe(film => 
+              this.filmComment = film);})});
 
       //get vote here
   }

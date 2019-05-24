@@ -1,5 +1,5 @@
 import { Injectable, ErrorHandler, Inject } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { delay, catchError, tap, map } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
@@ -7,6 +7,7 @@ import { User, UserLoginModel } from '../../models';
 import { HttpClient } from '@angular/common/http';
 import { JwtService } from './jwt.service';
 import { MessageService } from '../message/message.service';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
@@ -17,14 +18,14 @@ export class AuthService {
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
     private jwtService: JwtService,
-    private errorHandlingService: ErrorHandlingService) { 
-      this.url = 'https://localhost:5001' + '/api/Authorisation/';
+    private errorHandlingService: ErrorHandlingService,
+    private userService: UserService) { 
+      this.url = 'https://localhost:5001' + '/api/Authorisation/';      
     }
 
-  public isSignedIn(): Observable<boolean> {
-    return this.currentUser$.pipe(
-      map(currentUser => !!currentUser)
-    );
+  public isSignedIn(): boolean {
+
+    return !this.jwtService.isExpired();
   }
 
   public signIn(loginModel: UserLoginModel): Observable<User> {
@@ -35,6 +36,8 @@ export class AuthService {
         this.jwtService.persistToken(token);
         this.currentUser$.next(user as User);
         this.messageService.add('Authorization was successful.');
+
+        
       }),
       catchError(this.errorHandlingService.handleError)
     );
@@ -58,16 +61,23 @@ export class AuthService {
   }
 
   public signOut(): Observable<void> {
-    return of(null).pipe(
-      delay(1500),
-      tap(() => {
-        this.currentUser$.next(null);
-        this.jwtService.clearToken();
-      })
-    )
+    this.currentUser$.next(null);
+    this.jwtService.clearToken();
+    return of(null);
   }
 
   public getCurrentUser(): Observable<User> {
-    return this.currentUser$.asObservable();
+    let token = this.jwtService.getDecodedAccessToken(this.jwtService.getRawToken());
+    if(token != null && !this.jwtService.isExpired())
+    {
+      return this.userService.getUser(token.sub);
+    }
   }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+    if(localStorage.get('token'))
+        return true;
+    else
+        return false;
+   }
 }

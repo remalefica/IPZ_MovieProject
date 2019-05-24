@@ -24,19 +24,15 @@ vote: VoteFilm;
 @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
  
   ngOnInit() {
-    this.authService.isSignedIn()
-      .subscribe(isSignedIn =>
-          {  
+    if(this.authService.isSignedIn()){
             this.authService.getCurrentUser()
-              .subscribe( user =>
-                this.user = user);
-
-            if(isSignedIn){
+              .subscribe( user =>{
+                this.user = user;
                 this.vote = new VoteFilm();
-                this.getVote();
-              }
-          });
+                this.getVote();});
+     }
   }
+
   onClick(rating : number): void {
 
     this.rating = rating;
@@ -54,7 +50,7 @@ vote: VoteFilm;
 
   sendVote(ratingInput : number) : void{
 
-    if(this.rating == null){
+    if(this.vote.id == null){
       this.vote = new VoteFilm();
       this.ratingConstructor(ratingInput);
 
@@ -68,7 +64,7 @@ vote: VoteFilm;
     }
   }
 
-  public get isUserSignedIn$(): Observable<boolean> {
+  public get isUserSignedIn$(): boolean {
     return this.authService.isSignedIn();
   }
 
