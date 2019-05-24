@@ -25,33 +25,37 @@
                         <p><span style="font-weight: 600;">Budget:</span> &#36;{{film.budget}}</p>
                     </div>
 
-                    <div >
-                        <p>Genre:</p>
+                    <div>
+                        <p><span style="font-weight: 600;">Rating:</span> {{this.film.ratingAvg}}</p>
+                    </div>
+
+                    <!-- <div class="line"></div> -->
+                    <div style="margin-bottom: 10px;"><span style="font-weight: 600;">Genre:</span></div>
+                    <div>
+                        
                             <ul *ngIf="this.film.genres">
                                 <li *ngFor="let genre of this.genres; let i = index"> 
                                         {{ i + 1 }}. {{ genre }} 
                                 </li>
                             </ul>
                     </div>
+
+                    
                 </div>
 
+                
                 <div style="display: inline-block;">
+                        <div style=display:inline-block;>
+                                <app-rating-voting [filmId]="film.id"></app-rating-voting>
+                        </div>
+                    <br>
                     <h4>Movie Description</h4>
                     <p>{{film.description}}</p>
+                    <br>
+                    <iframe [src]="this.trustedVideoURL"></iframe>
                 </div>
 
             </div>
-            <p></p>
-            <h3>{{this.film.ratingAvg}}</h3>
-
-            <div style=display:block;>
-                <app-rating-voting [filmId]="film.id"></app-rating-voting>
-            </div>
-
-            <br><br><br>
-
-            <iframe [src]="this.trustedVideoURL"></iframe>
-
             <br><br><br>
             <app-comments-list [filmId]="film.id"></app-comments-list>
 
