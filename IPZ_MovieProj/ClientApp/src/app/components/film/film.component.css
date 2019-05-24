@@ -17,6 +17,12 @@
     margin-top: 6vh;
     margin-left: 10vw;
   }
+
+  .header_info {
+    margin-bottom: 20px; 
+    font-size: 18px; 
+    font-weight: 600;
+  }
   
   
  

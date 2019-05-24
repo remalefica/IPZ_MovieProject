@@ -3,35 +3,50 @@
     <div>
         <article class="film">
             <div style=display:inline-block;>
-            <h3>{{film.name | uppercase}} ({{film.year}})</h3>
-            <p>
-             <img [src]="film.filmImgPath" class="placeholder_left">
-            </p>
-            <h4>Movie Description</h4>
-            <p>{{film.description}}</p>
-            <div *ngIf="film.budget">
-            <p>Budget: &#36;{{film.budget}}</p>
-            </div>
-            <div *ngIf="film.durationInMinutes">
-            <p>{{film.durationInMinutes}} min</p>
-            </div>
-            <div *ngIf="film.director">
-            <p>Director: {{film.director}}</p>
-            </div>
-            <div *ngIf="film.originCountry">
-            <p>Country: {{film.originCountry}}</p>
-            </div>
-            <div *ngIf="this.film.genres">
-            <p>Genre: 
-            <div *ngFor="let genre of this.genres">
-                <p>{{genre}}</p> 
-            </div>
-            </div>
+                <h3>{{film.name | uppercase}} ({{film.year}})</h3>
+                <p>
+                    <img [src]="film.filmImgPath" class="placeholder_left">
+                </p>
+
+
+                <div style="display: inherit;">
+                    <p class="header_info">
+                        General Information</p>
+                    <div *ngIf="film.originCountry">
+                        <p><span style="font-weight: 600;">Country:</span> {{film.originCountry}}</p>
+                    </div>
+                    <div *ngIf="film.durationInMinutes">
+                        <p><span style="font-weight: 600;">Duration:</span>{{film.durationInMinutes}} min</p>
+                    </div>
+                    <div *ngIf="film.director">
+                        <p><span style="font-weight: 600;">Director:</span> {{film.director}}</p>
+                    </div>
+                    <div *ngIf="film.budget">
+                        <p><span style="font-weight: 600;">Budget:</span> &#36;{{film.budget}}</p>
+                    </div>
+
+                    <div >
+                        <p>Genre:</p>
+                            <ul *ngIf="this.film.genres">
+                                <li *ngFor="let genre of this.genres; let i = index"> 
+                                        {{ i + 1 }}. {{ genre }} 
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+
+                <div style="display: inline-block;">
+                    <h4>Movie Description</h4>
+                    <p>{{film.description}}</p>
+                </div>
+
             </div>
             <p></p>
             <h3>{{this.film.ratingAvg}}</h3>
 
-            <div style = display:block;><app-rating-voting [filmId]="film.id"></app-rating-voting></div>
+            <div style=display:block;>
+                <app-rating-voting [filmId]="film.id"></app-rating-voting>
+            </div>
 
             <br><br><br>
 
@@ -39,20 +54,19 @@
 
             <br><br><br>
             <app-comments-list [filmId]="film.id"></app-comments-list>
-        
+
         </article>
     </div>
-    
-    
-    
+
+
+
     <!--Detailed info output about selected film-->
 
     <!--Write up the remaining film properties-->
-    
+
 
 
     <!--Add voting component-->
     <!--Add comment list component-->
 
 </div>
-
