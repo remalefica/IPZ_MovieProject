@@ -62,12 +62,8 @@
 .m-b-40 {
 	margin-bottom: 40px;
 }
-.yellow {
-  	color:#FFC800;
-	padding-right: 3px;
-}
-.bronze {
-	color:sandybrown;
+.color_icon {
+  	color: cornflowerblue;
 }
 .style_top_th{
 	font-size: 70%;	

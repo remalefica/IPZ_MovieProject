@@ -9,19 +9,19 @@ using System.Linq;
 
 namespace DAL.EF
 {
-	public class VoteRepository : IVoteRepository
-	{
-		private AppDbContext _dbContext;
+    public class VoteRepository : IVoteRepository
+    {
+        private AppDbContext _dbContext;
 
-		public VoteRepository(AppDbContext dbContext)
-		{
-			_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-		}
+        public VoteRepository(AppDbContext dbContext)
+        {
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
 
-		public void AddVote(Vote vote)
-		{
-			_dbContext.Votes.Add(vote);
-		}
+        public void AddVote(Vote vote)
+        {
+            _dbContext.Votes.Add(vote);
+        }
         public async Task<Vote> GetById(int id)
         {
             return await _dbContext.Votes
@@ -30,9 +30,9 @@ namespace DAL.EF
         }
         public async void UpdateVote(Vote vote)
         {
-			var voteDb = await GetById(vote.Id);
-			voteDb.Rating = vote.Rating;
-			_dbContext.Votes.Update(voteDb);
+            var voteDb = await GetById(vote.Id);
+            voteDb.Rating = vote.Rating;
+            _dbContext.Votes.Update(voteDb);
         }
         public async Task<Vote> GetByFilmUserId(int filmId, string userId)
         {
@@ -40,18 +40,27 @@ namespace DAL.EF
                         .Where(v => v.FilmId == filmId && v.UserId == userId)
                         .FirstOrDefaultAsync(); ;
         }
+     
+
+        public async Task<IEnumerable<Vote>> GetByFilmId(int filmId)
+        {
+            return await _dbContext.Votes
+                        .Where(v => v.FilmId == filmId)
+                        .ToListAsync();
+        }
         public async Task<IEnumerable<Vote>> GetByUserId(string userId)
         {
             return await _dbContext.Votes
-                        .Where(v => v.UserId == userId)
+                        .Where(c => c.UserId == userId)
                         .ToListAsync();
         }
 
-		public async Task<IEnumerable<Vote>> GetByFilmId(int filmId)
-		{
-			return await _dbContext.Votes
-						.Where(v => v.FilmId == filmId)
-						.ToListAsync();
-		}
-	}
+        public async Task<Vote> GetByUserIdLast(string userId)
+        {
+            return await _dbContext.Votes
+                        .Where(v => v.UserId == userId)
+                        .LastOrDefaultAsync();
+        }
+
+    }
 }

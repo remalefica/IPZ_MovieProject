@@ -1,18 +1,38 @@
-<div class="m-t-40"></div>
-<table class="table_all">
-  <tr>
-    <th>ALL YOUR COMMENTS<br><span class="style_top_th">Here you can find all your comments. Don't get greedy, share your thoughts</span>
-    </th>
-  </tr>
-<div *ngFor="let comment of this.comments">
-<tr>
-<td class="filmname">
-<p>{{comment.film.name | uppercase}} ({{comment.film.year}})</p>
-</td>
-</tr>
-<tr>
-<td class="comment">{{comment.text}}</td>
-</tr>
-</div>
+<!doctype html>
+<html>
 
-</table>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="m-t-40"></div>
+  <table class="table_all">
+    <tr>
+      <th>ALL YOUR COMMENTS<br><span class="style_top_th">Here you can find all your comments. Don't get greedy, share
+          your thoughts</span>
+      </th>
+    </tr>
+    <div style="margin-bottom: 38px; margin-top: 10px;" *ngFor="let comment of this.comments">
+      <tr>
+        <td class="filmname">
+          <p>
+            <i class="fas fa-film color_icon"></i>
+            <span class="p-r-10 p-l-25">
+              {{comment.film.name | uppercase}} ({{comment.film.year}})
+            </span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td class="comment">{{comment.text}}</td>
+      </tr>
+    </div>
+
+  </table>
+
+</body>
+
+</html>

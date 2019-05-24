@@ -20,10 +20,18 @@ export class FilmService {
       this.url = 'https://localhost:5001' + '/api/Film';
     }
 
-  getFilms() : Observable<Film[]> {
+getFilms() : Observable<Film[]> {
     let PATH = this.url +'/all';
 
     return this.httpClient.get<Film[]>(PATH);
+}
+
+getTop() : Observable<Film[]> {
+  let PATH = this.url +'/topfive';
+
+  this.messageService.add('FilmService: fetched top films');
+
+  return this.httpClient.get<Film[]>(PATH);
 }
 
 getFilm(id: number): Observable<Film> {

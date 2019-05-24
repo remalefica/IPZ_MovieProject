@@ -10,6 +10,7 @@ import { RatingVotingService } from 'src/app/services/rating/rating-voting.servi
 import { RatingVotingComponent } from '../rating-voting/rating-voting.component';
 import { FilmService } from 'src/app/services/film/film.service';
 
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -20,6 +21,7 @@ export class AccountComponent implements OnInit {
   user : User;
   comment: CommentFilm;
   filmComment: Film;
+  filmVote: Film;
   vote: VoteFilm;
 
   constructor(private router: Router, 
@@ -43,6 +45,12 @@ export class AccountComponent implements OnInit {
             .subscribe(film => 
               this.filmComment = film);})});
 
-      //get vote here
-  }
+    this.voteService.getVoteByUserIdLast(this.user.id)
+        .subscribe(voteDb => 
+           {this.vote = voteDb;
+             this.filmService.getFilm(this.vote.filmId)
+             .subscribe(film => 
+               this.filmVote = film);})
+
+          }
 }

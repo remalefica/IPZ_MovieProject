@@ -39,20 +39,20 @@ namespace IPZ_MovieProj.Controllers
             return Ok(vote);
         }
 
-		[HttpGet("user/{userId}")]
-		public async Task<ActionResult<IEnumerable<Vote>>> GetByUserId(string userId)
-		{
-			var vote = await _voteService.GetByUserIdAsync(userId);
+        [HttpGet("user/{id}")]
+        public async Task<ActionResult<IEnumerable<Vote>>> GetByUserId(string id)
+        {
+            var vote = await _voteService.GetByUserIdAsync(id);
 
-			if (vote == null)
-			{
-				return NotFound();
-			}
+            if (vote== null)
+            {
+                return NotFound();
+            }
 
-			return Ok(vote);
-		}
+            return Ok(vote);
+        }
 
-		[HttpGet("user/{userId}/last")]
+        [HttpGet("user/{userId}/last")]
 		public async Task<ActionResult<IEnumerable<Vote>>> GetByUserIdLast(string userId)
 		{
 			var vote = (await _voteService.GetByUserIdAsync(userId)).Last();

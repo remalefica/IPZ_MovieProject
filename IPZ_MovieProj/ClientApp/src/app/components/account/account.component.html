@@ -1,80 +1,86 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 </head>
+
 <body>
   <div class="m-t-40"></div>
-        <table class="table_all">
-          <tr>
-            <th>MY PROFILE</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td></td>
-            <td><i class="fas fa-user p-r-10"></i>{{user.username}}</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><i class="fas fa-envelope p-r-10"></i>{{user.email}}</td>
-          </tr>
-			<tr>
-			<td></td>
+  <table class="table_all">
+    <tr>
+      <th>MY PROFILE</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><i class="fas fa-user p-r-10"></i>{{user.username}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><i class="fas fa-envelope p-r-10"></i>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td></td>
       <td class="button_all"><a href="" class="inline-popup" (click)="this.authService.signOut()">Sign out</a></td>
       <td class="button_all"><a href="" class="inline-popup">Cancel Membership</a></td>
-			</tr>
-		</table>
-		
-        <table class="table_all m-t-20">
-            <tr>
-                <th>MY COMMENTS</th>
-                <th></th>
-              </tr>
-            <ng-content *ngIf="comment; then commented; else nocomments"></ng-content>
-            <ng-template #commented>
-            <td class="filmname"><p>{{this.filmComment.name | uppercase}} ({{this.filmComment.year}})</p></td>    
-          <tr>
-            <td></td>
+    </tr>
+  </table>
 
-          </tr>
-          <tr>
-            <td></td>
-            <td class="comment">{{this.comment.text}}</td>
-          </tr>
-			<tr>
-			<td></td>
-			<td class="button_all"><a routerLink="/allcomments" class="inline-popup">See All</a></td>
+  <table class="table_all m-t-20">
+    <tr>
+      <th>MY COMMENTS</th>
+      <th></th>
+    </tr>
+    <ng-content *ngIf="comment; then commented; else nocomments"></ng-content>
+    <ng-template #commented>
+      <tr>
+        <td></td>
+        <td class="filmname">
+          <p>{{this.filmComment.name | uppercase}} ({{this.filmComment.year}})</p>
+        </td>
       </tr>
-      </ng-template>
-      <ng-template #nocomments>
-        <td>You haven`t commented anything yet</td>
-      </ng-template>
-		</table>
-	  
-	  <table class="table_all m-t-20 m-b-40">
-          <tr>
-            <th>MY VOTES</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td></td>
-            <td class="filmname"><p>FILMNAME (YEAR)</p></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Overall Rating: <i class="fas fa-star yellow"></i><span style="font-weight: 600">4.2</span></td>
-          </tr>
-		  <tr>
-            <td></td>
-            <td>My Vote: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>5</span></td>
-          </tr>
-			<tr>
-			<td></td>
-			<td class="button_all"><a routerLink="/allvotes" class="inline-popup">See All</a></td>
-			</tr>
-    </table>
-  </body>
-  </html>
+      <tr>
+        <td></td>
+        <td class="comment">{{this.comment.text}}</td>
+      </tr>
+
+    </ng-template>
+    <ng-template #nocomments>
+      <td>You haven`t commented anything yet</td>
+    </ng-template>
+  </table>
+
+  <table class="table_all m-t-20 m-b-40">
+    <tr>
+      <th>MY VOTES</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="filmname">
+        <p>{{this.filmVote.name | uppercase}} ({{this.filmVote.year}})</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Overall Rating: <i class="fas fa-star yellow"></i><span style="font-weight: 600">
+          {{this.filmVote.ratingAvg}}</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>My Vote: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>
+          {{this.vote.rating}} </span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="button_all"><a routerLink="/allvotes" class="inline-popup">See All</a></td>
+    </tr>
+  </table>
+</body>
+
+</html>

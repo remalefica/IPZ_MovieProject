@@ -4,12 +4,16 @@
         <th>ALL YOUR VOTES<br>
           <span class="style_top_th"> You can vote by voting or vote by not voting. If you don't vote, someone else's vote counts more. IT'S MATH, FELLOW </span> </th>
       </tr>
+      <div *ngFor="let vote of this.votes">
       <tr>
-        <td class="filmname"><p>FILMNAME (YEAR)</p></td>
+        <td class="filmname">
+            <p>{{vote.film.name | uppercase}} ({{vote.film.year}})</p>
+        </td>
       </tr>
       <tr>
-        <td>Rated as: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>5</span></td>
+        <td>Rated as: <span style="font-weight: 600"><i class="fas fa-star yellow"></i>
+          {{vote.rating}}</span></td>
       </tr>
 		
-		
+		</div>
     </table>
