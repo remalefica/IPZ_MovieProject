@@ -6,25 +6,33 @@
     <form name="messageForm" #messageForm="ngForm">
     <div>
     
-                <h3>{{user.username}}</h3>
-                <p></p>
-                <textarea type="text" class="comment" placeholder="Message text" [(ngModel)]="comment.text" name="text"></textarea><br>
-                <button class="button_all" (click) ="this.addComment()">Send</button>
+        <h3>{{user.username}}</h3>
+        <p></p>
+        <textarea type="text" class="comment" placeholder="Message text" [(ngModel)]="comment.text" name="text"></textarea><br>
+        <button class="button_all" (click) ="this.addComment()">Send</button>
     
     </div> 
       
     </form>
     </div>
     </ng-template>
-
-    <table class="table_all m-t-20">
-        <td class="filmname"><br><p>Comments:</p></td>
-    </table>
-
-    <ul class="comment" *ngFor="let comment of comments">
-     <span class="text" style ="font-weight: 600">{{comment.username}}</span><br>
-      <span class ="text"> {{comment.text}} </span>
-    </ul>
+    <table class="table_all">
+    <div style="margin-bottom: 38px; margin-top: 10px;" *ngFor="let comment of this.comments">
+            <tr>
+              <td class="filmname">
+                <p>
+                  <i class="fas fa-comments color_icon"></i>
+                  <span class="p-r-10 p-l-25">
+                    {{comment.username}}
+                  </span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="comment">{{comment.text}}</td>
+            </tr>
+          </div>
+        </table>
 
 
 
