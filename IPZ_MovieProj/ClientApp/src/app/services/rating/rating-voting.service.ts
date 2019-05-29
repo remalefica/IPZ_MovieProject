@@ -27,7 +27,7 @@ export class RatingVotingService {
   addVote(rating : VoteFilm) : Observable<VoteFilm>{
     let PATH = this.url +'/Create';
     this.messageService.add('Your vote was added.');
-    return this.httpClient.post<VoteFilm>(PATH, rating)
+    return this.httpClient.post<VoteFilm>(PATH, rating);
   }
 
   updateVote(id : number, rating : VoteFilm) : Observable<VoteFilm>{
